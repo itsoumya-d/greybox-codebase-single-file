@@ -1,0 +1,30 @@
+{
+  "name": "@ai-game-design-studio/tools-dev",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "tools-dev": "./bin/tools-dev.mjs"
+  },
+  "scripts": {
+    "build": "node ./esbuild.config.mjs",
+    "dev": "tsx ./src/index.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "cac": "6.7.14",
+    "@ai-game-design-studio/platform": "workspace:*",
+    "@ai-game-design-studio/sidecar": "workspace:*",
+    "@ai-game-design-studio/sidecar-proto": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.2",
+    "esbuild": "0.27.7",
+    "tsx": "4.21.0",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": "~24"
+  }
+}

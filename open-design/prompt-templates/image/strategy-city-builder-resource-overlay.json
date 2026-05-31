@@ -1,0 +1,22 @@
+{
+  "id": "strategy-city-builder-resource-overlay",
+  "surface": "image",
+  "title": "Strategy City Builder Resource Overlay",
+  "summary": "Strategy interface mockup for resource flows, build priorities, worker pressure, and readable map overlays.",
+  "category": "Strategy Interface",
+  "tags": [
+    "game",
+    "strategy",
+    "city-builder",
+    "resource",
+    "overlay"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create an in-game strategy overlay for {argument name=\"game_title\" default=\"Frostworks Dominion\"}, a city builder with survival pressure. Show a readable settlement map with resource nodes, worker assignments, heat coverage, production bottlenecks, building queue, threat forecast, and morale status. Use restrained but game-native UI: clear iconography, layered map overlays, controller and mouse readability, and no business analytics motifs.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

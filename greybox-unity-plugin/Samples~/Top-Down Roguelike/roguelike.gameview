@@ -1,0 +1,84 @@
+{
+  "title": "Greybox Top-Down Roguelike Floor",
+  "engineTarget": "Unity 2D",
+  "camera": {
+    "mode": "top-down",
+    "orthographicSize": 9
+  },
+  "actors": [
+    {
+      "id": "hero",
+      "name": "Bladebound Hero",
+      "role": "controller",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "radius": 0.45
+    },
+    {
+      "id": "skirmisher_pack_a",
+      "name": "Skirmisher Pack A",
+      "role": "enemy",
+      "position": { "x": 6, "y": 2, "z": 0 },
+      "radius": 1.2
+    },
+    {
+      "id": "elite_guardian",
+      "name": "Elite Guardian",
+      "role": "enemy",
+      "position": { "x": 12, "y": -4, "z": 0 },
+      "radius": 0.8
+    },
+    {
+      "id": "merchant_shrine",
+      "name": "Merchant Shrine",
+      "role": "vendor",
+      "position": { "x": -6, "y": -5, "z": 0 },
+      "radius": 0.7
+    }
+  ],
+  "spawnPoints": [
+    {
+      "id": "floor_entry",
+      "name": "Floor Entry",
+      "position": { "x": -8, "y": 0, "z": 0 },
+      "radius": 0.75
+    },
+    {
+      "id": "boss_entry",
+      "name": "Boss Door Rally",
+      "position": { "x": 14, "y": -2, "z": 0 },
+      "radius": 0.75
+    }
+  ],
+  "objectives": [
+    {
+      "id": "key_cache",
+      "name": "Bronze Key Cache",
+      "position": { "x": 4, "y": 6, "z": 0 },
+      "radius": 0.7
+    },
+    {
+      "id": "stairs_down",
+      "name": "Stairs Down",
+      "position": { "x": 18, "y": -4, "z": 0 },
+      "radius": 1
+    }
+  ],
+  "hazards": [
+    {
+      "id": "poison_pool",
+      "name": "Poison Pool",
+      "position": { "x": 2, "y": -3, "z": 0 },
+      "radius": 1.4
+    },
+    {
+      "id": "arrow_trap_lane",
+      "name": "Arrow Trap Lane",
+      "position": { "x": 10, "y": 3, "z": 0 },
+      "radius": 1.8
+    }
+  ],
+  "notes": [
+    "AI-assisted sample artifact. Human designer credit: Mira Designer.",
+    "Designed to validate room, encounter, hazard, and objective import coverage."
+  ]
+}

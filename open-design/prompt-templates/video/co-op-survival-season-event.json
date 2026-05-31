@@ -1,0 +1,22 @@
+{
+  "id": "co-op-survival-season-event",
+  "surface": "video",
+  "title": "Co-op Survival Season Event Motion",
+  "summary": "Season event motion plan for co-op survival with weather, crafting pressure, and squad objectives.",
+  "category": "Live Ops",
+  "tags": [
+    "game",
+    "co-op",
+    "survival",
+    "live-ops",
+    "season"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a 12-second live-ops season event trailer for {argument name=\"game_title\" default=\"Afterglow Shelter\"}. Open on storm front rolling over base defenses, cut to squad crafting, resource scarcity alert, mutated wildlife ambush, shared extraction objective, seasonal reward preview, and closing roadmap card. Emphasize healthy engagement, readable objectives, and ethical reward pacing.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

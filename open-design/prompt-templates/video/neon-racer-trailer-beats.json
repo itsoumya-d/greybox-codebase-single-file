@@ -1,0 +1,22 @@
+{
+  "id": "neon-racer-trailer-beats",
+  "surface": "video",
+  "title": "Neon Racer Trailer Beats",
+  "summary": "Short game trailer prompt for a neon arcade racer with boost, drift, hazard dodge, score pop, and finish beat.",
+  "category": "Game Trailer",
+  "tags": [
+    "game",
+    "trailer",
+    "racing",
+    "arcade",
+    "neon"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create an 8-second game trailer motion plan for {argument name=\"game_title\" default=\"Vector Rush\"}, a neon arcade hover-racer. Beat 0-1s: black frame to pulsing title and synth-grid horizon. Beat 1-2.5s: camera drops behind the hovercraft, boost meter fills. Beat 2.5-4s: drift around a glowing corner, score multiplier pops. Beat 4-5.5s: hazard gate dodge with near-miss flash. Beat 5.5-7s: finish-line streak, leaderboard rank jumps. Beat 7-8s: end card with title and platform badges.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

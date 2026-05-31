@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "kind": "game-viewport",
+  "surface": "gameplay",
+  "title": "Gameplay Encounter Viewport",
+  "objective": "Teach the player to read pressure, route through cover, clear the wave, and claim a shortcut reward.",
+  "camera": "third-person shoulder camera with top-down planning overlay",
+  "scale": "1 unit = 1 meter",
+  "layers": [
+    { "id": "terrain", "name": "Terrain and cover", "type": "terrain", "visible": true },
+    { "id": "encounters", "name": "Enemy pressure", "type": "combat", "visible": true },
+    { "id": "rewards", "name": "Rewards and secrets", "type": "reward", "visible": true }
+  ],
+  "entities": [
+    { "id": "player-spawn", "name": "Player Spawn", "type": "player-spawn", "x": 90, "y": 310, "notes": "Safe spawn with the objective landmark visible." },
+    { "id": "mid-cover", "name": "Readable Cover", "type": "cover", "x": 330, "y": 260, "w": 94, "h": 58, "notes": "Teaches the recovery rhythm before the first flank." },
+    { "id": "enemy-wave-a", "name": "Pressure Wave A", "type": "enemy-spawn", "x": 510, "y": 210, "danger": 2, "notes": "Two melee chargers plus one ranged telegraph unit." },
+    { "id": "objective-core", "name": "Shortcut Core", "type": "objective", "x": 790, "y": 300, "notes": "Unlocks the return path after encounter mastery." },
+    { "id": "secret-cache", "name": "Hidden Cache", "type": "reward", "x": 640, "y": 470, "notes": "Rewards exploration without blocking the critical path." }
+  ],
+  "terrainZones": [
+    {
+      "id": "upper-cover-field",
+      "name": "Upper Cover Field",
+      "type": "cover-field",
+      "x": 265,
+      "y": 210,
+      "w": 245,
+      "h": 132,
+      "layerId": "terrain",
+      "traversal": "Dash-to-cover rhythm with one exposed commitment lane.",
+      "cover": "Chest-high silhouettes break ranged pressure while keeping enemy telegraphs visible.",
+      "notes": "Primary recovery pocket for the first pressure beat."
+    },
+    {
+      "id": "lower-stealth-basin",
+      "name": "Lower Stealth Basin",
+      "type": "safe-zone",
+      "x": 360,
+      "y": 430,
+      "w": 310,
+      "h": 92,
+      "layerId": "terrain",
+      "traversal": "Optional route favors crouch movement, audio reads, and cache discovery.",
+      "mood": "Cooler low-light pocket that contrasts with the foundry heat above.",
+      "notes": "Keeps stealth viable without deleting the critical-path combat lesson."
+    },
+    {
+      "id": "foundry-hazard-pocket",
+      "name": "Foundry Hazard Pocket",
+      "shape": "polygon",
+      "type": "hazard-field",
+      "x": 510,
+      "y": 265,
+      "w": 190,
+      "h": 128,
+      "points": [
+        { "x": 512, "y": 274 },
+        { "x": 646, "y": 252 },
+        { "x": 704, "y": 332 },
+        { "x": 610, "y": 392 },
+        { "x": 528, "y": 352 }
+      ],
+      "layerId": "terrain",
+      "traversal": "Irregular heat pocket forces a readable detour instead of a straight-line sprint.",
+      "mood": "Orange furnace glow should signal danger even when color assist is active.",
+      "notes": "Polygon footprint captures the playable hazard edge for encounter tuning."
+    }
+  ],
+  "terrainPaintStrokes": [
+    {
+      "id": "ash-safe-read",
+      "name": "Ash Safe Read",
+      "type": "traversal",
+      "material": "worn ash path",
+      "brushSize": 26,
+      "opacity": 0.5,
+      "layerId": "terrain",
+      "points": [
+        { "x": 160, "y": 376 },
+        { "x": 286, "y": 354 },
+        { "x": 418, "y": 382 },
+        { "x": 540, "y": 372 }
+      ],
+      "notes": "Subtle material paint teaches the safe route without turning the arena into a rail."
+    },
+    {
+      "id": "ember-danger-paint",
+      "name": "Ember Danger Paint",
+      "type": "hazard",
+      "material": "glowing ember cracks",
+      "brushSize": 34,
+      "opacity": 0.62,
+      "layerId": "terrain",
+      "points": [
+        { "x": 560, "y": 290 },
+        { "x": 638, "y": 318 },
+        { "x": 692, "y": 376 }
+      ],
+      "notes": "Brush-like danger paint reinforces the polygon hazard edge with readable material language."
+    }
+  ],
+  "terrainSculptPatches": [
+    {
+      "id": "molten-ridge-sculpt",
+      "name": "Molten Ridge Sculpt",
+      "type": "ridge",
+      "x": 462,
+      "y": 282,
+      "radius": 78,
+      "height": 1.1,
+      "falloff": "smooth",
+      "layerId": "terrain",
+      "samples": [
+        { "x": 398, "y": 266, "height": 0.45, "radius": 42 },
+        { "x": 462, "y": 282, "height": 1.1, "radius": 78 },
+        { "x": 536, "y": 302, "height": 0.7, "radius": 52 }
+      ],
+      "meshIntent": "Raised foundry slag ridge changes sightlines, camera occlusion risk, and cover value without blocking the critical path.",
+      "traversalImpact": "Slope should be readable as dashable from the safe ash path and must not create hidden collision snags.",
+      "notes": "Height sculpting patch for engine blockout: convert samples into a low-poly ridge or heightfield brush before combat greybox."
+    }
+  ],
+  "paths": [
+    { "id": "critical-path", "name": "Critical Path", "type": "objective", "points": [{ "x": 120, "y": 335 }, { "x": 350, "y": 292 }, { "x": 560, "y": 354 }, { "x": 820, "y": 330 }] },
+    { "id": "stealth-route", "name": "Stealth Route", "type": "stealth", "points": [{ "x": 130, "y": 438 }, { "x": 390, "y": 505 }, { "x": 650, "y": 472 }, { "x": 835, "y": 382 }] }
+  ],
+  "beats": [
+    { "id": "beat-read", "name": "Read Objective", "timing": "0:00-0:30", "objective": "Player sees destination and first cover." },
+    { "id": "beat-pressure", "name": "Pressure Window", "timing": "0:30-1:45", "objective": "Enemy composition teaches dodge, cover, and target priority." },
+    { "id": "beat-reward", "name": "Reward Release", "timing": "1:45-2:20", "objective": "Shortcut opens and optional cache invites replay." }
+  ],
+  "dynamicEvents": [
+    { "id": "storm-roll-in", "name": "Storm Roll In", "trigger": "wave cleared", "impact": "Changes visibility and routes the player toward the shortcut." }
+  ],
+  "spatialReads": [
+    {
+      "id": "main-sightline",
+      "name": "Objective Sightline",
+      "sightline": "The shortcut core is visible from spawn, framed between two cover silhouettes.",
+      "cover": "Mid-cover breaks ranged pressure without hiding the objective.",
+      "chokepoint": "The bridge into the final arena narrows movement for one pressure beat only.",
+      "stealthRoute": "Lower route avoids the first wave but exposes the hidden cache risk.",
+      "traversalRhythm": "Safe cover, exposed dash, recovery pocket, objective commit.",
+      "tensionSpacing": "Thirty seconds of reading before the first overlapping hazard."
+    }
+  ],
+  "worldSimulation": {
+    "ecosystem": "Steam vents, storm visibility, and enemy patrols react to the foundry's heat cycle.",
+    "npcSchedules": [
+      "Captain patrols the upper gantry before the player enters.",
+      "Support unit checks the hidden cache route after the storm roll-in."
+    ],
+    "factionTerritory": [
+      "Ember Court controls the shortcut core.",
+      "Rebel scavengers contest the lower stealth route."
+    ],
+    "weather": "Storm state lowers long sightlines and makes audio cues more important.",
+    "persistence": "Unlocked shortcut and spent cache remain changed on return visits.",
+    "destruction": "Steam pipes can rupture into temporary cover denial, never permanent soft locks.",
+    "reactiveRules": [
+      "If the player clears without alarms, patrol density drops on the return path.",
+      "If the captain retreats, faction reputation changes the next dialogue branch."
+    ]
+  },
+  "cameraPlan": [
+    {
+      "id": "shoulder-combat",
+      "mode": "third-person shoulder",
+      "framing": "Keeps player, active threat, and next cover in frame during pressure beats.",
+      "x": 220,
+      "y": 150,
+      "targetX": 500,
+      "targetY": 300,
+      "comfort": "Camera shake and FOV pulse are reduced when accessibility assist is on.",
+      "readability": "Target lock never hides objective markers or enemy telegraphs."
+    },
+    {
+      "id": "planning-overlay",
+      "mode": "top-down tactical overlay",
+      "framing": "Shows route, cover, and hazard timings without pausing enemy state.",
+      "x": 420,
+      "y": 105,
+      "targetX": 650,
+      "targetY": 365,
+      "comfort": "Overlay snaps smoothly with no spin transitions.",
+      "readability": "Color and icon shapes distinguish danger, reward, and stealth paths."
+    }
+  ],
+  "accessibilityNotes": [
+    "Pair enemy telegraphs with audio cues and subtitle barks.",
+    "Do not rely only on red/green color feedback for danger and healing."
+  ]
+}

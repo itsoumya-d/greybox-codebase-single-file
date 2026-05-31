@@ -1,0 +1,42 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0-alpha.1",
+  "FriendlyName": "Greybox Studio",
+  "Description": "AI-assisted design import, round-trip sync, and MCP bridge for shipped games in Unreal Engine.",
+  "Category": "Design",
+  "CreatedBy": "Greybox Studio",
+  "CreatedByURL": "https://greybox.studio",
+  "DocsURL": "https://greybox.studio/docs/unreal",
+  "SupportURL": "https://greybox.studio/support",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "EnabledByDefault": false,
+  "Modules": [
+    {
+      "Name": "GreyboxStudio",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "GreyboxStudioEditor",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "WebSockets",
+      "Enabled": true
+    },
+    {
+      "Name": "UMG",
+      "Enabled": true
+    },
+    {
+      "Name": "Paper2D",
+      "Enabled": true
+    }
+  ]
+}

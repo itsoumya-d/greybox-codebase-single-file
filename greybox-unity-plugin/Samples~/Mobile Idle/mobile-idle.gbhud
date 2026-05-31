@@ -1,0 +1,19 @@
+<section data-greybox-artifact="hud" data-layout="mobile-idle-portrait">
+  <meta name="generator" content="Greybox + Noor Designer">
+  <meta name="greybox-ai-disclosure" content="AI-assisted, human-directed">
+  <header data-slot="top-left" data-agds-id="hud-soft-currency">
+    <span data-role="label">COINS</span>
+    <span data-role="value">120</span>
+  </header>
+  <header data-slot="top-right" data-agds-id="hud-premium-currency">
+    <span data-role="label">GEMS</span>
+    <span data-role="value">10</span>
+  </header>
+  <main data-slot="center" data-agds-id="hud-generator-timer">
+    <span data-role="label">FARM READY IN</span>
+    <span data-role="value">00:08</span>
+  </main>
+  <footer data-slot="bottom" data-agds-id="hud-primary-upgrade">
+    <button data-action="upgrade-starter-farm">UPGRADE FARM - 100</button>
+  </footer>
+</section>

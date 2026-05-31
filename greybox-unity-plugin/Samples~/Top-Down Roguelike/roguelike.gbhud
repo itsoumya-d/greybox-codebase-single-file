@@ -1,0 +1,18 @@
+<section data-greybox-artifact="hud" data-layout="roguelike-run">
+  <meta name="generator" content="Greybox + Mira Designer">
+  <meta name="greybox-ai-disclosure" content="AI-assisted, human-directed">
+  <header data-slot="top-left" data-agds-id="hud-health-flasks">
+    <span data-role="label">HP</span>
+    <span data-role="value">6 / 6</span>
+  </header>
+  <header data-slot="top-center" data-agds-id="hud-floor">
+    <span data-role="label">FLOOR 1 - FIND THE KEY</span>
+  </header>
+  <header data-slot="top-right" data-agds-id="hud-gold">
+    <span data-role="label">GOLD</span>
+    <span data-role="value">0</span>
+  </header>
+  <footer data-slot="bottom-right" data-agds-id="hud-relics">
+    <span data-role="label">RELIC SLOT EMPTY</span>
+  </footer>
+</section>

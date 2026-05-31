@@ -1,0 +1,777 @@
+{
+  "packageName": "com.greybox.studio",
+  "version": "1.0.0",
+  "generatedAt": "1970-01-01T00:00:00.000Z",
+  "rootPrefix": "package/",
+  "files": [
+    {
+      "path": "ASSET_STORE_SUBMISSION.md",
+      "bytes": 5159,
+      "sha256": "f70cfb371482cfaa8855b8f28acf53dd0bfa4a63ffa7f512e477afc98f471747"
+    },
+    {
+      "path": "BUILDING.md",
+      "bytes": 6328,
+      "sha256": "9dc9307913a6a612aefd6527b5250fa2ae0c84d1447b274248af5df3d24e8297"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 8981,
+      "sha256": "fdf27f177c2db99270a4ed26c199e2801452f271074c2feb7bd6267dd460658e"
+    },
+    {
+      "path": "Documentation~/Conflict-Resolution.md",
+      "bytes": 8701,
+      "sha256": "ba64451779331117aad4ceb55b81e75a0c2b819e7b1c722e470343386b8a82a9"
+    },
+    {
+      "path": "Documentation~/asset-store/cover-1950x1300.png",
+      "bytes": 51789,
+      "sha256": "ecbd61a451ed0f4e2091db9cacf1dc6b9a8484eadfc94cd21c46732c27c47a02"
+    },
+    {
+      "path": "Documentation~/asset-store/icon-1600.png",
+      "bytes": 46634,
+      "sha256": "cf40186fc29dee36289814ef342564a0b9c06cd23934d0d11951607b64466489"
+    },
+    {
+      "path": "Documentation~/asset-store/screenshot-importers.png",
+      "bytes": 26296,
+      "sha256": "eeb2a5297aa41b79bb437a133851102f94061f74ddf53694b7479a38b1c03b02"
+    },
+    {
+      "path": "Documentation~/asset-store/screenshot-mcp-bridge.png",
+      "bytes": 24773,
+      "sha256": "aa8455eff702f2450e67e22bcf255242feeb264ef50b53d503a67c9791f0e816"
+    },
+    {
+      "path": "Documentation~/asset-store/screenshot-round-trip.png",
+      "bytes": 26502,
+      "sha256": "6da60fa87694cc68e0aab1e9d4587afad4ca3502bf1596c88a602898401ad04d"
+    },
+    {
+      "path": "Documentation~/asset-store/screenshot-samples.png",
+      "bytes": 30723,
+      "sha256": "95af5638640cf4a41fd562d67982392060e622975d892f7640b46a326c82dd3c"
+    },
+    {
+      "path": "Documentation~/round-trip-sync.md",
+      "bytes": 11272,
+      "sha256": "0e7b41ed8999a768c115f75809ff6c7133b12a91b4accf366f577c76e0b7e240"
+    },
+    {
+      "path": "Editor/Export/GreyboxAssetStorePackageExporter.cs",
+      "bytes": 7957,
+      "sha256": "01e3cc27783fffe98436173dc129078069f4eda002b95adb1e1f74ac104e57f9"
+    },
+    {
+      "path": "Editor/Generation/AddressablesTagger.cs",
+      "bytes": 11463,
+      "sha256": "e32c376cd93c0b266b9fa410a10e83685e241347b95a6b066732c73fe06d4135"
+    },
+    {
+      "path": "Editor/Generation/ArtBibleAssetExporter.cs",
+      "bytes": 1952,
+      "sha256": "de7877de59f9158077e8d157e1c47a4aab02c8f817b0077df039ab0d7b9436e9"
+    },
+    {
+      "path": "Editor/Generation/GreyboxGeneratedAssetPaths.cs",
+      "bytes": 4551,
+      "sha256": "7f1610d9f6e213ac063c9d5dcb5ed18598a518995a1eb3f9df4b51ff2f56631a"
+    },
+    {
+      "path": "Editor/Generation/GreyboxImportReceiptExporter.cs",
+      "bytes": 13071,
+      "sha256": "3b31882a5ff2c8ab0b4e6a61787bc63b8772a0e2cb714e606130dbb8ad33b932"
+    },
+    {
+      "path": "Editor/Generation/GreyboxWatermarkBuilder.cs",
+      "bytes": 3625,
+      "sha256": "84cfaced25ed17bdc9ab8cd5792ae4fb627844747a1a3179aefb8515297ff7ac"
+    },
+    {
+      "path": "Editor/Generation/HudLayoutBuilder.cs",
+      "bytes": 39081,
+      "sha256": "560989b2029f824a62f5d73852c9bbc8c3dc1d306c214f341f64b854a3b2a6d4"
+    },
+    {
+      "path": "Editor/Generation/MaterialAssetExporter.cs",
+      "bytes": 3009,
+      "sha256": "2d50bf8660a00bc1c6b17e0d7ca3e40812e8bb413b95ab724a9dd49e081c3589"
+    },
+    {
+      "path": "Editor/Generation/MaterialBuilder.cs",
+      "bytes": 9096,
+      "sha256": "61c8bd88d65c6e4a0fdd2ec4b91e05e4a08b32595659556af1e4633d1388e3c2"
+    },
+    {
+      "path": "Editor/Generation/PrefabAssetExporter.cs",
+      "bytes": 9266,
+      "sha256": "f8e5a846f39af17fd9017a3d6feb5ade29c664d486663041f2cee20129472899"
+    },
+    {
+      "path": "Editor/Generation/PrefabBuilder.cs",
+      "bytes": 108450,
+      "sha256": "5cc55f67fcb8718824b1dfb1f6be99850f83216b52eecd5e2a5a26f12860ae31"
+    },
+    {
+      "path": "Editor/Generation/ScriptableObjectBuilder.cs",
+      "bytes": 8025,
+      "sha256": "85554f98b22513dabc84dab298f1c8c99ff036c14181cf830954e48202ff0fad"
+    },
+    {
+      "path": "Editor/Greybox.Editor.asmdef",
+      "bytes": 492,
+      "sha256": "48ac13f624e64b0b7e47eabc8c58901f7f359a450478d689e063be939c3eb8b5"
+    },
+    {
+      "path": "Editor/Importers/ArtBibleImporter.cs",
+      "bytes": 6889,
+      "sha256": "be028229a2787dafc086d4d149df04fa1ec0ad4d9b33b6b0e3ce7cc9ae80a09f"
+    },
+    {
+      "path": "Editor/Importers/DesignMarkdownPostprocessor.cs",
+      "bytes": 3272,
+      "sha256": "32194170b63ee5482118c5274dd6ddc1dbb98e3e4e2655ec18117a99be8ab8c2"
+    },
+    {
+      "path": "Editor/Importers/GameViewportImporter.cs",
+      "bytes": 4794,
+      "sha256": "aa5ad8b3c9f21559f732224b52257c04789c00cd3434bf2c2820a8686ff3d614"
+    },
+    {
+      "path": "Editor/Importers/GreyboxHash.cs",
+      "bytes": 581,
+      "sha256": "0aed6f4cb7ead7c0d69a8916d3d73774f4e0b790894074aadf02301c391f148b"
+    },
+    {
+      "path": "Editor/Importers/GreyboxImportArtifactBuilder.cs",
+      "bytes": 8452,
+      "sha256": "b76954c5b8c155e749a11768cefe3707770e72bc1d133ddbe0aae4c26c63b9f4"
+    },
+    {
+      "path": "Editor/Importers/GreyboxImportFile.cs",
+      "bytes": 4693,
+      "sha256": "169bebbfa42cf35e022693fbadad52a30f9825192c9933f56778b83b70268c2f"
+    },
+    {
+      "path": "Editor/Importers/GreyboxImportJson.cs",
+      "bytes": 2239,
+      "sha256": "dc7b0c6101e0af6eda1678f2b9a9ea68312a3cb500c1e16990e07761095b8b71"
+    },
+    {
+      "path": "Editor/Importers/GreyboxProjectArtifactImporter.cs",
+      "bytes": 11985,
+      "sha256": "1bf6621b0fec67ad64d44993dbe958c1c5b8264f725cff823f342afde30c5487"
+    },
+    {
+      "path": "Editor/Importers/GreyboxProjectArtifactPostprocessor.cs",
+      "bytes": 2854,
+      "sha256": "77d191523eeaf37a2f792593b06c08e3593b0e71929a83885c8f4e859dd68a50"
+    },
+    {
+      "path": "Editor/Importers/HudLayoutImporter.cs",
+      "bytes": 5722,
+      "sha256": "0d6627bbd7a51462a65cd6888e68d4bab503d16876dfa6932feda4a7afbfc019"
+    },
+    {
+      "path": "Editor/Importers/LevelBoardImporter.cs",
+      "bytes": 5567,
+      "sha256": "1a8cf694520e9456d4ec5ebd0518d75772070ce2a850828e88a36ff9f923ac5c"
+    },
+    {
+      "path": "Editor/McpBridge/GreyboxMcpServer.cs",
+      "bytes": 226843,
+      "sha256": "b688d9619dd01d1c4a4055740ac8f0b65cc53f148990159be5bd5e410153d08c"
+    },
+    {
+      "path": "Editor/McpBridge/McpToolDefinitions.cs",
+      "bytes": 7355,
+      "sha256": "bd6d624a6af731bd6887dec3192698d9f1a79caee55e982986656a27e26af0f1"
+    },
+    {
+      "path": "Editor/Samples/Greybox2DPlatformerSampleBuilder.cs",
+      "bytes": 97376,
+      "sha256": "03644427cec88e3d5f19bf1ee6012ecdf306709e9269c7ba446945a3c754ecf5"
+    },
+    {
+      "path": "Editor/Sync/DiffApplier.cs",
+      "bytes": 21724,
+      "sha256": "47c703cb0edd5e0139a81257bce2ada2fa0f0fa77fee674258bfdf946304f74d"
+    },
+    {
+      "path": "Editor/Sync/GreyboxArtifactRefresher.cs",
+      "bytes": 26426,
+      "sha256": "ae8420c993b43e6d7d9feddbf41d0dfa33b4d22fa59beaef392ac062b7e249bc"
+    },
+    {
+      "path": "Editor/Sync/GreyboxCloudClient.cs",
+      "bytes": 12816,
+      "sha256": "31f916ca2f38aaad8ba02ec4cdc07f93a10f3ea342c8db459d87194612ec29f5"
+    },
+    {
+      "path": "Editor/Sync/GreyboxConflictInbox.cs",
+      "bytes": 21231,
+      "sha256": "aebe97e25c87b5e67f8c38f6d0f5ad83ed5dc63e2bc85bff92d990310ad06812"
+    },
+    {
+      "path": "Editor/Sync/GreyboxConflictResolver.cs",
+      "bytes": 28180,
+      "sha256": "bdd72a5a775a1a2919de0a336381dcc3a7ecbc1764dbe065d9b23762a8f671f8"
+    },
+    {
+      "path": "Editor/Sync/GreyboxDaemonClient.cs",
+      "bytes": 15787,
+      "sha256": "6685f6037d74319027a87158b5f16054582915f662b21370118678d5b0055d08"
+    },
+    {
+      "path": "Editor/Sync/GreyboxDaemonUrlBuilder.cs",
+      "bytes": 3866,
+      "sha256": "dde1919cbcd18c7f7e4475dab8fc4b70d3f988f075a5c79e9efcbbd3f8624193"
+    },
+    {
+      "path": "Editor/Sync/GreyboxEnginePackagePreflightClient.cs",
+      "bytes": 15640,
+      "sha256": "aeeede37efda1ff254d537a5bbbfab8ff17501f36b90eb238b1a34e0182aac4d"
+    },
+    {
+      "path": "Editor/Sync/GreyboxPackageDownloader.cs",
+      "bytes": 44267,
+      "sha256": "ae9ff396215170ec0f8d9be3d3b9665a6451c0849613f76e966296acfd1d35dd"
+    },
+    {
+      "path": "Editor/Sync/GreyboxPrefabSidecarResolver.cs",
+      "bytes": 7021,
+      "sha256": "8edf0b42b0af0aeacfdb67a7fa003931dc91f26028684e7ddc67581a26ca2d3b"
+    },
+    {
+      "path": "Editor/Sync/GreyboxProModuleStatusClient.cs",
+      "bytes": 9900,
+      "sha256": "0fd9b7dab104a8fba8518181b62ad1728b763f871d6f2c7d94d1c92a77eb0290"
+    },
+    {
+      "path": "Editor/Sync/GreyboxRoundTripFieldMapper.cs",
+      "bytes": 29539,
+      "sha256": "fa8e7325e6b93bf901f5bfda01ad6678ee2bffa1c1e5ecc22652033d37d00ff6"
+    },
+    {
+      "path": "Editor/Sync/GreyboxRoundTripMetadataSync.cs",
+      "bytes": 9513,
+      "sha256": "e29c5a023a638c143bcacdf64a9d546e6c363eb2af39af93cbff5d44b76b72fe"
+    },
+    {
+      "path": "Editor/Sync/GreyboxSceneChangeWatcher.cs",
+      "bytes": 25380,
+      "sha256": "724a9327acae56cc959355497cfac767056a24ecaed9ed287795606cbb0c54f0"
+    },
+    {
+      "path": "Editor/Sync/ProjectWatcher.cs",
+      "bytes": 2788,
+      "sha256": "3b8ff0e92ee39d3414018832314762affb6603a5c6f744bd983b6fbae080f9fc"
+    },
+    {
+      "path": "Editor/Windows/GreyboxArtifactWindow.cs",
+      "bytes": 1793,
+      "sha256": "10e135896a55ecdfedd3aad9756f6abec2288c4f00af551827ebbcb5cef9576a"
+    },
+    {
+      "path": "Editor/Windows/GreyboxConflictWindow.cs",
+      "bytes": 9983,
+      "sha256": "7de1f2e8ddd23c4289bd2ab58ccb9cf609a95f0d44f3ed30c4e182259269538a"
+    },
+    {
+      "path": "Editor/Windows/GreyboxLicenseState.cs",
+      "bytes": 16739,
+      "sha256": "8e887d3ebd8b71a17a25e18a0bd551a201f7efd137606cd3c0a2b1ff003751a3"
+    },
+    {
+      "path": "Editor/Windows/GreyboxLicenseWindow.cs",
+      "bytes": 4972,
+      "sha256": "39658b3c03d82cbaf153529833e621de82f107702dd0f6e7e5b7559ea333f820"
+    },
+    {
+      "path": "Editor/Windows/GreyboxProjectEntitlements.cs",
+      "bytes": 4027,
+      "sha256": "6509a779e1c2220ecbe7a58a45276a1ccc43d5db149b4bb99cfd5676ef9a1bba"
+    },
+    {
+      "path": "Editor/Windows/GreyboxSettings.cs",
+      "bytes": 9007,
+      "sha256": "09bf5dedf927bc8e82d7cbe9b7dda9319f12ebc3a4ce2adac0a33efea9c81b9e"
+    },
+    {
+      "path": "Editor/Windows/GreyboxStudioWindow.cs",
+      "bytes": 12158,
+      "sha256": "f229f483ade558ee1b7eae0d75c361d9556c87ad6b28f355a62589ad2bffeb97"
+    },
+    {
+      "path": "LICENSE.md",
+      "bytes": 700,
+      "sha256": "b9e0b5e5a28c9fcd410e967ce404be42f529fad9ec3b6176f41a9aff6e8c0d49"
+    },
+    {
+      "path": "LICENSE.proprietary",
+      "bytes": 316,
+      "sha256": "187f193e299f2ce7d00efbbd90556dbedf3ea961798765a69ba26928eb826f84"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8914,
+      "sha256": "cec6e97ab73758607b6ec665cae32f928ae256086b5d560d49717417a0132bef"
+    },
+    {
+      "path": "Runtime/Greybox.Runtime.asmdef",
+      "bytes": 389,
+      "sha256": "f3b30098331aa883542423f4b717480af95db8007534ef99a770487fca59d860"
+    },
+    {
+      "path": "Runtime/GreyboxActorDefinition.cs",
+      "bytes": 898,
+      "sha256": "e7097d76da9a87047ab1fe2e34fa323ece87d3004d33767f8458e8d2b92a071d"
+    },
+    {
+      "path": "Runtime/GreyboxArtBiblePalette.cs",
+      "bytes": 3481,
+      "sha256": "ac8e20cb7da13136a9a4c253062fa0ccf6ac57763596a0cefe711792a4e007aa"
+    },
+    {
+      "path": "Runtime/GreyboxArtifact.cs",
+      "bytes": 738,
+      "sha256": "37d3a0ed2cb2d691a9d5142b2185294595a0a1b3cbbec1af83c0dcf5ffc5ba91"
+    },
+    {
+      "path": "Runtime/GreyboxCameraRig.cs",
+      "bytes": 469,
+      "sha256": "e95547ca2125e25052cdd8cd989e49865d65e1455f6d91f3b381e2f3597e9cee"
+    },
+    {
+      "path": "Runtime/GreyboxConfig.cs",
+      "bytes": 510,
+      "sha256": "58d4d27752f3bad8528a53bfe1f60f14f3f2f58efe21ac22508a9f5e048dd7e4"
+    },
+    {
+      "path": "Runtime/GreyboxDesignNode.cs",
+      "bytes": 1154,
+      "sha256": "2ce45c409f068726a7b2b82ee52fe57a371830138d2d080a0009c239e999b25d"
+    },
+    {
+      "path": "Runtime/GreyboxEncounter.cs",
+      "bytes": 482,
+      "sha256": "9c5bbb5e34448cec1d45f3f4d8a975daf43c6f2b42c235110dbf65cd102bbb9d"
+    },
+    {
+      "path": "Runtime/GreyboxGameViewport.cs",
+      "bytes": 5687,
+      "sha256": "7c405769c05ff56633330d77325063ccaef73f515e64e68540048a49e39a04e2"
+    },
+    {
+      "path": "Runtime/GreyboxGeneratedComponents.cs",
+      "bytes": 1211,
+      "sha256": "023444dc1c2a1eb6c4edb8550ccdf81a0cbf02eac9498081e70cd68d13992011"
+    },
+    {
+      "path": "Runtime/GreyboxHazard.cs",
+      "bytes": 559,
+      "sha256": "1d3637b4b075ec8223ab3f7914cffd5e8c44dd7ebae5f0e1fcf52a8afe4acd2b"
+    },
+    {
+      "path": "Runtime/GreyboxHudActionDispatcher.cs",
+      "bytes": 3509,
+      "sha256": "f2e1207515d7fde7ffd3ae03eea5612306cfd304a6ed97c5f0873c9a80175ee4"
+    },
+    {
+      "path": "Runtime/GreyboxHudBinding.cs",
+      "bytes": 749,
+      "sha256": "40a851c607d54ad40352c767ade34f6486e959dcc53378a6e4e11d48f774c9e3"
+    },
+    {
+      "path": "Runtime/GreyboxImportReceipt.cs",
+      "bytes": 1447,
+      "sha256": "76a887a4ecc53b6ec3d667957ba6d563a0ada93f15013fec9ee7b10cd42967f6"
+    },
+    {
+      "path": "Runtime/GreyboxImportedArtifact.cs",
+      "bytes": 799,
+      "sha256": "f51921643d84be350684284078d00f5d0088d788cfb14c5af2724b527ab9e3b7"
+    },
+    {
+      "path": "Runtime/GreyboxLevelBoard.cs",
+      "bytes": 6673,
+      "sha256": "fca72d5fdfebc76905c1fc81d77e3fe08297b510e08d86da64be10f5a3a0b90f"
+    },
+    {
+      "path": "Runtime/GreyboxLevelConnection.cs",
+      "bytes": 420,
+      "sha256": "302006aaaa4e5c5529f109ac75eb55587d62cce2a9fad3f972712349126cdee5"
+    },
+    {
+      "path": "Runtime/GreyboxLevelRoom.cs",
+      "bytes": 523,
+      "sha256": "3d2660ed251f39097424777193341ba3c5b1e8fd8630ab501b76ec757b176513"
+    },
+    {
+      "path": "Runtime/GreyboxLevelTileRecord.cs",
+      "bytes": 559,
+      "sha256": "7551b9b696214b60140ae942d60ab327fba8419365f3221a692ce41e46b61a40"
+    },
+    {
+      "path": "Runtime/GreyboxLevelTilemap.cs",
+      "bytes": 3455,
+      "sha256": "e6f17c138dc11edc09911891adea920f4bbaebf489b1302de26fde084d553078"
+    },
+    {
+      "path": "Runtime/GreyboxMarker.cs",
+      "bytes": 637,
+      "sha256": "f276b720e56a811ef983a0ceb30d2507930ed2b0a8293105d9533811dd88a010"
+    },
+    {
+      "path": "Runtime/GreyboxObjective.cs",
+      "bytes": 504,
+      "sha256": "3e61c7487cf7b09d2d24528ce1deb39ee2c5964a39a6d83c2ce3446dcd9f638b"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleArtifactManifest.cs",
+      "bytes": 2473,
+      "sha256": "ce52bb2b729d54a01c5e2c8b5da14d90f26917e67934c21108c5643a9ebac136"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleCameraFollow.cs",
+      "bytes": 3172,
+      "sha256": "01990922b48b3495dc921c837cff2cef40d6197f1fdf1f6892d8b6d47fc0c887"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleCheckpoint.cs",
+      "bytes": 4930,
+      "sha256": "9cdc305433151fe294d72d77a1512cc7a6f04c844f9339e638a9db4b757896a7"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleCollectible.cs",
+      "bytes": 1914,
+      "sha256": "178f2bc64ec41e971ad0d43737f0cc577f552b2428214ca203e5274f4f453632"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleEnemy.cs",
+      "bytes": 16371,
+      "sha256": "0e9b1dd749bfb92bbaa19fbb02fd49c2446fd8a367f22c5b30aeba1e6268e7a2"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleGoal.cs",
+      "bytes": 6108,
+      "sha256": "a1851ceab1cc07ede68d46fc60608f8b096b64d1c25b86807a7f43f45043e1df"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleHazard.cs",
+      "bytes": 4555,
+      "sha256": "d92e0b3c41e8ed99dfd0c268c5f127ea5aa398c93c44a7785903569f6f3b4ba2"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleHud.cs",
+      "bytes": 11906,
+      "sha256": "62b6df19dbc72d4ed968a8a8dd2bea237fb89c1b226ea9b442d2daf474c5b404"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSamplePlayer.cs",
+      "bytes": 19503,
+      "sha256": "c42e7335507a3af2999159cfa1a220a792404973975389ac351916631670950a"
+    },
+    {
+      "path": "Runtime/GreyboxPlatformerSampleRunReset.cs",
+      "bytes": 6206,
+      "sha256": "a2e36347dcc3997d862f8813e180dbf4fd29cccc9cf83bdf586787aacfbf8783"
+    },
+    {
+      "path": "Runtime/GreyboxSpawnPoint.cs",
+      "bytes": 541,
+      "sha256": "3163c9370b7ac7687bc5fb7c679ea45fccd980a75c6bc5b4fcf67c4d3bce858c"
+    },
+    {
+      "path": "Runtime/GreyboxUiToolkitHud.cs",
+      "bytes": 14164,
+      "sha256": "4e87052f4782174fe56fa141d4925ce36c23680d218ba638b54353b186f8f229"
+    },
+    {
+      "path": "Runtime/GreyboxWatermark.cs",
+      "bytes": 332,
+      "sha256": "02cb1dfb647a6470814aa674c55395f98c2b4843c223767133b9bbae181c371f"
+    },
+    {
+      "path": "STORE_LISTING.md",
+      "bytes": 2610,
+      "sha256": "a87f9287dc9be622c1f4adc465ec487f2dbe5c2d71c64ff46c47bd0c4819c552"
+    },
+    {
+      "path": "Samples~/2D Platformer/README.md",
+      "bytes": 1727,
+      "sha256": "d8bc120c2598c34db5ba634e9815588437c0db3862decebfc61b6021cf2599d2"
+    },
+    {
+      "path": "Samples~/2D Platformer/platformer.design",
+      "bytes": 609,
+      "sha256": "8a89a4266183f40fc858a3f7144b1e8abe02e26ac6053e03a05adf6ba7aa3214"
+    },
+    {
+      "path": "Samples~/2D Platformer/platformer.gameview",
+      "bytes": 3652,
+      "sha256": "edb12442d5a6c402e16ba379d94fe0c36fd7777c772f5ff065109e686948aaf2"
+    },
+    {
+      "path": "Samples~/2D Platformer/platformer.gbhud",
+      "bytes": 1192,
+      "sha256": "1d139003cd4c604c759efd32db187d6266e878a9929edec83ef57a2bdafa2d68"
+    },
+    {
+      "path": "Samples~/2D Platformer/platformer.levelboard",
+      "bytes": 2556,
+      "sha256": "171daba4fc2fb293e57f1681c8a5176551e680ecb8ea8cadaa0c6efc992d37bb"
+    },
+    {
+      "path": "Samples~/Mobile Idle/README.md",
+      "bytes": 649,
+      "sha256": "3d71163b0fec504f2ba8d62a0dbe07e5855ceaccd79ad979ffe0b53da425f433"
+    },
+    {
+      "path": "Samples~/Mobile Idle/mobile-idle.design",
+      "bytes": 626,
+      "sha256": "a813ef9042238c8c0458e988ce3a824082c7af73bf85e4aa3a5ce3acd99f138f"
+    },
+    {
+      "path": "Samples~/Mobile Idle/mobile-idle.gameview",
+      "bytes": 1702,
+      "sha256": "baaa562639e0f289631f78aabfa25f751b2e54af4a317abd984768e646a26a65"
+    },
+    {
+      "path": "Samples~/Mobile Idle/mobile-idle.gbhud",
+      "bytes": 851,
+      "sha256": "2ff9fca08fea33c0c7017298c1673e0dfb39d102278ce78822059765814cd82e"
+    },
+    {
+      "path": "Samples~/Mobile Idle/mobile-idle.levelboard",
+      "bytes": 1876,
+      "sha256": "5f223b4f2bb96656aa62ab444aa2b447ac3e6ba98395279614dc7b0eea38d66e"
+    },
+    {
+      "path": "Samples~/Top-Down Roguelike/README.md",
+      "bytes": 640,
+      "sha256": "d6d4591fe26ed4fd8ede7d167a606a489efdec44cacaa3bcffa3e5f7efe88388"
+    },
+    {
+      "path": "Samples~/Top-Down Roguelike/roguelike.design",
+      "bytes": 609,
+      "sha256": "a4871d2c11fd77512f2dee9edaefcf5e006729556f2df29d0ee63e167912df66"
+    },
+    {
+      "path": "Samples~/Top-Down Roguelike/roguelike.gameview",
+      "bytes": 1903,
+      "sha256": "9ff94404a5b0fe276ca179d457b551bc235385a2cb534f5ee8ed21a8f8923266"
+    },
+    {
+      "path": "Samples~/Top-Down Roguelike/roguelike.gbhud",
+      "bytes": 770,
+      "sha256": "a6b4973d8c649b99aa36ed87a20bd017f402b7835cd74e90427d2f294b7d92f9"
+    },
+    {
+      "path": "Samples~/Top-Down Roguelike/roguelike.levelboard",
+      "bytes": 2129,
+      "sha256": "8b9f51770ac6e5b21fea9421ffe51dce3185c7b8c0e8f182d75e6f28383c5148"
+    },
+    {
+      "path": "Tests/EditMode/AddressablesTaggerTests.cs",
+      "bytes": 8604,
+      "sha256": "d913dc860ff67efc80ed7616a2838f1db17c866e5dedbb9562094ebc25a5c90a"
+    },
+    {
+      "path": "Tests/EditMode/ArtBibleImporterTests.cs",
+      "bytes": 31267,
+      "sha256": "ccce92fbb5269e7f70a101f0f8aa9f942517a36c7f16c9825d1bf3b9fc6d56a2"
+    },
+    {
+      "path": "Tests/EditMode/DesignMarkdownPostprocessorTests.cs",
+      "bytes": 4174,
+      "sha256": "bae2a47ac3ece17025c069fda4042026b715480d325d8ef454141124675b93e4"
+    },
+    {
+      "path": "Tests/EditMode/DiffApplierTests.cs",
+      "bytes": 22582,
+      "sha256": "1f1d15af88d6195ada535fab408774f01aab648b73197062b5fa0daddf9d17b2"
+    },
+    {
+      "path": "Tests/EditMode/GameViewportImporterTests.cs",
+      "bytes": 11263,
+      "sha256": "73df2f7404921b4058b4da92c7c8846e1e39fe869dd25bf130cdd0d9e2bfd807"
+    },
+    {
+      "path": "Tests/EditMode/Greybox.Editor.Tests.asmdef",
+      "bytes": 548,
+      "sha256": "257f89ca5d14dd3c98d7750f924009b074cb283e1f1295477d0f993cf6c4c227"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxArtifactRefresherTests.cs",
+      "bytes": 15928,
+      "sha256": "2fba38edbcedeaa3f51d8394cd320e496c0a598db171ecd8db0955141776f42c"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxCloudClientTests.cs",
+      "bytes": 10092,
+      "sha256": "fd21d3bde43dcf369bd5448bdef00f500378fe078ce187343b96553b8cf27a29"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxConflictInboxTests.cs",
+      "bytes": 23391,
+      "sha256": "9621f835554e79b136ac0a1a88751a2f7dde04a337919b042a2efd8ebc4a8eff"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxConflictResolverTests.cs",
+      "bytes": 28643,
+      "sha256": "19e4414c277478234f97f4210f3ab130c73f7efac49d364df9daf76a6075a82f"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxDaemonUrlBuilderTests.cs",
+      "bytes": 5346,
+      "sha256": "14a1a7b7cc817ede33db070bbb40a90d35d163565791df9c72391aad2388855c"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxEnginePackagePreflightClientTests.cs",
+      "bytes": 14389,
+      "sha256": "faa0ea0e2f234ae0bea34640591ea12a41f71ee0cb014e6b50751e9d222ccb7e"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxImportFileTests.cs",
+      "bytes": 4112,
+      "sha256": "3e396b28e1568a5285d4cafa54b3be2a30d25852fd6a388fc1a2cb97bd7eb4df"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxImportReceiptExporterTests.cs",
+      "bytes": 4304,
+      "sha256": "a3322f51300f4841bc192ecc03debd36aee96e1f0d44a92a610624a402d5a395"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxLicenseStateTests.cs",
+      "bytes": 26717,
+      "sha256": "53f61fc05b7366931f644bd2caff2046f1b8b9226db35118a4355422a4b4b94c"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxPackageDownloaderTests.cs",
+      "bytes": 44422,
+      "sha256": "f6250110a1a6ab25637042a88f64b59f41fa4430c8fb8ad21a1a619080005f7a"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxPrefabSidecarResolverTests.cs",
+      "bytes": 12693,
+      "sha256": "ed3274abd806749c0aa69b0d8176e5bc0aa0f6385cdcbd36bfe5810e715f13bf"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxProModuleStatusClientTests.cs",
+      "bytes": 7670,
+      "sha256": "c0efa2e847f9d63b5fb1f1607fcf81d53b1e0edf4438be4f52461cbec14b5c4c"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxProjectArtifactImporterTests.cs",
+      "bytes": 20199,
+      "sha256": "e85588fb90f1c56e7e8f6c730fe46c67298cbf381bd5549e93396dca996a9933"
+    },
+    {
+      "path": "Tests/EditMode/GreyboxWatermarkBuilderTests.cs",
+      "bytes": 3144,
+      "sha256": "47c987301a214c0a51109a0edbf8e2c3a8f9d36413b1cfd3e78a6e93424a5c63"
+    },
+    {
+      "path": "Tests/EditMode/HudLayoutBuilderTests.cs",
+      "bytes": 23080,
+      "sha256": "b54881d9cde07f8d32fcf35f0f757bfc57e96b2a8f38e9ea6112d4a66718f472"
+    },
+    {
+      "path": "Tests/EditMode/HudLayoutImporterTests.cs",
+      "bytes": 9301,
+      "sha256": "46ef0bf27c8b892aea8f75a7649e0745df048ad7bf4f6e4aedf0d643fcdcd478"
+    },
+    {
+      "path": "Tests/EditMode/LevelBoardImporterTests.cs",
+      "bytes": 6521,
+      "sha256": "04a1c2eb39212ef7f2e5f3a759b9ba52d85e2f1dadab741b1bdbc8644dbe142d"
+    },
+    {
+      "path": "Tests/EditMode/McpBridgeTests.cs",
+      "bytes": 212859,
+      "sha256": "c7ee5bcfb6a3050c0a7e6854762788a06b999a9f0b652d5ddfabff2c09a1e342"
+    },
+    {
+      "path": "Tests/EditMode/PrefabAssetExporterTests.cs",
+      "bytes": 26460,
+      "sha256": "a14d6f99c2ca2cb7db733fa7eb0ecb57a674808ece84b495c853fa957e2a2f90"
+    },
+    {
+      "path": "Tests/EditMode/PrefabBuilderTests.cs",
+      "bytes": 81985,
+      "sha256": "40a2b78399e13c71d8c70af616256c81d304b893d353efecef8855fe071a4750"
+    },
+    {
+      "path": "Tests/EditMode/ProjectWatcherTests.cs",
+      "bytes": 2643,
+      "sha256": "e3bee4a3d56088d90468c626de8fd16c04277ab596694129114db21807ada5f9"
+    },
+    {
+      "path": "Tests/EditMode/RoundTripFieldMapperTests.cs",
+      "bytes": 46030,
+      "sha256": "f4048bccf86ea5581e848f4edf433f75fd9f03b6d85b696ca0ba21b00ff5ba3e"
+    },
+    {
+      "path": "Tests/EditMode/RoundTripLatencyTests.cs",
+      "bytes": 35020,
+      "sha256": "2cb07e416e5b39fef39f2b819c6b272866d18ff4bd4e7ac670132eecea9bcdb1"
+    },
+    {
+      "path": "Tests/PlayMode/Greybox.Runtime.Tests.asmdef",
+      "bytes": 482,
+      "sha256": "66d523a1c1c4805308040bf3432148f47458ab2bade332de15188bdb2850be84"
+    },
+    {
+      "path": "Tests/PlayMode/GreyboxArtifactPlayTests.cs",
+      "bytes": 492,
+      "sha256": "bfca3d9ac5f247fdbcde53134fc06a4450747c7d5e2e0b4166e70edcb497c0b5"
+    },
+    {
+      "path": "Tests/PlayMode/GreyboxPlatformerSamplePlayTests.cs",
+      "bytes": 65285,
+      "sha256": "25fcc76886d872942b1cfdf5026ee17ce199ae6a53efb7989c4d89c736c69367"
+    },
+    {
+      "path": "Third-Party Notices.txt",
+      "bytes": 821,
+      "sha256": "b37e14265c7834f434706faf7727ac62d020ae23c529822395d7f3775e87eb40"
+    },
+    {
+      "path": "UNITY_VERIFIED_SOLUTION.md",
+      "bytes": 2970,
+      "sha256": "52f27d4a59bc0436bd066c6773fcbf55b756569b7280380c2c61017a4eb5d79a"
+    },
+    {
+      "path": "V1_PUNCHLIST.md",
+      "bytes": 7103,
+      "sha256": "7e08bac6d728d1a99900633dca758f9266d8ac46dba38c621516e850a71c4c19"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1437,
+      "sha256": "a4dc3b0d04a18045582d1efb6c1019be535edd7a5b9e691b0a2ba6927868af54"
+    },
+    {
+      "path": "scripts/build-unitypackage.mjs",
+      "bytes": 7021,
+      "sha256": "b199db3ddc67b2f335d06bb88fce7617044222d20f5f0aa5e00c5c700beed3fa"
+    },
+    {
+      "path": "scripts/build-unitypackage.sh",
+      "bytes": 4584,
+      "sha256": "4fb4d195dd7f59037a418883428ea9289baea9d81c3a36f081cd46578105ec25"
+    },
+    {
+      "path": "scripts/generate-store-assets.py",
+      "bytes": 8370,
+      "sha256": "fd84731c50d959e72979edbe0be454964b4305cf8caf7380675e969963222bbf"
+    }
+  ],
+  "totalBytes": 2191586,
+  "sha256": "b7342027d581384d85ac013f7f9c9216cbbc7dbe8f2ad2d5536ca0ecf6ee2cd9",
+  "archive": null,
+  "warnings": []
+}

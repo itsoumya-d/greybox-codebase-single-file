@@ -1,0 +1,24 @@
+{
+  "id": "vampire-hunter-combat-encounter-trailer",
+  "surface": "video",
+  "title": "Vampire Hunter Combat Encounter Trailer",
+  "summary": "Combat encounter trailer prompt for a vampire-hunter action game, with enemy waves, readable counters, VFX impacts, and arena clarity.",
+  "category": "Combat Encounter Trailer",
+  "tags": [
+    "game",
+    "combat",
+    "encounter",
+    "enemy",
+    "trailer",
+    "vfx"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 15 second combat encounter trailer for a vampire-hunter action game. The goal is to showcase player mastery, enemy composition, arena readability, and counterplay in a neon alley combat space.\n\nDraev stands in the center of a wet neon alley. Vampires occupy rooftops, fire escapes, and street-level flank routes. Begin with a wide gameplay camera that clearly shows enemy positions, cover objects, and exit paths.\n\nWave 1: Two enemies attack simultaneously. Draev dodges the first with a sidestep, counters with a heavy strike, then parries a rooftop lunge. Add short hitstop, readable spark VFX, and a stamina chip on each defensive action.\n\nWave 2: More vampires rush in. Draev performs an aerial kick that knocks one enemy into a neon sign, triggering an environmental stun field. Show a small objective update: Clear the alley nest.\n\nFinal beat: Camera pulls up to show defeated enemies dissolving into ash particles, remaining threat markers on rooftops, and a boss shadow entering the arena. Keep combat readable, non-gory, and HUD-safe.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Cortex Visual ・ AI Movies",
+    "url": "https://x.com/Cortex__Visual/status/2049070872426688714"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "evolutionary-biome-progression-staircase",
+  "surface": "image",
+  "title": "Evolutionary Biome Progression Staircase",
+  "summary": "Game-world progression board that turns a biome timeline into a 3D stone staircase for unlock pacing, encounter escalation, and environmental storytelling.",
+  "category": "World Progression",
+  "tags": [
+    "game",
+    "biome",
+    "progression",
+    "world map",
+    "3d-render"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "1:1",
+  "prompt": "{\n  \"type\": \"game world progression board\",\n  \"instruction\": \"Using REFERENCE_0 as a structural base, transform the flat timeline into a highly realistic 3D stone staircase that explains how a player advances through biomes, mechanics, enemies, resources, and emotional pacing in {argument name=\\\"game_title\\\" default=\\\"Echoes of the First Dawn\\\"}.\",\n  \"style\": {\n    \"background\": \"{argument name=\\\"background style\\\" default=\\\"weathered expedition parchment with subtle fantasy cartography marks\\\"}\",\n    \"staircase\": \"{argument name=\\\"staircase material\\\" default=\\\"ancient carved stone blocks with moss, frost, ash, and crystal deposits by region\\\"}\",\n    \"subjects\": \"{argument name=\\\"biome marker style\\\" default=\\\"highly detailed 3D game-environment dioramas with clear silhouettes\\\"}\"\n  },\n  \"layout\": {\n    \"main_title\": \"{argument name=\\\"main title\\\" default=\\\"World Progression Staircase\\\"}\",\n    \"sections\": [\n      {\n        \"position\": \"left sidebar\",\n        \"count\": 8,\n        \"labels\": [\"L0: Tutorial Grove\", \"L1: Forager Lowlands\", \"L2: Bandit Ravines\", \"L3: Sunken Ruins\", \"L4: Volcanic Forge\", \"L5: Storm Citadel\", \"L6: Ancient Skybridge\", \"L7: Final World Scar\"]\n      },\n      {\n        \"position\": \"top right\",\n        \"title\": \"Mechanics Gained / Pressure Added\",\n        \"description\": \"Legend with unlock icons, hazard icons, enemy archetypes, resource tiers, and accessibility/readability notes\"\n      },\n      {\n        \"position\": \"bottom center\",\n        \"title\": \"Player Journey Milestones\",\n        \"count\": 6,\n        \"description\": \"Timeline with silhouettes for tutorial mastery, first boss, traversal upgrade, faction reveal, late-game buildcraft, and emotional climax\"\n      }\n    ],\n    \"centerpiece\": {\n      \"description\": \"Winding stone staircase with 25 numbered steps, each showing a biome diorama, gameplay objective, encounter type, reward tier, and risk/reward escalation.\",\n      \"count\": 25,\n      \"notable_elements\": [\n        \"Step 07: First elite enemy telegraph lesson\",\n        \"Step 09: Traversal ability unlock and hidden route tease\",\n        \"Step 10: Faction-controlled checkpoint with dialogue choice\",\n        \"Step 18: Boss arena preview with readable attack lanes\",\n        \"Step 25: {argument name=\\\"final biome fantasy\\\" default=\\\"glowing world-heart arena with cinematic sky fracture\\\"}\"\n      ]\n    }\n  }\n}",
+  "previewImageUrl": "https://cms-assets.youmind.com/media/1776661968404_8a5flm_HGQc_KOaMAA2vt0.jpg",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-gpt-image-2",
+    "license": "CC-BY-4.0",
+    "author": "知识猫图解",
+    "url": "https://x.com/GeekCatX/status/2045792240044511277#reversed-1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "arcade-street-racing-boost-trailer",
+  "surface": "video",
+  "title": "Arcade Street Racing Boost Trailer",
+  "summary": "Game trailer prompt for an arcade street racer boost sequence, with drift readability, speed UI, hazard telegraphs, and replay-camera beats.",
+  "category": "Racing Game Trailer",
+  "tags": [
+    "game",
+    "racing",
+    "trailer",
+    "arcade",
+    "hud",
+    "camera"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 15 second game trailer beat for an arcade street racing game at night. Focus on playable speed fantasy, drift readability, boost timing, road hazards, and UI feedback rather than generic car advertising.\n\n0-2s: Cockpit close-up. The player grips the wheel, tachometer and boost meter glow, and the next checkpoint icon is visible through the windshield.\n\n2-4s: Over-the-shoulder gameplay view shows a neon city route, rival racer ghost line, and a split-second hazard telegraph ahead.\n\n4-6s: Extreme close-up on the boost input. The NOS button flashes in sync with the HUD, then the boost meter drains.\n\n6-9s: Exterior tracking shot as the car launches forward. Use speed ramps, tire smoke, and clear lane markings so the racing line remains readable.\n\n9-12s: Low chase camera through a drift corner. Show PERFECT DRIFT, score pop, and multiplier feedback without blocking the road.\n\n12-15s: Replay camera crosses the finish gate, rival car in frame, final time, rank badge, and restart prompt. Keep all overlays console-safe and esports-readable.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Pierrick Chevallier | IA",
+    "url": "https://x.com/CharaspowerAI/status/2039651574297792688"
+  }
+}

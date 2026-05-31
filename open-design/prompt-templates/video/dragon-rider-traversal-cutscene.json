@@ -1,0 +1,24 @@
+{
+  "id": "dragon-rider-traversal-cutscene",
+  "surface": "video",
+  "title": "Dragon Rider Traversal Cutscene",
+  "summary": "Traversal unlock cutscene prompt for a fantasy open-world game, showing bond, mount onboarding, camera comfort, and new flight-route readability.",
+  "category": "Traversal Cutscene",
+  "tags": [
+    "game",
+    "open-world",
+    "traversal",
+    "cutscene",
+    "dragon",
+    "camera"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 15 second traversal unlock cutscene for a fantasy open-world game where the player bonds with a dragon mount for the first time. The sequence should communicate emotional trust, new movement fantasy, and the playable flight route that opens after the cutscene.\n\n0-2s: Close third-person camera behind the player character at a cliff edge. A giant shadow passes overhead, the controller vibration cue would be a low rumble, and the camera stays steady enough for comfort.\n\n2-5s: Dragon lands behind the player and lowers its head. The player hesitates, touches the dragon, and a mount-bond UI glyph lights briefly. Keep the emotional beat readable without hiding the horizon objective.\n\n5-8s: The player climbs onto the saddle. The dragon launches upward with a clear anticipation frame, dust kick, wing extension, and camera easing that avoids nausea.\n\n8-12s: Flight tutorial preview: fly through clouds, bank around mountain peaks, pass a ring checkpoint, and show the stamina glide meter for one beat.\n\n12-15s: Wide aerial shot of the unlocked region, with three visible flight-path gates and a quest marker in the distance. End on a HUD-safe composition for trailer or onboarding use.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "simply",
+    "url": "https://x.com/kingofdairyque/status/2049052738924023976"
+  }
+}

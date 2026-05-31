@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=AI Game Design Studio (@@NAMESPACE@@)
+GenericName=AI Game Design Studio
+Comment=AI Game Design Studio packaged build (@@NAMESPACE@@)
+Exec=env AGDS_PACKAGED_NAMESPACE=@@NAMESPACE@@ @@EXEC_PATH@@ --appimage-extract-and-run %U
+Icon=@@ICON_PATH@@
+Categories=Development;Utility;
+StartupWMClass=AI Game Design Studio
+StartupNotify=true
+Terminal=false
+MimeType=x-scheme-handler/agds;

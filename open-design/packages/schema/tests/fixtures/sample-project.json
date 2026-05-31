@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "0.1.0",
+  "meta": {
+    "id": "proj-sample-001",
+    "name": "Sample Platformer",
+    "version": "0.1.0",
+    "genre": "platformer",
+    "targetEngines": ["unity", "unreal", "godot", "web"],
+    "platforms": ["windows", "macos", "linux", "web", "ios", "android"],
+    "tagline": "A goblin runs and jumps.",
+    "description": "Reference fixture exercising every entity type in @greybox/schema.",
+    "createdAt": "2026-05-27T10:00:00.000Z",
+    "updatedAt": "2026-05-27T10:00:00.000Z",
+    "author": "Greybox Studio"
+  },
+  "art": {
+    "palette": {
+      "name": "default",
+      "colors": [
+        { "role": "primary", "hex": "#3366ff", "name": "Royal Blue" },
+        { "role": "danger", "hex": "#ff3344" },
+        { "role": "ui-text-on-dark", "hex": "#ffffff" }
+      ]
+    },
+    "typography": {
+      "styles": [
+        { "role": "heading", "family": "Inter", "size": 32, "weight": 700, "lineHeight": 1.2 },
+        { "role": "body", "family": "Inter", "size": 16, "weight": 400, "lineHeight": 1.4 }
+      ]
+    },
+    "materials": [
+      {
+        "id": "mat-ground",
+        "name": "Stone Ground",
+        "assetRef": "asset-mat-ground-json",
+        "role": "environment"
+      }
+    ],
+    "moodNotes": "Bright, saturated, cartoony."
+  },
+  "exportPolicy": {
+    "unity": { "renderPipeline": "urp", "inputSystem": "new", "scriptingBackend": "il2cpp" },
+    "unreal": { "engineVersion": "5.5", "inputSystem": "enhanced" },
+    "godot": { "engineVersion": "4.4", "renderer": "forward+" },
+    "web": { "runtime": "babylon" }
+  },
+  "assets": [
+    {
+      "id": "asset-goblin-gltf",
+      "type": "gltf",
+      "uri": "assets/characters/goblin.gltf",
+      "sha256": "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899",
+      "sizeBytes": 1234567,
+      "name": "Goblin mesh",
+      "provenance": {
+        "license": "CC-BY-4.0",
+        "source": "tripo3d",
+        "generatedBy": "tripo3d",
+        "prompt": "cute cartoon goblin",
+        "seed": 42,
+        "createdAt": "2026-05-27T09:00:00.000Z"
+      }
+    },
+    {
+      "id": "asset-goblin-idle",
+      "type": "fbx",
+      "uri": "assets/animations/goblin-idle.fbx",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sizeBytes": 88888,
+      "provenance": {
+        "license": "CC-BY-4.0",
+        "source": "mixamo.com"
+      }
+    },
+    {
+      "id": "asset-bg-menu",
+      "type": "png",
+      "uri": "assets/ui/menu-bg.png",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "sizeBytes": 245678,
+      "provenance": { "license": "proprietary", "source": "human" }
+    },
+    {
+      "id": "asset-mat-ground-json",
+      "type": "json",
+      "uri": "assets/materials/ground.json",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "sizeBytes": 512,
+      "provenance": { "license": "Apache-2.0", "source": "human" }
+    },
+    {
+      "id": "asset-coin-prefab",
+      "type": "prefab",
+      "uri": "assets/prefabs/coin.json",
+      "sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+      "sizeBytes": 1024,
+      "provenance": { "license": "Apache-2.0", "source": "human" }
+    },
+    {
+      "id": "asset-music-loop",
+      "type": "mp3",
+      "uri": "assets/audio/level1.mp3",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+      "sizeBytes": 4500000,
+      "provenance": { "license": "CC-BY-4.0", "source": "elevenlabs", "generatedBy": "elevenlabs" }
+    },
+    {
+      "id": "asset-particle-sparkle",
+      "type": "json",
+      "uri": "assets/vfx/sparkle.json",
+      "sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+      "sizeBytes": 800,
+      "provenance": { "license": "Apache-2.0", "source": "human" }
+    }
+  ],
+  "characters": [
+    {
+      "id": "char-goblin",
+      "name": "Goblin Hero",
+      "meshRef": "asset-goblin-gltf",
+      "rig": {
+        "joints": [
+          { "name": "mixamorig:Hips", "parent": null },
+          { "name": "mixamorig:Spine", "parent": "mixamorig:Hips" },
+          { "name": "mixamorig:Head", "parent": "mixamorig:Spine" }
+        ]
+      },
+      "animations": [
+        { "id": "anim-idle", "name": "idle", "clipRef": "asset-goblin-idle", "duration": 2.5, "loop": true }
+      ],
+      "gameStats": { "hp": 100, "speed": 5, "damage": 10, "defense": 2 },
+      "provenance": {
+        "genProvider": "tripo3d",
+        "prompt": "cute cartoon goblin",
+        "seed": 42,
+        "license": "CC-BY-4.0"
+      }
+    }
+  ],
+  "screens": [
+    {
+      "id": "screen-main-menu",
+      "name": "Main Menu",
+      "kind": "main-menu",
+      "background": { "type": "asset", "assetRef": "asset-bg-menu" },
+      "components": [
+        {
+          "kind": "Container",
+          "id": "cmp-menu-root",
+          "name": "Root Container",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "layout": "stack-vertical",
+          "gap": 16
+        },
+        {
+          "kind": "Text",
+          "id": "cmp-title",
+          "name": "Title",
+          "transform": {
+            "position": { "x": 0, "y": 100, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "parent": "cmp-menu-root",
+          "visible": true,
+          "content": "Goblin Quest",
+          "font": "Inter",
+          "fontSize": 48,
+          "color": "#ffffff"
+        },
+        {
+          "kind": "Button",
+          "id": "cmp-play-btn",
+          "name": "Play Button",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "parent": "cmp-menu-root",
+          "visible": true,
+          "label": "Play",
+          "onClickEvent": "evt-start-game"
+        },
+        {
+          "kind": "Image",
+          "id": "cmp-logo",
+          "name": "Logo",
+          "transform": {
+            "position": { "x": 0, "y": 200, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "assetRef": "asset-bg-menu",
+          "altText": "Greybox logo"
+        },
+        {
+          "kind": "MenuList",
+          "id": "cmp-options",
+          "name": "Options",
+          "transform": {
+            "position": { "x": 0, "y": -100, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "parent": "cmp-menu-root",
+          "visible": true,
+          "items": [
+            { "id": "settings", "label": "Settings", "event": "evt-open-settings" },
+            { "id": "quit", "label": "Quit", "event": "evt-quit" }
+          ]
+        },
+        {
+          "kind": "TextInput",
+          "id": "cmp-name-input",
+          "name": "Name Input",
+          "transform": {
+            "position": { "x": 0, "y": -200, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "parent": "cmp-menu-root",
+          "visible": true,
+          "placeholder": "Your name",
+          "maxLength": 32,
+          "inputType": "text"
+        },
+        {
+          "kind": "ProgressBar",
+          "id": "cmp-loading",
+          "name": "Loading Bar",
+          "transform": {
+            "position": { "x": 0, "y": -300, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": false,
+          "min": 0,
+          "max": 100,
+          "value": 0
+        }
+      ],
+      "notes": "Entry screen."
+    },
+    {
+      "id": "screen-level-1",
+      "name": "Level 1",
+      "kind": "gameplay",
+      "background": { "type": "color", "color": "#88ccff" },
+      "components": [
+        {
+          "kind": "Character3DRef",
+          "id": "cmp-player",
+          "name": "Player",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "characterRef": "char-goblin",
+          "initialAnimation": "idle"
+        },
+        {
+          "kind": "Camera",
+          "id": "cmp-main-cam",
+          "name": "Main Camera",
+          "transform": {
+            "position": { "x": 0, "y": 5, "z": -10 },
+            "rotation": { "x": 15, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "projection": "perspective",
+          "fov": 60,
+          "isMain": true
+        },
+        {
+          "kind": "Light",
+          "id": "cmp-sun",
+          "name": "Sun",
+          "transform": {
+            "position": { "x": 0, "y": 10, "z": 0 },
+            "rotation": { "x": 45, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "lightType": "directional",
+          "color": "#fff4e6",
+          "intensity": 1.5,
+          "castsShadows": true
+        },
+        {
+          "kind": "GameObject",
+          "id": "cmp-coin-1",
+          "name": "Coin 1",
+          "transform": {
+            "position": { "x": 5, "y": 1, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "prefabRef": "asset-coin-prefab"
+        },
+        {
+          "kind": "Spawner",
+          "id": "cmp-enemy-spawner",
+          "name": "Enemy Spawner",
+          "transform": {
+            "position": { "x": 20, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": false,
+          "prefabRef": "asset-coin-prefab",
+          "intervalSeconds": 5,
+          "maxAlive": 3
+        },
+        {
+          "kind": "Trigger",
+          "id": "cmp-exit",
+          "name": "Exit Trigger",
+          "transform": {
+            "position": { "x": 50, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 2, "y": 2, "z": 2 }
+          },
+          "visible": false,
+          "shape": "box",
+          "eventId": "evt-exit-level",
+          "oneShot": true
+        },
+        {
+          "kind": "Pickup",
+          "id": "cmp-heart",
+          "name": "Heart",
+          "transform": {
+            "position": { "x": 10, "y": 1, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "grantStat": "hp",
+          "amount": 25,
+          "respawn": false
+        },
+        {
+          "kind": "Hazard",
+          "id": "cmp-spikes",
+          "name": "Spikes",
+          "transform": {
+            "position": { "x": 15, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "damagePerSecond": 10,
+          "instakill": false
+        },
+        {
+          "kind": "Checkpoint",
+          "id": "cmp-checkpoint-1",
+          "name": "Checkpoint 1",
+          "transform": {
+            "position": { "x": 25, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": false,
+          "checkpointId": "lvl1-mid",
+          "heals": true
+        },
+        {
+          "kind": "HUDBar",
+          "id": "cmp-hp-bar",
+          "name": "HP Bar",
+          "transform": {
+            "position": { "x": -300, "y": 280, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "statKey": "hp",
+          "style": "bar"
+        },
+        {
+          "kind": "Particle",
+          "id": "cmp-sparkles",
+          "name": "Sparkles",
+          "transform": {
+            "position": { "x": 5, "y": 2, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "effectRef": "asset-particle-sparkle",
+          "autoPlay": true,
+          "loop": true
+        },
+        {
+          "kind": "AudioSource",
+          "id": "cmp-bgm",
+          "name": "Background Music",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": false,
+          "clipRef": "asset-music-loop",
+          "volume": 0.7,
+          "loop": true,
+          "spatial": false,
+          "autoPlay": true
+        }
+      ]
+    }
+  ],
+  "flow": [
+    {
+      "id": "edge-menu-to-l1",
+      "from": "screen-main-menu",
+      "to": "screen-level-1",
+      "trigger": { "type": "tap", "componentRef": "cmp-play-btn" }
+    },
+    {
+      "id": "edge-l1-exit",
+      "from": "screen-level-1",
+      "to": "screen-main-menu",
+      "trigger": { "type": "scriptEvent", "eventId": "evt-exit-level" },
+      "condition": "playerAlive == true"
+    },
+    {
+      "id": "edge-time-demo",
+      "from": "screen-main-menu",
+      "to": "screen-level-1",
+      "trigger": { "type": "time", "delaySeconds": 60 }
+    },
+    {
+      "id": "edge-swipe-demo",
+      "from": "screen-main-menu",
+      "to": "screen-level-1",
+      "trigger": { "type": "swipe", "direction": "left" }
+    },
+    {
+      "id": "edge-longpress-demo",
+      "from": "screen-level-1",
+      "to": "screen-main-menu",
+      "trigger": { "type": "longPress", "durationSeconds": 1.5 }
+    },
+    {
+      "id": "edge-collision-demo",
+      "from": "screen-level-1",
+      "to": "screen-main-menu",
+      "trigger": { "type": "collision", "tag": "kill-zone" }
+    },
+    {
+      "id": "edge-custom-demo",
+      "from": "screen-level-1",
+      "to": "screen-main-menu",
+      "trigger": { "type": "custom", "payload": { "reason": "debug-warp" } }
+    }
+  ]
+}

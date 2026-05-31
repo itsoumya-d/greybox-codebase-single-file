@@ -1,0 +1,22 @@
+{
+  "id": "live-ops-season-roadmap-motion",
+  "surface": "video",
+  "title": "Live Ops Season Roadmap Motion",
+  "summary": "Motion board for live-service season cadence, events, content drops, and retention health.",
+  "category": "Live Ops",
+  "tags": [
+    "game",
+    "live-ops",
+    "season",
+    "roadmap",
+    "retention"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a 12-second live-ops roadmap motion board for {argument name=\"game_title\" default=\"Starforged Arena\"}. Show season premise, event calendar, ranked reset, new mode, cosmetic track, balance patch, community challenge, and burnout-prevention rest week. Use clear dates, fair monetization notes, and player-first retention language.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

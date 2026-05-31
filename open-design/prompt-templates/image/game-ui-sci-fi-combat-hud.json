@@ -1,0 +1,22 @@
+{
+  "id": "game-ui-sci-fi-combat-hud",
+  "surface": "image",
+  "title": "Sci-Fi Combat HUD Concept Sheet",
+  "summary": "Sci-fi HUD concept sheet for health, shields, ammo, abilities, minimap, and tactical overlays.",
+  "category": "Game HUD",
+  "tags": [
+    "game",
+    "hud",
+    "sci-fi",
+    "combat",
+    "ui"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Design a sci-fi combat HUD concept sheet for {argument name=\"game_title\" default=\"Orbital Breach\"}. Include player health, shield, ammo, ability cooldowns, target lock, minimap, squad command wheel, objective tracker, damage direction, status effects, and low-health feedback. Show normal, critical, stealth, and boss states. Prioritize combat clarity, ultrawide safety, and controller-friendly hierarchy.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

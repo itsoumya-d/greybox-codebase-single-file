@@ -1,0 +1,46 @@
+name: greybox-onprem
+
+services:
+  greybox-cloud:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    env_file:
+      - .env.onprem
+    environment:
+      NODE_ENV: production
+      PORT: "8080"
+      GREYBOX_DEPLOYMENT_MODE: on-prem
+      GREYBOX_BILLING_LEDGER_DIR: /data/billing-ledger
+      GREYBOX_AUDIT_LOG_DIR: /data/audit-log
+      GREYBOX_SCIM_STORE_DIR: /data/scim
+      GREYBOX_PRIVACY_REQUEST_DIR: /data/privacy-requests
+      GREYBOX_SECURITY_INCIDENT_DIR: /data/security-incidents
+      GREYBOX_MODEL_TRAINING_CONSENT_DIR: /data/model-training-consents
+      GREYBOX_LEGAL_HOLD_DIR: /data/legal-holds
+      GREYBOX_OFFLINE_LICENSE_FILE: /licenses/license.greybox.json
+      GREYBOX_OFFLINE_LICENSE_PUBLIC_KEY_FILE: /licenses/greybox-license-public.pem
+    ports:
+      - "8080:8080"
+    volumes:
+      - greybox-cloud-data:/data
+      - ./licenses:/licenses:ro
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"const token=process.env.GREYBOX_AUDIT_ADMIN_TOKEN; fetch('http://localhost:8080/v1/enterprise/onprem-readiness',{headers:{authorization:'Bearer '+token}}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
+      interval: 15s
+      timeout: 3s
+      retries: 12
+
+  greybox-open-design:
+    image: ghcr.io/greybox-studio/open-design:latest
+    profiles: ["open-core"]
+    environment:
+      GREYBOX_CLOUD_BASE_URL: http://greybox-cloud:8080/v1
+    ports:
+      - "3000:3000"
+    depends_on:
+      greybox-cloud:
+        condition: service_healthy
+
+volumes:
+  greybox-cloud-data:

@@ -1,0 +1,19 @@
+{
+  "type": {
+    "family": {
+      "display": { "value": "'Inter Tight', system-ui, sans-serif" },
+      "body": { "value": "'Inter', system-ui, sans-serif" },
+      "mono": { "value": "'JetBrains Mono', 'SF Mono', monospace" }
+    },
+    "scale": {
+      "xs": { "value": { "size": "12px", "line": "16px", "weight": 500 } },
+      "sm": { "value": { "size": "13px", "line": "20px", "weight": 400 } },
+      "base": { "value": { "size": "15px", "line": "24px", "weight": 400 } },
+      "md": { "value": { "size": "17px", "line": "26px", "weight": 500 } },
+      "lg": { "value": { "size": "22px", "line": "30px", "weight": 600 } },
+      "xl": { "value": { "size": "32px", "line": "40px", "weight": 700 } },
+      "2xl": { "value": { "size": "48px", "line": "56px", "weight": 700 } },
+      "3xl": { "value": { "size": "64px", "line": "72px", "weight": 800 } }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "anime-fighting-game-elemental-duel-key-art",
+  "surface": "image",
+  "title": "Anime Fighting Game Elemental Duel Key Art",
+  "summary": "Key art prompt for a 2D/3D anime fighting game matchup with readable silhouettes, elemental combat VFX, arena staging, and HUD-safe composition.",
+  "category": "Fighting Game Key Art",
+  "tags": [
+    "game",
+    "fighting-game",
+    "combat",
+    "anime",
+    "key-art",
+    "vfx"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "1:1",
+  "prompt": "Create key art for an anime fighting game vertical slice: two playable female fighters clash in a traditional dojo arena with clear combat readability, distinct silhouettes, and elemental VFX that communicate attack roles.\n\nPlayer fighter A uses a red-and-white martial arts outfit, low forward stance, water-and-flame energy trails, and a close-range rushdown identity. Rival fighter B uses a green-and-purple dress, airborne kick pose, blue wind energy, and agile counterattack identity. Show the wooden floor splintering from impact, but keep the action readable like a game splash screen: strong foreground/background separation, no gore, no confusing motion smear, and enough clean negative space for a title lockup or versus HUD overlay.\n\nDesign notes: emphasize player fantasy, attack telegraph clarity, combo impact, arena material detail, stylized anime lighting, polished fighting-game presentation, and production-ready reference value for character, VFX, and combat teams.",
+  "previewImageUrl": "https://cms-assets.youmind.com/media/1776756799880_c8u8w7_HGUKjjaasAAvVRa.jpg",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-gpt-image-2",
+    "license": "CC-BY-4.0",
+    "author": "たねもみ 2.0 / Tanemomi Ver2.0",
+    "url": "https://x.com/Tanemomi_Ver2/status/2046063806846214265#reversed-0"
+  }
+}

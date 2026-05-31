@@ -1,0 +1,23 @@
+{
+  "id": "enemy-hunched-creature-locomotion-study",
+  "surface": "video",
+  "title": "Enemy Hunched Creature Locomotion Study",
+  "summary": "Animation prompt for an enemy creature locomotion loop, focused on readable threat posture, game feel, root motion notes, and idle-to-walk transitions.",
+  "category": "Enemy Animation",
+  "tags": [
+    "game",
+    "enemy",
+    "animation",
+    "locomotion",
+    "game-feel"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create an in-place locomotion study for a hunched enemy creature in a survival-horror game. The creature should stay centered for animation review, with clear side, front, and three-quarter readability.\n\nAnimation requirements: 6 second looping walk cycle, heavy shoulders, uneven foot timing, low head tracking, subtle claw drag, and a readable threat silhouette. Include an idle-to-walk transition on the first second and return to loop-ready posture at the end.\n\nProduction notes: keep root motion neutral for engine import, preserve foot contact, avoid sliding, show attack anticipation potential in the shoulders, and make the movement scary without becoming too fast for player counterplay.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Olivio Sarikas",
+    "url": "https://x.com/OlivioSarikas/status/2049093747011670042"
+  }
+}

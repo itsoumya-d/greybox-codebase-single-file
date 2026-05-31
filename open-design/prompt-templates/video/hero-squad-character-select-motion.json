@@ -1,0 +1,24 @@
+{
+  "id": "hero-squad-character-select-motion",
+  "surface": "video",
+  "title": "Hero Squad Character Select Motion",
+  "summary": "Motion-graphics character-select prompt for a hero battler roster, with role labels, weapon readability, UI states, and controller-safe timing.",
+  "category": "Character Select UI",
+  "tags": [
+    "game",
+    "character-select",
+    "hud",
+    "hero-battler",
+    "motion",
+    "controller"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 15 second in-engine character-select motion sequence for a colorful hero battler. Use Unreal Engine style rendering, candy-colored Japanese arcade art direction, and UI overlays that would be readable on controller, touch, and keyboard/mouse.\n\n0-2s: Empty selection stage. Center reticle, thin-line HUD frame, particles, and status text: ROSTER SYNC, PLAYER SLOT 01, READY CHECK.\n\n2-4s: Fox tactician enters on a hovering board. Show role chip TACTICIAN, mobility stat, support radius icon, and a short idle animation that communicates speed.\n\n4-6s: Rabbit executioner swings a carrot weapon into a combat stance. Show weapon icon, cooldown ring, combo role, and damage-type color cue.\n\n6-8s: Corgi commander appears with a friendly confident idle. Show command aura, squad buff icon, and co-op synergy tag.\n\n8-15s: All three heroes lock into a party lineup. UI cycles through player cursor hover, confirm pulse, locked-in state, accessibility-safe color labels, and final versus-screen transition. Keep every overlay game-native: no corporate charts, no business metrics, only roster, role, weapon, ability, and readiness information.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "KANA",
+    "url": "https://x.com/KanaWorks_AI/status/2049281443956974029"
+  }
+}

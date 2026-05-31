@@ -1,0 +1,14 @@
+{
+  "title": "Greybox Smoke - Level Board",
+  "schemaVersion": "1.0.0",
+  "tileSize": 1,
+  "tiles": [
+    { "id": "ground", "x": 0, "y": 0, "kind": "ground", "width": 32, "height": 1 },
+    { "id": "ledge", "x": 12, "y": 3, "kind": "ledge", "width": 6, "height": 0.5 },
+    { "id": "spikes_a", "x": 6, "y": 0.5, "kind": "hazard", "width": 1, "height": 0.5 }
+  ],
+  "spawns": [
+    { "id": "player", "x": 0, "y": 1 },
+    { "id": "exit", "x": 30, "y": 1 }
+  ]
+}

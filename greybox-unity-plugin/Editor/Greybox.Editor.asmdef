@@ -1,0 +1,20 @@
+{
+  "name": "Greybox.Editor",
+  "rootNamespace": "Greybox.Editor",
+  "references": [
+    "Greybox.Runtime",
+    "Unity.Addressables.Editor",
+    "Unity.EditorCoroutines.Editor",
+    "UnityEngine.UI",
+    "Unity.Newtonsoft.Json"
+  ],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

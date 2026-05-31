@@ -1,0 +1,30 @@
+{
+  "name": "@greybox-studio/cloud",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "description": "Closed-core Greybox managed inference, billing, auth, tenant, and observability service.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "onprem:smoke": "tsx src/cli/onprem-smoke.ts",
+    "pii:evidence": "node --import tsx src/cli/pii-redaction-evidence.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "tsx": "4.21.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=24.0.0 <27.0.0"
+  },
+  "optionalDependencies": {
+    "@sentry/node": "^8.0.0",
+    "pg": "^8.11.0"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

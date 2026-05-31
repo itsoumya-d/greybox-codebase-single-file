@@ -1,0 +1,17 @@
+{
+  "name": "@greybox-studio/godot-plugin",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "description": "Closed-core Greybox Godot addon foundation for AI-assisted game-design import, round-trip sync, and MCP bridge.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "release:readiness": "node validation/release-readiness.mjs --output validation/artifacts/release-readiness.json",
+    "validate": "node validation/validate-godot-plugin.mjs",
+    "test": "node --test validation/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=24.0.0 <27.0.0"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

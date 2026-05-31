@@ -1,0 +1,24 @@
+{
+  "name": "@greybox-studio/marketplace",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "description": "Closed-core Greybox creator marketplace, review queue, take-rate, payout, and tax compliance control plane.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "rehearse:stripe-webhooks": "tsx src/cli/stripeWebhookRehearsal.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "tsx": "4.21.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=24.0.0 <27.0.0"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

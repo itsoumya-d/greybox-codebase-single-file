@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level Flowchart Template</title>
+  <style>
+    :root { --bg:#11151a; --panel:#1b232c; --line:#334150; --fg:#edf1f4; --muted:#9aa8b2; --path:#7cc5e8; --risk:#e1a957; --reward:#7bcf95; --boss:#dd6969; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:var(--bg); color:var(--fg); font:14px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    main { width:min(1200px, calc(100vw - 28px)); margin:0 auto; padding:24px 0 36px; }
+    h1,h2,h3,p { margin-top:0; }
+    .layout { display:grid; grid-template-columns:260px 1fr; gap:16px; }
+    aside, section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+    .flow { display:grid; grid-template-columns:repeat(4, minmax(150px,1fr)); gap:14px; align-items:start; }
+    .node { min-height:112px; border:1px solid var(--line); border-radius:8px; padding:12px; background:#121920; position:relative; }
+    .node::after { content:""; position:absolute; right:-14px; top:50%; width:14px; border-top:2px solid var(--line); }
+    .node:nth-child(4n)::after, .node:last-child::after { display:none; }
+    .path { border-color:var(--path); } .risk { border-color:var(--risk); } .reward { border-color:var(--reward); } .boss { border-color:var(--boss); }
+    .type { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+    .legend { display:grid; gap:8px; }
+    .swatch { display:flex; align-items:center; gap:8px; }
+    .swatch b { display:block; width:14px; height:14px; border-radius:3px; border:1px solid currentColor; }
+    table { width:100%; border-collapse:collapse; margin-top:16px; }
+    th,td { padding:8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+    @media (max-width:900px) { .layout,.flow { grid-template-columns:1fr; } .node::after { display:none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Level Flowchart</h1>
+    <p>Map the playable path, optional branches, encounter pressure, recovery beats, rewards, gates, and narrative triggers.</p>
+    <div class="layout">
+      <aside>
+        <h2>Level Brief</h2>
+        <p><strong>Name:</strong> Abandoned Reactor</p>
+        <p><strong>Thesis:</strong> Teach heat vents as both hazard and traversal gate.</p>
+        <p><strong>Runtime:</strong> 18-25 minutes</p>
+        <p><strong>New mechanic:</strong> Coolant valve timing</p>
+        <div class="legend">
+          <div class="swatch" style="color:var(--path)"><b></b> Critical path</div>
+          <div class="swatch" style="color:var(--risk)"><b></b> Pressure</div>
+          <div class="swatch" style="color:var(--reward)"><b></b> Reward/recovery</div>
+          <div class="swatch" style="color:var(--boss)"><b></b> Climax</div>
+        </div>
+      </aside>
+      <section>
+        <div class="flow">
+          <div class="node path"><div class="type">Arrival</div><h3>Broken Gate</h3><p>Landmark view, locked exit, first heat warning.</p></div>
+          <div class="node path"><div class="type">Teach</div><h3>Vent Hall</h3><p>Low-risk timing pattern and safe side alcove.</p></div>
+          <div class="node risk"><div class="type">Encounter</div><h3>Maintenance Ambush</h3><p>Grunts push player through vent cycle.</p></div>
+          <div class="node reward"><div class="type">Recovery</div><h3>Control Room</h3><p>Map update, audio log, valve preview.</p></div>
+          <div class="node path"><div class="type">Branch</div><h3>Coolant Split</h3><p>Main route is safe but slow; side route has loot and pressure.</p></div>
+          <div class="node risk"><div class="type">Test</div><h3>Turbine Floor</h3><p>Enemy roles combine with timed heat waves.</p></div>
+          <div class="node reward"><div class="type">Reward</div><h3>Rare Cache</h3><p>Optional valve puzzle grants relic dust and shortcut.</p></div>
+          <div class="node boss"><div class="type">Climax</div><h3>Core Warden</h3><p>Boss phase changes vent pattern and arena cover.</p></div>
+        </div>
+        <table>
+          <tr><th>Gate</th><th>Requirement</th><th>Fail Forward</th><th>Reward</th></tr>
+          <tr><td>Reactor Door</td><td>Coolant key from control room</td><td>Hint marker and enemy patrol reset</td><td>Critical path access</td></tr>
+          <tr><td>Side Cache</td><td>Three valve switches in 45 seconds</td><td>Partial resource reward</td><td>Rare upgrade material</td></tr>
+          <tr><td>Boss Entry</td><td>Power rerouted</td><td>Return to recovery room</td><td>Biome relic</td></tr>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

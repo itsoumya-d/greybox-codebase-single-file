@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-05-27T13:14:45.158Z",
+  "packageRoot": "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin",
+  "packageName": "com.greybox.studio",
+  "packageVersion": "1.0.0",
+  "packageDisplayName": "Greybox Studio",
+  "projectRoot": "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/.tmp/asset-store-export",
+  "outputPath": "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/dist/greybox-studio-1.0.0.unitypackage",
+  "unityVersion": "2022.3.74f1",
+  "unity": "/opt/unity/Editor/Unity",
+  "status": "dry-run",
+  "commandArgv": [
+    "/opt/unity/Editor/Unity",
+    "-batchmode",
+    "-quit",
+    "-nographics",
+    "-projectPath",
+    "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/.tmp/asset-store-export",
+    "-executeMethod",
+    "Greybox.Editor.Export.GreyboxAssetStorePackageExporter.ExportFromCommandLine",
+    "-greyboxAssetStorePackageOutput",
+    "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/dist/greybox-studio-1.0.0.unitypackage"
+  ],
+  "command": "'/opt/unity/Editor/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/.tmp/asset-store-export' '-executeMethod' 'Greybox.Editor.Export.GreyboxAssetStorePackageExporter.ExportFromCommandLine' '-greyboxAssetStorePackageOutput' '/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/dist/greybox-studio-1.0.0.unitypackage'",
+  "commandWithEnvironment": "GREYBOX_ASSET_STORE_PACKAGE_OUTPUT='/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/dist/greybox-studio-1.0.0.unitypackage' '/opt/unity/Editor/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/.tmp/asset-store-export' '-executeMethod' 'Greybox.Editor.Export.GreyboxAssetStorePackageExporter.ExportFromCommandLine' '-greyboxAssetStorePackageOutput' '/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/dist/greybox-studio-1.0.0.unitypackage'"
+}

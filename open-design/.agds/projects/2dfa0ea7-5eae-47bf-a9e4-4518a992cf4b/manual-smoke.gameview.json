@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "kind": "game-viewport",
+  "surface": "gameplay",
+  "title": "Manual Smoke Encounter",
+  "objective": "Reach the extraction beacon after testing HUD readability.",
+  "camera": "third-person readable combat camera",
+  "entities": [
+    {
+      "id": "player-start",
+      "name": "Player Start",
+      "type": "player-spawn",
+      "x": 80,
+      "y": 160
+    },
+    {
+      "id": "extraction-beacon",
+      "name": "Extraction Beacon",
+      "type": "objective",
+      "x": 620,
+      "y": 260
+    },
+    {
+      "id": "rival-squad",
+      "name": "Rival Squad",
+      "type": "enemy-spawn",
+      "x": 430,
+      "y": 240
+    }
+  ],
+  "paths": [
+    {
+      "id": "critical-route",
+      "name": "Critical Route",
+      "type": "critical-path",
+      "points": [
+        {
+          "x": 80,
+          "y": 160
+        },
+        {
+          "x": 620,
+          "y": 260
+        }
+      ]
+    }
+  ],
+  "accessibilityNotes": [
+    "Readable HUD scaling, colorblind-safe danger cues, subtitles, and reduced camera shake."
+  ]
+}

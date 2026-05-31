@@ -1,0 +1,58 @@
+{
+  "title": "Mobile Idle Economy Board",
+  "rooms": [
+    {
+      "id": "loop_collect",
+      "name": "Collect Output",
+      "position": { "x": -2, "y": 1, "z": 0 },
+      "radius": 1.5
+    },
+    {
+      "id": "loop_upgrade",
+      "name": "Upgrade Station",
+      "position": { "x": 2, "y": 1, "z": 0 },
+      "radius": 1.5
+    },
+    {
+      "id": "loop_automate",
+      "name": "Automate Delivery",
+      "position": { "x": 0, "y": 4, "z": 0 },
+      "radius": 1.25
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc_first_upgrade",
+      "name": "First Upgrade Decision",
+      "position": { "x": -2, "y": 2.2, "z": 0 },
+      "radius": 0.9
+    },
+    {
+      "id": "enc_reward_offer",
+      "name": "Optional Reward Offer",
+      "position": { "x": 2.5, "y": -2.5, "z": 0 },
+      "radius": 0.8
+    },
+    {
+      "id": "enc_delivery_unlock",
+      "name": "Delivery Unlock",
+      "position": { "x": 0, "y": 4, "z": 0 },
+      "radius": 1
+    }
+  ],
+  "collision": true,
+  "tiles": [
+    { "id": "collect_station", "x": -2, "y": 1, "type": "station", "color": "#2ECC71" },
+    { "id": "upgrade_station", "x": 2, "y": 1, "type": "station", "color": "#3CC2E0" },
+    { "id": "automate_station", "x": 0, "y": 4, "type": "station", "color": "#F4C95D" },
+    { "id": "claim_button", "x": -2, "y": 2, "type": "button", "color": "#FF6B35" },
+    { "id": "offer_card", "x": 3, "y": -2, "type": "offer", "color": "#E94B3C" },
+    { "id": "delivery_path_00", "x": -1, "y": 3, "type": "path", "color": "#8C8C92" },
+    { "id": "delivery_path_01", "x": 0, "y": 3, "type": "path", "color": "#8C8C92" },
+    { "id": "delivery_path_02", "x": 1, "y": 3, "type": "path", "color": "#8C8C92" }
+  ],
+  "notes": [
+    "AI-assisted sample artifact. Human designer credit: Noor Designer.",
+    "Designed to validate economy-loop pacing markers and round-trip live-ops tuning edits."
+  ]
+}

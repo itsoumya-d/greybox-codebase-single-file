@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Live Ops Balance Board</title>
+<style>
+:root{--bg:#101216;--panel:#171b22;--fg:#f6f1e8;--muted:#9ba3ad;--accent:#f0a33a;--support:#46d6a8;--danger:#e85d75;--rare:#5da9ff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 Inter,system-ui,sans-serif}.shell{min-height:100vh;display:grid;grid-template-columns:260px 1fr}.rail{border-right:1px solid #2a313b;padding:24px;background:#0c0f14}.game-title{font-weight:800;font-size:18px;margin-bottom:28px}.nav{display:grid;gap:10px}.nav span{padding:10px 12px;border:1px solid #2a313b;border-radius:8px;color:var(--muted)}.nav .active{color:var(--fg);border-color:var(--accent);background:#1d1a12}.main{padding:30px;display:grid;gap:22px}.top{display:flex;justify-content:space-between;gap:16px;align-items:start}.eyebrow{color:var(--accent);font:12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}h1{margin:6px 0 0;font-size:38px;line-height:1.05}.status{border:1px solid #2a313b;border-radius:999px;padding:8px 12px;color:var(--support);background:#0f1b17}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--panel);border:1px solid #2a313b;border-radius:10px;padding:18px}.label{color:var(--muted);font:11px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}.value{font-size:28px;font-weight:800;margin-top:8px}.note{color:var(--accent);font:12px ui-monospace,monospace}.wide{grid-column:span 2}.list{display:grid;gap:10px;margin-top:14px}.row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:12px;border:1px solid #2a313b;border-radius:8px;background:#11161d}.pill{border-radius:999px;padding:4px 8px;font:11px ui-monospace,monospace}.pill.danger{background:#2a1218;color:var(--danger)}.pill.ready{background:#102019;color:var(--support)}.bar{height:9px;background:#0b0e13;border-radius:999px;overflow:hidden;margin-top:14px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--support),var(--accent),var(--danger))}@media(max-width:900px){.shell{grid-template-columns:1fr}.rail{border-right:0;border-bottom:1px solid #2a313b}.grid{grid-template-columns:1fr}.wide{grid-column:auto}}</style>
+</head>
+<body>
+<div class="shell" data-agds-id="live-ops-balance-board">
+  <aside class="rail"><div class="game-title">Starforge Arena</div><div class="nav"><span class="active">Balance</span><span>Events</span><span>Economy</span><span>Matchmaking</span><span>Patch Risks</span></div></aside>
+  <main class="main">
+    <section class="top"><div><div class="eyebrow">Season 04 live ops</div><h1>Class balance and retention health</h1></div><div class="status">Refreshable data artifact</div></section>
+    <section class="grid">
+      <div class="card"><div class="label">Retention D7</div><div class="value">41%</div><div class="note">+3 pts after quest tune</div></div>
+      <div class="card"><div class="label">Match quality</div><div class="value">A-</div><div class="note">latency stable</div></div>
+      <div class="card"><div class="label">Economy pressure</div><div class="value">82</div><div class="note">sink healthy</div></div>
+      <div class="card"><div class="label">Patch risk</div><div class="value">Med</div><div class="note">mage burst spike</div></div>
+      <div class="card wide"><div class="label">Class tuning queue</div><div class="list"><div class="row"><span>Mage burst window exceeds counterplay target</span><span class="pill danger">Tune</span></div><div class="row"><span>Tank role has healthy win rate but low pick rate</span><span class="pill ready">Watch</span></div><div class="row"><span>Support ultimate readability improved in colorblind pass</span><span class="pill ready">Ready</span></div></div></div>
+      <div class="card wide"><div class="label">Season reward cadence</div><div class="value">Week 3 spike</div><div class="bar"><i style="width:72%"></i></div><div class="note">Add rest week before ranked reset</div></div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

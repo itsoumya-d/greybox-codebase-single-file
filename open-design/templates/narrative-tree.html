@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Narrative Tree Template</title>
+  <style>
+    :root { --bg:#171316; --panel:#241c24; --line:#453544; --fg:#f4ecf2; --muted:#b7a7b4; --choice:#7fb7d6; --rep:#d6a85f; --risk:#d86b75; --quest:#92cf9a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    main { width:min(1180px, calc(100vw - 28px)); margin:0 auto; padding:24px 0 36px; }
+    h1,h2,h3,p { margin-top:0; }
+    .grid { display:grid; grid-template-columns:260px 1fr; gap:16px; }
+    aside, section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; min-width:0; overflow-x:auto; }
+    .tree { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .node { border:1px solid var(--line); border-radius:8px; padding:12px; background:#1b151b; min-height:132px; min-width:0; }
+    .start { border-color:var(--quest); } .choice { border-color:var(--choice); } .rep { border-color:var(--rep); } .risk { border-color:var(--risk); }
+    .type { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+    .vars { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+    .tag { border:1px solid var(--line); border-radius:999px; padding:4px 7px; color:var(--muted); max-width:100%; overflow-wrap:anywhere; }
+    table { width:100%; border-collapse:collapse; margin-top:16px; table-layout:fixed; }
+    th,td { padding:8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+    @media (max-width:900px) { .grid,.tree { grid-template-columns:1fr; } }
+    @media (max-width:520px) { main { width:calc(100vw - 20px); } aside,section { padding:12px; } th,td { padding:7px 5px; font-size:12px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Narrative Branching Tree</h1>
+    <p>Track dialogue nodes, choice consequences, faction variables, quest merges, companion reactions, and production-safe branch closure.</p>
+    <div class="grid">
+      <aside>
+        <h2>Quest Arc</h2>
+        <p><strong>Quest:</strong> The Ash Treaty</p>
+        <p><strong>Theme:</strong> Peace bought with an old betrayal.</p>
+        <p><strong>Merge Point:</strong> Council vote at the end of Act 1.</p>
+        <p><strong>Tracked Variables:</strong></p>
+        <div class="vars">
+          <span class="tag">ember_clan_rep</span>
+          <span class="tag">warden_trust</span>
+          <span class="tag">truth_revealed</span>
+          <span class="tag">hostage_safe</span>
+        </div>
+      </aside>
+      <section>
+        <div class="tree">
+          <div class="node start"><div class="type">Start</div><h3>Warden Requests Parley</h3><p>The player learns the treaty will collapse unless a missing witness is found.</p></div>
+          <div class="node choice"><div class="type">Choice A</div><h3>Trust the Warden</h3><p>Gain access to guard records. Ember Clan distrust increases.</p><div class="vars"><span class="tag">warden_trust +2</span><span class="tag">ember_clan_rep -1</span></div></div>
+          <div class="node choice"><div class="type">Choice B</div><h3>Meet the Clan First</h3><p>Unlock a stealth route and learn the warden hid evidence.</p><div class="vars"><span class="tag">ember_clan_rep +2</span><span class="tag">truth_revealed +1</span></div></div>
+          <div class="node risk"><div class="type">Consequence</div><h3>Evidence Burns</h3><p>If the player delays, the archive encounter starts under fire.</p><div class="vars"><span class="tag">timer_missed</span></div></div>
+          <div class="node rep"><div class="type">Companion</div><h3>Rook Objects</h3><p>Companion challenges ruthless choices and can leave if trust is too low.</p><div class="vars"><span class="tag">rook_trust -1</span></div></div>
+          <div class="node start"><div class="type">Merge</div><h3>Council Vote</h3><p>All paths merge with different speakers, evidence, and faction support.</p><div class="vars"><span class="tag">vote_weight calculated</span></div></div>
+        </div>
+        <table>
+          <tr><th>Variable</th><th>Range</th><th>Shown To Player</th><th>Production Note</th></tr>
+          <tr><td>ember_clan_rep</td><td>-3 to +3</td><td>Standing label and dialogue tone</td><td>Do not write bespoke scenes for every value; use tone variants.</td></tr>
+          <tr><td>truth_revealed</td><td>0 to 2</td><td>Evidence item and council argument</td><td>Merge at council with conditional lines.</td></tr>
+          <tr><td>hostage_safe</td><td>Boolean</td><td>Quest result and companion reaction</td><td>Changes reward and Act 2 rumor, not main route.</td></tr>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

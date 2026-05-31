@@ -1,0 +1,24 @@
+{
+  "id": "wuxia-action-rpg-transformation-cutscene",
+  "surface": "video",
+  "title": "Wuxia Action RPG Transformation Cutscene",
+  "summary": "Retro wuxia action RPG cutscene prompt for a shapeshifter companion reveal, preserving style references while adding quest, combat, and UI-safe framing.",
+  "category": "Action RPG Cutscene",
+  "tags": [
+    "game",
+    "action-rpg",
+    "wuxia",
+    "cutscene",
+    "companion",
+    "quest"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a retro Hong Kong wuxia-inspired in-engine cutscene for an action RPG companion quest. Preserve the 80s-90s Shaw Brothers mood, warm saturation, film grain, studio lighting, and theatrical choreography, but frame it as game content with readable quest and combat information.\n\nScene premise: a mysterious cat companion reveals its human form in a bamboo courtyard before a duel. The transformation should explain a new companion ability and set up the next encounter.\n\n0-4s: Cat sits beside an old sword rack. Quest text appears briefly: The Moonlit Familiar. The camera is locked and stage-like, with safe space for subtitles.\n\n4-8s: Magical paper talismans circle the cat. It transforms into a wuxia swordswoman in blue-white hanfu. Use stylized light trails and readable silhouette change.\n\n8-12s: Rival scholar swordsman steps into frame. The companion draws a blade, and the party UI flashes a new support skill: Moonstep Counter.\n\n12-15s: Freeze on duel standoff. End with clear arena geometry, enemy entry point, and companion command prompt.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Alex Zhang",
+    "url": "https://x.com/jojogh_007/status/2048969153202307329"
+  }
+}

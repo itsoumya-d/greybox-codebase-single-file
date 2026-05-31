@@ -1,0 +1,22 @@
+{
+  "id": "open-world-rpg-environment-concept",
+  "surface": "image",
+  "title": "Open-World RPG Environment Concept",
+  "summary": "Environment concept prompt for a traversable RPG region with landmarks, faction territory, quest hooks, and encounter readability.",
+  "category": "World Design",
+  "tags": [
+    "game",
+    "rpg",
+    "environment",
+    "open-world",
+    "level-design"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create concept art for {argument name=\"game_title\" default=\"Ashen Vale\"}, an open-world RPG region. Show a playable valley with three readable landmarks, a safe player approach, enemy patrol lanes, hidden reward pockets, traversal shortcuts, and faction architecture. Include camera-friendly foreground, midground, and horizon composition for third-person exploration. Color language should support biome identity, danger level, healing safety, and quest focus. Avoid generic scenic wallpaper; every visible element must imply a gameplay purpose.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "extraction-shooter-risk-reward-trailer",
+  "surface": "video",
+  "title": "Extraction Shooter Risk Reward Trailer",
+  "summary": "Trailer sequence for loot pressure, PvPvE threat, extraction decision, and session persistence.",
+  "category": "Game Trailer",
+  "tags": [
+    "game",
+    "extraction-shooter",
+    "risk-reward",
+    "pvpve",
+    "trailer"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a 10-second extraction shooter trailer for {argument name=\"game_title\" default=\"Dead Drop Meridian\"}. Show squad infil, rare loot ping, AI patrol threat, rival player sound cue, inventory pressure, extraction flare, last-second revive decision, and stash persistence. Emphasize risk, readable tactical UI, and fair competitive information.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

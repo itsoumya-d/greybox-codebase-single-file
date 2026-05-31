@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "kind": "node-graph",
+  "graphType": "gameplay-logic",
+  "title": "Gameplay Logic Graph",
+  "owner": "Gameplay Systems",
+  "nodes": [
+    { "id": "enter-zone", "title": "Player Enters Zone", "category": "input", "x": 70, "y": 130, "description": "Fires when the player crosses the encounter boundary." },
+    { "id": "check-resource", "title": "Check Stamina", "category": "condition", "x": 310, "y": 130, "description": "Prevents the first pressure spike from hitting during a low-resource state." },
+    { "id": "quest-objective", "title": "Update Quest Objective", "category": "quest-logic", "x": 520, "y": 40, "description": "Marks the encounter as the active mission step and exposes the objective marker." },
+    { "id": "dialogue-branch", "title": "Branch Dialogue Bark", "category": "dialogue-system", "x": 760, "y": 40, "description": "Chooses ally, rival, or silent VO based on faction reputation and stealth state." },
+    { "id": "spawn-wave", "title": "Spawn Encounter Wave", "category": "spawn", "x": 550, "y": 130, "description": "Spawns readable enemy composition with recovery spacing." },
+    { "id": "ai-behavior-signal", "title": "Broadcast AI Behavior Signal", "category": "ai-behavior", "x": 790, "y": 135, "description": "Tells squad AI whether to flank, hold cover, investigate, or retreat." },
+    { "id": "enemy-state-reaction", "title": "Set Enemy Reaction State", "category": "enemy-state", "x": 1030, "y": 135, "description": "Switches enemies between alerted, suppressed, vulnerable, or regrouping states." },
+    { "id": "combat-reaction", "title": "Combat Reaction Window", "category": "combat-reaction", "x": 790, "y": 250, "description": "Opens the parry, dodge, stagger, or interrupt timing window and logs readability." },
+    { "id": "environment-trigger", "title": "Trigger Foundry Hazard", "category": "environmental-trigger", "x": 1030, "y": 250, "description": "Starts steam vents only after the player has seen the warning light and audio cue." },
+    { "id": "cutscene-trigger", "title": "Start Micro Cinematic", "category": "cutscene-sequencing", "x": 1260, "y": 250, "description": "Frames the shortcut unlock without stealing control longer than two seconds." },
+    { "id": "procedural-variant", "title": "Select Encounter Variant", "category": "procedural-generation", "x": 790, "y": 390, "description": "Chooses authored spawn, hazard, and reward variants from a fairness-tested pool." },
+    { "id": "resolve-state", "title": "Resolve Outcome", "category": "state", "x": 1030, "y": 390, "description": "Routes clear, stealth bypass, retreat, or fail-forward to distinct world states." },
+    { "id": "economy-payout", "title": "Calculate Economy Payout", "category": "economy-logic", "x": 1260, "y": 390, "description": "Applies currency, crafting part, durability, and faction-reputation rewards without inflation spikes." },
+    { "id": "progression-unlock", "title": "Unlock Progression Node", "category": "progression-system", "x": 1490, "y": 390, "description": "Unlocks a shortcut, codex entry, skill-tree hint, and optional replay modifier." },
+    { "id": "grant-reward", "title": "Grant Shortcut Reward", "category": "reward", "x": 1490, "y": 520, "description": "Unlocks a shortcut and optional cache after mastery." }
+  ],
+  "edges": [
+    { "id": "edge-enter-check", "from": "enter-zone", "to": "check-resource", "label": "on enter" },
+    { "id": "edge-check-quest", "from": "check-resource", "to": "quest-objective", "condition": "encounter not already resolved" },
+    { "id": "edge-quest-dialogue", "from": "quest-objective", "to": "dialogue-branch", "condition": "story bark enabled" },
+    { "id": "edge-ready-spawn", "from": "check-resource", "to": "spawn-wave", "condition": "stamina > 35 or tutorial assist active" },
+    { "id": "edge-spawn-ai", "from": "spawn-wave", "to": "ai-behavior-signal", "condition": "enemy squad spawned" },
+    { "id": "edge-ai-state", "from": "ai-behavior-signal", "to": "enemy-state-reaction", "condition": "squad role selected" },
+    { "id": "edge-state-combat", "from": "enemy-state-reaction", "to": "combat-reaction", "condition": "enemy commits to attack" },
+    { "id": "edge-combat-hazard", "from": "combat-reaction", "to": "environment-trigger", "condition": "arena pressure needs escalation" },
+    { "id": "edge-hazard-cutscene", "from": "environment-trigger", "to": "cutscene-trigger", "condition": "shortcut core exposed" },
+    { "id": "edge-combat-variant", "from": "combat-reaction", "to": "procedural-variant", "condition": "replay seed active" },
+    { "id": "edge-variant-resolve", "from": "procedural-variant", "to": "resolve-state", "condition": "wave cleared, bypassed, or player retreats" },
+    { "id": "edge-cutscene-resolve", "from": "cutscene-trigger", "to": "resolve-state", "condition": "cinematic beat complete" },
+    { "id": "edge-resolve-economy", "from": "resolve-state", "to": "economy-payout", "condition": "success or fail-forward state" },
+    { "id": "edge-economy-progression", "from": "economy-payout", "to": "progression-unlock", "condition": "reward budget approved" },
+    { "id": "edge-progression-reward", "from": "progression-unlock", "to": "grant-reward", "condition": "player can inspect reward" }
+  ],
+  "variables": [
+    { "id": "difficulty-scalar", "name": "difficultyScalar", "value": 1, "notes": "Scales enemy count and reward payout." },
+    { "id": "faction-reputation", "name": "emberCourtReputation", "value": 12, "notes": "Branches VO, assistance, and payout multipliers." },
+    { "id": "replay-seed", "name": "encounterSeed", "value": "authored-default", "notes": "Locks procedural variants for reproducible playtests." }
+  ],
+  "collaborationNotes": [
+    { "agent": "Gameplay Mechanics", "concern": "Combat reactions need recovery windows before hazards stack.", "decision": "Hazard trigger waits for an attack commitment and a warning tell." },
+    { "agent": "Narrative Design", "concern": "Dialogue bark must reflect faction state without blocking player control.", "decision": "Branch bark is optional and never gates the combat route." },
+    { "agent": "Economy & Progression", "concern": "Replay variants can inflate rewards.", "decision": "Payout node applies a reward-budget check before unlocks." }
+  ],
+  "critiqueNotes": [
+    "Every failure route must explain itself to the player through HUD, audio, or animation tells.",
+    "Procedural variants must be authored enough to preserve fairness and readable escalation."
+  ]
+}

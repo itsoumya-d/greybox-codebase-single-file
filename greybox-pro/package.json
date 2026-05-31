@@ -1,0 +1,27 @@
+{
+  "name": "@greybox-studio/pro",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "description": "Closed-core Greybox Pro module catalog and signed .gbpro bundle pipeline.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "author-module": "tsx src/cli/authorModule.ts",
+    "release-bundles": "tsx src/cli/releaseBundles.ts",
+    "publish-bundles": "tsx src/cli/publishBundles.ts",
+    "validate-cloud-handoff": "tsx src/cli/validateCloudHandoff.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "tsx": "4.21.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=24.0.0 <27.0.0"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

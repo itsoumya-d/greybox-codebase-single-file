@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "0.1.0",
+  "meta": {
+    "id": "proj-greybox-fixture",
+    "name": "Greybox Unreal Fixture",
+    "version": "0.1.0",
+    "genre": "platformer",
+    "targetEngines": ["unreal"],
+    "platforms": ["windows"],
+    "tagline": "AI-assisted Unreal importer fixture",
+    "author": "Greybox Studio + human designers"
+  },
+  "art": {
+    "palette": {
+      "name": "default",
+      "colors": [
+        { "role": "primary", "hex": "#0080ff" },
+        { "role": "secondary", "hex": "#ff8000" }
+      ]
+    },
+    "typography": {
+      "styles": [
+        { "role": "body", "family": "Inter", "size": 16, "weight": 400, "lineHeight": 1.4 },
+        { "role": "title", "family": "Inter", "size": 32, "weight": 700, "lineHeight": 1.2 }
+      ]
+    },
+    "materials": []
+  },
+  "exportPolicy": {
+    "unity": { "renderPipeline": "urp", "inputSystem": "new", "scriptingBackend": "il2cpp" },
+    "unreal": { "engineVersion": "5.5", "inputSystem": "enhanced" },
+    "godot": { "engineVersion": "4.4", "renderer": "forward+" }
+  },
+  "assets": [
+    {
+      "id": "asset-icon",
+      "type": "png",
+      "uri": "assets/icon.png",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sizeBytes": 0,
+      "name": "Title icon",
+      "provenance": { "license": "CC-BY-4.0", "source": "user-upload" }
+    },
+    {
+      "id": "asset-hero-mesh",
+      "type": "gltf",
+      "uri": "assets/character.glb",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sizeBytes": 0,
+      "name": "Hero glTF mesh",
+      "provenance": { "license": "CC-BY-4.0", "source": "tripo3d", "generatedBy": "tripo3d" }
+    },
+    {
+      "id": "asset-hero-idle",
+      "type": "gltf",
+      "uri": "assets/character.glb",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "sizeBytes": 0,
+      "name": "Hero idle clip",
+      "provenance": { "license": "CC-BY-4.0", "source": "mixamo.com" }
+    }
+  ],
+  "characters": [
+    {
+      "id": "char-hero",
+      "name": "Hero",
+      "meshRef": "asset-hero-mesh",
+      "rig": {
+        "joints": [
+          { "name": "mixamorig:Hips", "parent": null },
+          { "name": "mixamorig:Spine", "parent": "mixamorig:Hips" },
+          { "name": "mixamorig:Head", "parent": "mixamorig:Spine" }
+        ]
+      },
+      "animations": [
+        { "id": "anim-idle", "name": "idle", "clipRef": "asset-hero-idle", "duration": 1.5, "loop": true }
+      ],
+      "gameStats": { "hp": 100, "speed": 5, "damage": 10, "defense": 2 },
+      "provenance": { "license": "CC-BY-4.0", "genProvider": "tripo3d" }
+    }
+  ],
+  "screens": [
+    {
+      "id": "main-menu",
+      "name": "Main Menu",
+      "kind": "main-menu",
+      "background": { "type": "color", "color": "#101820" },
+      "components": [
+        {
+          "id": "txt-title",
+          "kind": "Text",
+          "name": "Title",
+          "transform": { "position": { "x": 0, "y": 2.5, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "content": "Greybox Studio",
+          "font": "Inter",
+          "fontSize": 48,
+          "color": "#ffffff"
+        },
+        {
+          "id": "img-banner",
+          "kind": "Image",
+          "name": "Banner",
+          "transform": { "position": { "x": 0, "y": 1.5, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "assetRef": "asset-icon"
+        },
+        {
+          "id": "btn-play",
+          "kind": "Button",
+          "name": "Play",
+          "transform": { "position": { "x": 0, "y": 0, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "label": "Play",
+          "onClickEvent": "navigate.gameplay"
+        }
+      ]
+    },
+    {
+      "id": "gameplay",
+      "name": "Gameplay",
+      "kind": "gameplay",
+      "components": [
+        {
+          "id": "hero",
+          "kind": "Character3DRef",
+          "name": "Hero",
+          "transform": { "position": { "x": 0, "y": 0, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "characterRef": "char-hero",
+          "initialAnimation": "idle"
+        },
+        {
+          "id": "cam-main",
+          "kind": "Camera",
+          "name": "Main Camera",
+          "transform": { "position": { "x": 0, "y": 1.6, "z": -5 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "projection": "perspective",
+          "fov": 75,
+          "isMain": true
+        },
+        {
+          "id": "sun",
+          "kind": "Light",
+          "name": "Sun",
+          "transform": { "position": { "x": 0, "y": 10, "z": 0 }, "rotation": { "x": -45, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "lightType": "directional",
+          "color": "#fff4e0",
+          "intensity": 3,
+          "castsShadows": true
+        },
+        {
+          "id": "hp-bar",
+          "kind": "HUDBar",
+          "name": "HP",
+          "transform": { "position": { "x": -8, "y": 5, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "statKey": "hp",
+          "style": "bar"
+        },
+        {
+          "id": "spawn-1",
+          "kind": "Spawner",
+          "name": "Enemy spawner",
+          "transform": { "position": { "x": 10, "y": 0, "z": 5 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "prefabRef": "asset-hero-mesh",
+          "intervalSeconds": 3
+        },
+        {
+          "id": "trigger-end",
+          "kind": "Trigger",
+          "name": "End trigger",
+          "transform": { "position": { "x": 25, "y": 0, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 2, "y": 2, "z": 2 } },
+          "shape": "box",
+          "eventId": "level.completed"
+        },
+        {
+          "id": "checkpoint-1",
+          "kind": "Checkpoint",
+          "name": "Checkpoint 1",
+          "transform": { "position": { "x": 10, "y": 0, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "checkpointId": "cp1",
+          "heals": true
+        },
+        {
+          "id": "pickup-coin",
+          "kind": "Pickup",
+          "name": "Coin",
+          "transform": { "position": { "x": 5, "y": 1, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 1, "y": 1, "z": 1 } },
+          "grantStat": "score",
+          "amount": 1
+        },
+        {
+          "id": "hazard-pit",
+          "kind": "Hazard",
+          "name": "Pit",
+          "transform": { "position": { "x": 15, "y": -1, "z": 0 }, "rotation": { "x": 0, "y": 0, "z": 0 }, "scale": { "x": 4, "y": 1, "z": 4 } },
+          "damagePerSecond": 999,
+          "instakill": true
+        }
+      ]
+    }
+  ],
+  "flow": [
+    {
+      "id": "edge-play",
+      "from": "main-menu",
+      "to": "gameplay",
+      "trigger": { "type": "tap", "componentRef": "btn-play" }
+    }
+  ]
+}

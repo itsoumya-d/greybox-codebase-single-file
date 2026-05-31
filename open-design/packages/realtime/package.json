@@ -1,0 +1,65 @@
+{
+  "name": "@ai-game-design-studio/realtime",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "description": "Yjs collaboration primitives for AI Game Design Studio projects.",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./dist/client.mjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.mjs"
+    },
+    "./awareness": {
+      "types": "./dist/awareness.d.ts",
+      "default": "./dist/awareness.mjs"
+    },
+    "./protocol": {
+      "types": "./dist/protocol.d.ts",
+      "default": "./dist/protocol.mjs"
+    },
+    "./persistence": {
+      "types": "./dist/persistence.d.ts",
+      "default": "./dist/persistence.mjs"
+    },
+    "./conflict-resolver": {
+      "types": "./dist/conflict-resolver.d.ts",
+      "default": "./dist/conflict-resolver.mjs"
+    },
+    "./websocket-client": {
+      "types": "./dist/websocket-client.d.ts",
+      "default": "./dist/websocket-client.mjs"
+    }
+  },
+  "scripts": {
+    "build": "node ./esbuild.config.mjs && tsc -p tsconfig.json --emitDeclarationOnly",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json --noEmit"
+  },
+  "dependencies": {
+    "lib0": "^0.2.114",
+    "y-protocols": "^1.0.6",
+    "yjs": "^13.6.27"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.2",
+    "esbuild": "0.27.7",
+    "typescript": "6.0.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": "~24"
+  }
+}

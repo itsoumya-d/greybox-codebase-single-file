@@ -1,0 +1,22 @@
+{
+  "id": "fantasy-mmo-raid-hud",
+  "surface": "image",
+  "title": "Fantasy MMO Raid HUD",
+  "summary": "Raid HUD mockup with boss phases, party frames, mechanics, cooldowns, and combat readability.",
+  "category": "Game HUD",
+  "tags": [
+    "game",
+    "mmo",
+    "raid",
+    "hud",
+    "boss"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create a fantasy MMO raid HUD for {argument name=\"raid_name\" default=\"Crown of Embers\"}. Show boss health and phase timeline, party frames, tank warning, healer mana, cooldown trackers, debuff stack clarity, telegraphed raid mechanic, minimap, quest reminder, and accessible combat text scale. Use fantasy art direction while protecting readability under heavy VFX.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

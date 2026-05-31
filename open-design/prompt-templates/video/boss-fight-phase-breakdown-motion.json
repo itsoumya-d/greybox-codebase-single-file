@@ -1,0 +1,22 @@
+{
+  "id": "boss-fight-phase-breakdown-motion",
+  "surface": "video",
+  "title": "Boss Fight Phase Breakdown Motion",
+  "summary": "Animated explainer for boss phases, tells, hazards, and player recovery windows.",
+  "category": "Combat Design",
+  "tags": [
+    "game",
+    "boss",
+    "combat",
+    "motion",
+    "encounter"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a motion-graphics boss encounter breakdown for {argument name=\"boss_name\" default=\"The Glass Matriarch\"}. Show phase 1 teach, phase 2 pressure, phase 3 twist, attack tell close-ups, arena hazard timing, player recovery windows, dodge and parry cues, and reward reveal. Use clear timeline labels and avoid clutter so designers can review pacing.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

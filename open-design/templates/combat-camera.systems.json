@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "kind": "game-system",
+  "systemType": "combat",
+  "title": "Combat And Camera System Spec",
+  "pillars": [
+    "Readable pressure",
+    "Fair mastery",
+    "Responsive game feel",
+    "Production-feasible animation scope"
+  ],
+  "metrics": [
+    { "id": "time-to-master", "label": "Time To Master Core Verb", "target": "8 minutes", "risk": "medium" },
+    { "id": "readable-failure", "label": "Readable Failure Rate", "target": "90% explainable deaths", "risk": "high" },
+    { "id": "camera-comfort", "label": "Camera Comfort", "target": "< 3% motion sickness reports", "risk": "medium" }
+  ],
+  "loops": [
+    { "id": "core-loop", "name": "Combat Core Loop", "cadence": "30-90 seconds", "steps": ["scan", "commit", "execute", "recover", "upgrade"], "reward": "new route, loot, lore, or mastery tell" }
+  ],
+  "tuning": {
+    "difficultyScalar": 1,
+    "assistWindowMs": 180,
+    "cameraShakeScale": 0.65,
+    "hitstopMsLight": 45,
+    "hitstopMsHeavy": 90
+  },
+  "designTokens": {
+    "rarity_colors": {
+      "common": "oklch(78% 0.04 120)",
+      "rare": "oklch(70% 0.14 245)",
+      "legendary": "oklch(78% 0.18 70)"
+    },
+    "faction_palettes": {
+      "player": "oklch(72% 0.12 210)",
+      "ember_court": "oklch(58% 0.17 38)",
+      "rebel_scavengers": "oklch(62% 0.12 165)"
+    },
+    "biome_palettes": {
+      "storm_foundry": "oklch(24% 0.05 230)"
+    },
+    "danger_level_colors": {
+      "caution": "oklch(82% 0.15 85)",
+      "danger": "oklch(62% 0.18 35)",
+      "critical": "oklch(58% 0.22 25)"
+    },
+    "combat_feedback_colors": {
+      "hit": "oklch(72% 0.12 65)",
+      "crit": "oklch(82% 0.18 82)",
+      "parry": "oklch(86% 0.11 105)"
+    },
+    "healing_feedback_colors": {
+      "heal": "oklch(72% 0.15 145)",
+      "shield": "oklch(74% 0.12 220)"
+    },
+    "status_effect_colors": {
+      "burn": "oklch(64% 0.18 35)",
+      "stagger": "oklch(80% 0.13 85)",
+      "shielded": "oklch(72% 0.12 225)"
+    },
+    "cinematic_lighting_presets": {
+      "boss_intro": "Low-key amber rim light with readable silhouette",
+      "safe_room": "Soft top light with reduced contrast and no combat pulses"
+    },
+    "atmospheric_density_profiles": {
+      "foundry_clear": "Low haze for precision combat reads",
+      "hazard_warning": "Medium ember haze outside active telegraph zones"
+    },
+    "hitstop_profiles": {
+      "light": 45,
+      "heavy": 90,
+      "crit": 120
+    },
+    "dodge_timings": {
+      "startupMs": 80,
+      "iframesMs": 180,
+      "recoveryMs": 140
+    },
+    "recoil_profiles": {
+      "sidearm": "Short upward kick with fast return",
+      "heavy": "Strong camera impulse with reduced-motion fallback"
+    },
+    "camera_shake_patterns": {
+      "hit": "Small directional impulse",
+      "explosion": "Low-frequency falloff by distance"
+    },
+    "ui_transition_styles": {
+      "pause": "Immediate, stable, no decorative delay",
+      "victory": "Reward reveal with breathing room and next action"
+    },
+    "combat_feedback_timings": {
+      "parryFlashMs": 120,
+      "critNumberHoldMs": 360
+    },
+    "boss_intro_sequences": {
+      "phaseOne": "Silhouette reveal before control returns",
+      "phaseTwo": "Short music stem shift, arena light cue, new tell"
+    },
+    "loot_drop_animation_profiles": {
+      "rare": "Short arc, readable color frame, bright chime",
+      "legendary": "Short silence, orange reveal, signature sting"
+    },
+    "combat_intensity_layers": {
+      "ambient": "Exploration bed with no threat rhythm",
+      "boss": "Phase-aware stems with percussion escalation"
+    },
+    "ambient_zone_profiles": {
+      "safe_room": "Low drones, soft UI sounds, no danger pulses",
+      "storm_foundry": "Metal groans and distant vent pressure"
+    },
+    "rarity_audio_cues": {
+      "rare": "Bright chime",
+      "legendary": "Signature sting with short silence before reveal"
+    },
+    "emotional_music_states": {
+      "tense": "Sparse pulse with unresolved harmony",
+      "triumphant": "Short release cue after mastery"
+    },
+    "danger_alert_profiles": {
+      "unblockable": "Rising stinger plus HUD pulse",
+      "low_health": "Filtered heartbeat with accessibility-safe visual pair"
+    },
+    "rarityColors": {
+      "common": "oklch(78% 0.04 120)",
+      "rare": "oklch(70% 0.14 245)",
+      "legendary": "oklch(78% 0.18 70)"
+    },
+    "factionPalettes": {
+      "emberCourt": "oklch(58% 0.17 38)",
+      "rebelScavengers": "oklch(62% 0.12 165)"
+    },
+    "biomePalettes": {
+      "stormFoundry": "oklch(24% 0.05 230)"
+    },
+    "statusEffectColors": {
+      "burn": "oklch(64% 0.18 35)",
+      "stagger": "oklch(80% 0.13 85)",
+      "shielded": "oklch(72% 0.12 225)"
+    },
+    "motionProfiles": {
+      "lightHitstopMs": 45,
+      "heavyHitstopMs": 90,
+      "dodgeCancelWindowMs": 140
+    },
+    "audioCues": {
+      "parry": "bright metal snap plus low impact layer",
+      "danger": "short rising stinger before unblockable pressure",
+      "reward": "warm harmonic rise after shortcut unlock"
+    }
+  },
+  "risks": [
+    { "id": "animation-scope", "label": "Animation workload", "severity": "medium", "mitigation": "Limit launch weapon families and share anticipation poses." },
+    { "id": "feedback-overload", "label": "Feedback overload", "severity": "high", "mitigation": "Reserve brightest VFX for damage, healing, objective, and boss phase changes." }
+  ],
+  "benchmarks": [
+    { "id": "soulslike-readability", "game": "Soulslike leaders", "lesson": "Readable tells and recovery windows make difficulty feel fair.", "caution": "Do not copy specific attacks, UI, or boss identities." }
+  ],
+  "feasibility": {
+    "teamSize": "2-5 developers",
+    "timeline": "6-10 week vertical slice",
+    "complexity": "indie",
+    "constraints": [
+      "Reuse animation state machine clips",
+      "Keep telemetry lightweight for v1",
+      "Ship reduced motion and camera shake sliders"
+    ]
+  },
+  "production": {
+    "milestone": "Vertical slice combat encounter with one captain, one hazard, and one shortcut reward.",
+    "assetBudget": "One hero rig, one captain rig, two shared enemy silhouettes, one foundry kit, three VFX families.",
+    "qaFocus": [
+      "Readable failure reasons",
+      "Camera comfort on controller and mouse",
+      "No reward inflation from replay variants"
+    ],
+    "engineNotes": [
+      "Unreal: block out camera and combat timing in Blueprint before C++ optimization.",
+      "Unity: keep combat reactions modular for mobile/PC build targets.",
+      "Godot: use lightweight animation trees and authored encounter variants."
+    ],
+    "scalingVariants": [
+      { "scale": "solo", "tradeoff": "One arena, one weapon family, no networking." },
+      { "scale": "indie", "tradeoff": "Three encounters and one boss phase with shared animation sets." },
+      { "scale": "AA", "tradeoff": "Multiple factions, telemetry tuning, and procedural replay modifiers." },
+      { "scale": "AAA", "tradeoff": "Full cinematic combat pipeline with dedicated camera, animation, VFX, and audio teams." }
+    ]
+  },
+  "telemetry": [
+    {
+      "id": "death-readability",
+      "signal": "post-death reason selection and combat event log",
+      "designQuestion": "Do players understand why they failed before retrying?",
+      "action": "Improve telegraph, HUD state, or camera framing before increasing stats."
+    },
+    {
+      "id": "reward-repeat",
+      "signal": "retry rate after shortcut unlock",
+      "designQuestion": "Does the reward cadence create healthy one-more-run motivation?",
+      "action": "Tune cache value, faction reputation, and replay modifier visibility."
+    }
+  ],
+  "iterationGoals": [
+    "Reduce camera occlusion before adding enemy count.",
+    "Make parry and dodge windows readable through animation, VFX, audio, and haptics.",
+    "Keep the vertical slice small enough for weekly playtest builds."
+  ],
+  "ethics": [
+    "No pay-to-win combat tuning.",
+    "Assist modes preserve reward eligibility.",
+    "Retention hooks must explain their value and avoid punishment for missed sessions."
+  ],
+  "platformAdaptation": [
+    {
+      "platform": "mobile",
+      "input": "one-thumb dodge plus contextual attack assist",
+      "performance": "reduced VFX particle counts and baked lighting",
+      "readability": "larger telegraph shapes and simplified HUD"
+    },
+    {
+      "platform": "PC",
+      "input": "keyboard/mouse precision with remappable combat verbs",
+      "performance": "scalable shadows, VFX density, and ultrawide HUD bounds",
+      "readability": "high-refresh timing validation"
+    },
+    {
+      "platform": "console",
+      "input": "controller-first lock-on, radial item select, haptic tells",
+      "performance": "stable frame pacing over peak VFX density",
+      "readability": "10-foot HUD scale and focus-safe menus"
+    }
+  ],
+  "accessibility": [
+    "Remappable controls",
+    "Reduced motion camera shake",
+    "Subtitle and audio cue pairing",
+    "Readable HUD scaling"
+  ],
+  "playtestQuestions": [
+    "Do players understand why they failed?",
+    "Which reward beat makes them want one more attempt?",
+    "Does the camera ever hide the next threat?"
+  ]
+}

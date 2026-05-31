@@ -1,0 +1,66 @@
+{
+  "title": "Top-Down Roguelike Floor Board",
+  "rooms": [
+    {
+      "id": "room_entry",
+      "name": "Entry Room",
+      "position": { "x": -8, "y": 0, "z": 0 },
+      "radius": 2
+    },
+    {
+      "id": "room_reward_left",
+      "name": "Optional Shrine Room",
+      "position": { "x": -6, "y": -5, "z": 0 },
+      "radius": 2.25
+    },
+    {
+      "id": "room_key",
+      "name": "Key Cache Room",
+      "position": { "x": 4, "y": 6, "z": 0 },
+      "radius": 2.5
+    },
+    {
+      "id": "room_boss_gate",
+      "name": "Boss Gate Room",
+      "position": { "x": 14, "y": -2, "z": 0 },
+      "radius": 3
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc_swarm",
+      "name": "Skirmisher Pack",
+      "position": { "x": 6, "y": 2, "z": 0 },
+      "radius": 1.5
+    },
+    {
+      "id": "enc_trap_lane",
+      "name": "Trap Lane Read",
+      "position": { "x": 10, "y": 3, "z": 0 },
+      "radius": 1.8
+    },
+    {
+      "id": "enc_elite_guardian",
+      "name": "Elite Guardian Gate",
+      "position": { "x": 12, "y": -4, "z": 0 },
+      "radius": 1.2
+    }
+  ],
+  "grid": {
+    "cellSize": { "x": 1, "y": 1, "z": 1 },
+    "collision": true,
+    "tiles": [
+      { "id": "entry_floor", "position": { "x": -8, "y": 0, "z": 0 }, "type": "floor", "color": "#5C6166" },
+      { "id": "entry_door", "position": { "x": -6, "y": 0, "z": 0 }, "type": "door", "color": "#FF6B35" },
+      { "id": "shrine_floor", "position": { "x": -6, "y": -5, "z": 0 }, "type": "shrine", "color": "#3CC2E0" },
+      { "id": "key_cache", "position": { "x": 4, "y": 6, "z": 0 }, "type": "reward", "color": "#F4C95D" },
+      { "id": "trap_lane_00", "position": { "x": 9, "y": 3, "z": 0 }, "type": "trap", "color": "#E94B3C" },
+      { "id": "trap_lane_01", "position": { "x": 10, "y": 3, "z": 0 }, "type": "trap", "color": "#E94B3C" },
+      { "id": "boss_gate", "position": { "x": 14, "y": -2, "z": 0 }, "type": "gate", "color": "#1A1A1F" }
+    ]
+  },
+  "notes": [
+    "AI-assisted sample artifact. Human designer credit: Mira Designer.",
+    "Designed to validate roguelike room pacing, encounter markers, and round-trip board edits."
+  ]
+}

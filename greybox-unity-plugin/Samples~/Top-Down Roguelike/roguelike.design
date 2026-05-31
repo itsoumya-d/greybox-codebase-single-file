@@ -1,0 +1,24 @@
+# Greybox Top-Down Roguelike Art Bible
+
+Generator credit: Greybox + Mira Designer. AI-assisted, human-directed.
+
+## Pillars
+
+- Every room has one readable tactical question.
+- Rewards are visible before danger is fully solved.
+- Boss-door pressure rises through narrower paths and higher contrast.
+
+## Palette
+
+- Dungeon Ink: #1A1A1F
+- Floor Ash: #5C6166
+- Torch Spark: #FF6B35
+- Poison Green: #2ECC71
+- Key Gold: #F4C95D
+- Trap Red: #E94B3C
+- Rune Cyan: #3CC2E0
+
+## Materials
+
+Prefer square silhouettes, bright item accents, and enemy materials that remain
+readable over dark floor tiles at 70 percent zoom.

@@ -1,0 +1,22 @@
+{
+  "id": "horror-puzzle-tension-sequence",
+  "surface": "video",
+  "title": "Horror Puzzle Tension Sequence",
+  "summary": "Cinematic puzzle sequence for horror survival with clue discovery, threat audio, and safe-room relief.",
+  "category": "Narrative Trailer",
+  "tags": [
+    "game",
+    "horror",
+    "puzzle",
+    "cinematic",
+    "tension"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a 10-second cinematic gameplay sequence for {argument name=\"game_title\" default=\"Stillwater Recital\"}. Beat through candle-lit clue discovery, inventory item combine, distant sound cue, shadow passing behind frosted glass, timed puzzle input, door latch release, sudden silence, and safe-room light. Track emotional tension and release, subtitle placement, and audio accessibility cues.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

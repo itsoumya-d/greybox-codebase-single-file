@@ -1,0 +1,103 @@
+{
+  "name": "@ai-game-design-studio/contracts",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared pure TypeScript contracts for the AI Game Design Studio web/daemon boundary.",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./api/connectionTest": {
+      "types": "./dist/api/connectionTest.d.ts",
+      "default": "./dist/api/connectionTest.mjs"
+    },
+    "./api/orbit": {
+      "types": "./dist/api/orbit.d.ts",
+      "default": "./dist/api/orbit.mjs"
+    },
+    "./api/product-analytics": {
+      "types": "./dist/api/product-analytics.d.ts",
+      "default": "./dist/api/product-analytics.mjs"
+    },
+    "./api/pro-modules": {
+      "types": "./dist/api/pro-modules.d.ts",
+      "default": "./dist/api/pro-modules.mjs"
+    },
+    "./api/finalize": {
+      "types": "./dist/api/finalize.d.ts",
+      "default": "./dist/api/finalize.mjs"
+    },
+    "./api/providerModels": {
+      "types": "./dist/api/providerModels.d.ts",
+      "default": "./dist/api/providerModels.mjs"
+    },
+    "./api/projects": {
+      "types": "./dist/api/projects.d.ts",
+      "default": "./dist/api/projects.mjs"
+    },
+    "./api/files": {
+      "types": "./dist/api/files.d.ts",
+      "default": "./dist/api/files.mjs"
+    },
+    "./api/marketplace": {
+      "types": "./dist/api/marketplace.d.ts",
+      "default": "./dist/api/marketplace.mjs"
+    },
+    "./game-telemetry-sdk": {
+      "types": "./dist/game-telemetry-sdk.d.ts",
+      "default": "./dist/game-telemetry-sdk.mjs"
+    },
+    "./api/research": {
+      "types": "./dist/api/research.d.ts",
+      "default": "./dist/api/research.mjs"
+    },
+    "./media/models": {
+      "types": "./dist/media/models.d.ts",
+      "default": "./dist/media/models.mjs"
+    },
+    "./game-studio": {
+      "types": "./dist/game-studio.d.ts",
+      "default": "./dist/game-studio.mjs"
+    },
+    "./prompts/system": {
+      "types": "./dist/prompts/system.d.ts",
+      "default": "./dist/prompts/system.mjs"
+    },
+    "./prompts/discovery": {
+      "types": "./dist/prompts/discovery.d.ts",
+      "default": "./dist/prompts/discovery.mjs"
+    },
+    "./prompts/directions": {
+      "types": "./dist/prompts/directions.d.ts",
+      "default": "./dist/prompts/directions.mjs"
+    },
+    "./prompts/media-contract": {
+      "types": "./dist/prompts/media-contract.d.ts",
+      "default": "./dist/prompts/media-contract.mjs"
+    },
+    "./critique": {
+      "types": "./dist/critique.d.ts",
+      "default": "./dist/critique.mjs"
+    }
+  },
+  "scripts": {
+    "build": "node ./esbuild.config.mjs && tsc -p tsconfig.json --emitDeclarationOnly",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.7",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

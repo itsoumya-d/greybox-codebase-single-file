@@ -1,0 +1,24 @@
+{
+  "id": "narrative-rpg-soul-switching-cutscene",
+  "surface": "video",
+  "title": "Narrative RPG Soul Switching Cutscene",
+  "summary": "Branching narrative RPG cutscene prompt for a soul-switching event, with dialogue-state setup, faction reaction, and playable objective handoff.",
+  "category": "Narrative Cutscene",
+  "tags": [
+    "game",
+    "narrative",
+    "rpg",
+    "dialogue",
+    "cutscene",
+    "faction"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 16 second in-engine narrative RPG cutscene for a soul-switching quest. The cutscene must support branching story state, faction reaction, and the next playable objective.\n\n0-4s: Opening mystery. In a rain-soaked palace courtyard, the player character reaches toward a glowing water mirror. Dialogue subtitle space stays clear, and the codex icon flashes Mirror Rite.\n\n4-8s: Soul switch event. The mirror surface shatters into blue particles. Camera cuts from fingers to eyes as the player's soul switches with the crown prince. Use clean VFX layers so the body-swap is understandable.\n\n8-12s: Living as the prince. The player awakens in the throne room. Nobles bow, guards watch suspiciously, and faction reputation icons shift to uncertain.\n\n12-16s: Consequence handoff. A dialogue choice UI appears: maintain disguise, reveal truth, or investigate the mirror. End on playable camera behind the prince's body with objective: Survive the royal audience.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Soulful Ai",
+    "url": "https://x.com/soulful__ai/status/2049094162134532477"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "@greybox/schema",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Canonical Greybox Studio cross-engine game project schema. Zod validators + inferred TypeScript types + JSON Schema emission.",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./game-project": {
+      "types": "./dist/game-project.d.ts",
+      "default": "./dist/game-project.js"
+    },
+    "./screen": {
+      "types": "./dist/screen.d.ts",
+      "default": "./dist/screen.js"
+    },
+    "./component": {
+      "types": "./dist/component.d.ts",
+      "default": "./dist/component.js"
+    },
+    "./flow": {
+      "types": "./dist/flow.d.ts",
+      "default": "./dist/flow.js"
+    },
+    "./character": {
+      "types": "./dist/character.d.ts",
+      "default": "./dist/character.js"
+    },
+    "./asset": {
+      "types": "./dist/asset.d.ts",
+      "default": "./dist/asset.js"
+    },
+    "./export-policy": {
+      "types": "./dist/export-policy.d.ts",
+      "default": "./dist/export-policy.js"
+    },
+    "./art": {
+      "types": "./dist/art.d.ts",
+      "default": "./dist/art.js"
+    },
+    "./meta": {
+      "types": "./dist/meta.d.ts",
+      "default": "./dist/meta.js"
+    },
+    "./ids": {
+      "types": "./dist/ids.d.ts",
+      "default": "./dist/ids.js"
+    },
+    "./version": {
+      "types": "./dist/version.d.ts",
+      "default": "./dist/version.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run -c vitest.config.ts",
+    "test:coverage": "vitest run -c vitest.config.ts --coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": "~24"
+  }
+}

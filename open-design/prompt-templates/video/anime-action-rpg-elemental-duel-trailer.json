@@ -1,0 +1,25 @@
+{
+  "id": "anime-action-rpg-elemental-duel-trailer",
+  "surface": "video",
+  "title": "Anime Action RPG Elemental Duel Trailer",
+  "summary": "Action RPG duel trailer prompt for water versus thunder techniques, with telegraphs, counterplay windows, VFX readability, and no-gore spectacle.",
+  "category": "Action RPG Trailer",
+  "tags": [
+    "game",
+    "action-rpg",
+    "combat",
+    "trailer",
+    "anime",
+    "vfx"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 15 second combat trailer for an anime action RPG boss duel: Water Form versus Thunder Form. The trailer must read like gameplay capture with cinematic polish, not a film adaptation.\n\n0-5s: Player swordsman in green-black haori lowers stance in a moonlit forest arena. Blue water-dragon VFX coils around the blade. Show the boss lock-on reticle, stamina bar, and a clear wind-up telegraph.\n\n5-10s: Rival thunder swordsman dashes in with golden lightning. Use fast cuts only after the telegraph is readable. Show dodge timing, parry flash, short hitstop, and elemental clash without gore.\n\n10-13s: The player executes a perfect counter. Water arc splits the lightning path, camera shakes briefly, and damage numbers appear as optional trailer UI.\n\n13-15s: Both fighters reset at opposite sides of the arena, boss phase marker shifts to PHASE 2, and the soundtrack rises. End on readable combat spacing and strong replay value.",
+  "previewVideoUrl": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts/releases/download/videos/189.mp4",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "John",
+    "url": "https://x.com/johnAGI168/status/2021610292979876208"
+  }
+}

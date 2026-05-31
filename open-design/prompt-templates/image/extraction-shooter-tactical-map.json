@@ -1,0 +1,22 @@
+{
+  "id": "extraction-shooter-tactical-map",
+  "surface": "image",
+  "title": "Extraction Shooter Tactical Map",
+  "summary": "Top-down encounter map for an extraction shooter with spawn logic, loot pressure, PvPvE routes, and extraction risk.",
+  "category": "Level Design",
+  "tags": [
+    "game",
+    "extraction-shooter",
+    "map",
+    "pvpve",
+    "tactical"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Design a top-down tactical map board for {argument name=\"game_title\" default=\"Blackline Meridian\"}, an extraction shooter. Include player spawn zones, enemy patrol sectors, faction-held compounds, high-value loot rooms, environmental hazards, cover density, sound-risk zones, extraction points, alternate stealth routes, and late-session pressure events. Use clear legend colors for risk, reward, sightlines, and choke points. Make the layout production-ready for a level design review.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

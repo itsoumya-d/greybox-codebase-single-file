@@ -1,0 +1,18 @@
+{
+  "name": "@greybox-studio/unreal-plugin",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "description": "Closed-core Greybox Unreal plugin foundation for AI-assisted game-design import, round-trip sync, and MCP bridge.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "release:readiness": "node Validation/release-readiness.mjs --output Validation/artifacts/release-readiness.json",
+    "validate": "node Validation/validate-unreal-plugin.mjs",
+    "test": "node --test Validation/*.test.mjs Validation/scripts/*.test.mjs",
+    "test:import": "node Validation/scripts/test-import.mjs"
+  },
+  "engines": {
+    "node": ">=24.0.0 <27.0.0"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

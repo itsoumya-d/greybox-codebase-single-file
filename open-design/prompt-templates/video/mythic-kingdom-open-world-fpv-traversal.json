@@ -1,0 +1,24 @@
+{
+  "id": "mythic-kingdom-open-world-fpv-traversal",
+  "surface": "video",
+  "title": "Mythic Kingdom Open World FPV Traversal",
+  "summary": "Open-world traversal preview prompt for a mythic kingdom zone, focused on biome readability, level routes, landmarks, and engine-friendly camera motion.",
+  "category": "World Design Trailer",
+  "tags": [
+    "game",
+    "open-world",
+    "level-design",
+    "biome",
+    "traversal",
+    "camera"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a fast FPV traversal preview for an open-world action RPG zone inspired by an ancient mythic kingdom. Treat the camera as a level design review tool, not a tourism reel: every shot should reveal playable routes, landmarks, traversal gates, and environmental storytelling.\n\nStart above dense sal and teak forest, dive toward a river crossing that marks the player route, skim over tribal settlements and ashram safe zones, then bank hard around ruined temples covered in vines. Include climbable ledges, shortcut arches, hidden cave entrances, encounter clearings, and a distant fortress landmark that anchors navigation.\n\nVisual direction: warm earth palette, volumetric sunlight, readable silhouettes, realistic terrain scale, streaming-friendly asset density, and stable camera turns that avoid motion sickness. End on a wide game-world frame showing three future objectives: temple dungeon, jungle biome route, and faction-held cliff gate.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Shushant Lakhyani",
+    "url": "https://x.com/shushant_l/status/2049141805233672529"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "onboardingCompleted": true,
+  "agentId": "claude",
+  "gameSkillId": null,
+  "gameArtBibleId": "arcade-neon",
+  "orbit": {
+    "enabled": false,
+    "time": "08:00",
+    "templateSkillId": "orbit-general"
+  },
+  "installationId": null,
+  "telemetry": {
+    "metrics": false,
+    "content": false,
+    "artifactManifest": false
+  },
+  "privacyDecisionAt": 1778805720996
+}

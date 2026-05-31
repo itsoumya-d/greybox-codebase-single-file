@@ -1,0 +1,22 @@
+{
+  "id": "mmo-raid-mechanic-explainer",
+  "surface": "video",
+  "title": "MMO Raid Mechanic Explainer",
+  "summary": "Raid mechanic explainer for telegraphs, roles, phases, cooldown sync, and accessibility cues.",
+  "category": "Raid Design",
+  "tags": [
+    "game",
+    "mmo",
+    "raid",
+    "mechanic",
+    "hud"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a 10-second raid mechanic explainer for {argument name=\"raid_name\" default=\"The Aurora Engine\"}. Animate boss phase timeline, tank swap marker, healer burst window, safe zones, debuff spread, stack marker, enrage warning, cooldown sync, and accessible color and audio cues. Make it readable for players and useful for encounter designers.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

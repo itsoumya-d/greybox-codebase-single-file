@@ -1,0 +1,9 @@
+Binaries/
+DerivedDataCache/
+Intermediate/
+node_modules/
+Saved/
+.vs/
+.idea/
+.DS_Store
+*.log

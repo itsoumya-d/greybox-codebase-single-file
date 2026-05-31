@@ -1,0 +1,24 @@
+{
+  "id": "magic-academy-rpg-awakening-cutscene",
+  "surface": "video",
+  "title": "Magic Academy RPG Awakening Cutscene",
+  "summary": "Narrative RPG cutscene prompt for a magic-academy awakening quest, with faction setup, tutorialization, duel escalation, and quest handoff.",
+  "category": "Narrative RPG Cutscene",
+  "tags": [
+    "game",
+    "rpg",
+    "narrative",
+    "quest",
+    "cutscene",
+    "magic"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 20 second in-engine cutscene for a narrative RPG set at a floating magic academy. The sequence should introduce the player character's forbidden core, establish academy faction tension, and hand off into a tutorial duel.\n\n0-4s: Arrival. The academy floats above storm cliffs, runes circling its towers. The player character enters the gate. Keep the main path, quest marker, and gate scale readable.\n\n4-8s: Forbidden core reveal. In the grand hall, other students channel elements. The player's sealed core reacts with dark energy, but she remains standing. Masters exchange worried looks; faction icons briefly identify three schools.\n\n8-12s: Soul-binding lesson. Chains of light connect students to magical entities. The player absorbs a forbidden spell safely. Show codex unlock: Core Anomaly.\n\n12-16s: Duel escalation. Rival student challenges the player. Tutorial UI appears for shield, dodge, and counterspell timing.\n\n16-20s: The duel arena forms from floating classroom tiles. End on playable camera behind the player with objective: Survive the first lesson.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Soulful Ai",
+    "url": "https://x.com/soulful__ai/status/2049186700199620777"
+  }
+}

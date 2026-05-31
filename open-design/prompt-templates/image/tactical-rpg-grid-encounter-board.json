@@ -1,0 +1,22 @@
+{
+  "id": "tactical-rpg-grid-encounter-board",
+  "surface": "image",
+  "title": "Tactical RPG Grid Encounter Board",
+  "summary": "Isometric tactical encounter board with cover, enemy roles, turn order, and objective pressure.",
+  "category": "Encounter Design",
+  "tags": [
+    "game",
+    "tactical-rpg",
+    "encounter",
+    "grid",
+    "isometric"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "4:3",
+  "prompt": "Create an isometric tactical RPG encounter board for {argument name=\"mission_name\" default=\"Bridge of Oaths\"}. Show grid tiles, cover values, elevation, enemy archetypes, objective markers, turn order UI, skill range preview, status effects, reinforcements, and risk-reward loot. Include notes for AI behavior, player recovery windows, and camera framing.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

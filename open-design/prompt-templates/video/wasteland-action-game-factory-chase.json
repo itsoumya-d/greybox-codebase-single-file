@@ -1,0 +1,24 @@
+{
+  "id": "wasteland-action-game-factory-chase",
+  "surface": "video",
+  "title": "Wasteland Action Game Factory Chase",
+  "summary": "Action game trailer prompt for a wasteland chase encounter, with traversal beats, enemy drones, vehicle readability, and objective handoff.",
+  "category": "Action Game Trailer",
+  "tags": [
+    "game",
+    "action",
+    "traversal",
+    "vehicle",
+    "encounter",
+    "trailer"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 12 second gameplay trailer beat for a wasteland action game encounter. The player is a rebel rider chasing a walking industrial factory across a desert biome.\n\n0-3s: Ultra-wide game-world frame. A gigantic factory on mechanical legs crosses the horizon like a moving dungeon. Objective marker: Board the crawler before sunset.\n\n3-6s: Chase camera beside the player's hoverbike. Sand, scrap debris, and lane hazards telegraph dodges. The bike HUD shows boost, armor, and grapple cooldown.\n\n6-9s: Defense drones launch from the factory. The player jumps from bike to drone, smashes it, and uses the falling wreck as a traversal step.\n\n9-12s: The player lands on the factory hull. Camera pulls back to reveal climb routes, turret arcs, and the next checkpoint. Final frame: the walking machine blocks the sun, boss-health-style structure meter appearing at the top.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Alexandra Aisling",
+    "url": "https://x.com/AllaAisling/status/2049132779288322134"
+  }
+}

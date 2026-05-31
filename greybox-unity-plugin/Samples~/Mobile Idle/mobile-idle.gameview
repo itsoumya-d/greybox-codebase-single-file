@@ -1,0 +1,72 @@
+{
+  "title": "Greybox Mobile Idle First Session",
+  "engineTarget": "Unity Mobile",
+  "camera": {
+    "mode": "portrait",
+    "orthographicSize": 6
+  },
+  "actors": [
+    {
+      "id": "player_manager",
+      "name": "Player Manager",
+      "role": "avatar",
+      "position": { "x": 0, "y": -3, "z": 0 },
+      "radius": 0.55
+    },
+    {
+      "id": "station_farm",
+      "name": "Starter Farm Station",
+      "role": "generator",
+      "position": { "x": -2, "y": 1, "z": 0 },
+      "radius": 1
+    },
+    {
+      "id": "station_kitchen",
+      "name": "Kitchen Upgrade Station",
+      "role": "generator",
+      "position": { "x": 2, "y": 1, "z": 0 },
+      "radius": 1
+    },
+    {
+      "id": "delivery_cart",
+      "name": "Delivery Cart",
+      "role": "automation",
+      "position": { "x": 0, "y": 4, "z": 0 },
+      "radius": 0.8
+    }
+  ],
+  "spawnPoints": [
+    {
+      "id": "session_start",
+      "name": "Session Start",
+      "position": { "x": 0, "y": -4, "z": 0 },
+      "radius": 0.6
+    }
+  ],
+  "objectives": [
+    {
+      "id": "first_upgrade",
+      "name": "Buy First Upgrade",
+      "position": { "x": -2, "y": 2.2, "z": 0 },
+      "radius": 0.7
+    },
+    {
+      "id": "unlock_delivery",
+      "name": "Unlock Delivery Cart",
+      "position": { "x": 0, "y": 4, "z": 0 },
+      "radius": 0.8
+    }
+  ],
+  "hazards": [
+    {
+      "id": "ad_offer_pressure",
+      "name": "Rewarded Ad Offer Pressure",
+      "position": { "x": 2.5, "y": -2.5, "z": 0 },
+      "radius": 0.8
+    }
+  ],
+  "notes": [
+    "AI-assisted sample artifact. Human designer credit: Noor Designer.",
+    "Designed to validate portrait HUD import, economy-loop markers, and mobile live-ops pacing."
+  ]
+}

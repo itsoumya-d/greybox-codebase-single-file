@@ -1,0 +1,363 @@
+{
+  "schemaVersion": "1.0.0",
+  "meta": {
+    "id": "proj-sample-godot",
+    "name": "Greybox Godot Sample",
+    "version": "0.1.0",
+    "genre": "action",
+    "targetEngines": ["godot"],
+    "platforms": ["windows", "mac"]
+  },
+  "art": {
+    "palette": {
+      "name": "default",
+      "colors": [
+        { "role": "primary", "hex": "#3a4cff" },
+        { "role": "secondary", "hex": "#2bc28d" }
+      ]
+    },
+    "typography": {
+      "styles": [
+        { "role": "body", "family": "Inter", "size": 16, "weight": 400, "lineHeight": 1.4 }
+      ]
+    },
+    "materials": []
+  },
+  "exportPolicy": {
+    "unity": { "renderPipeline": "urp", "inputSystem": "new", "scriptingBackend": "il2cpp" },
+    "unreal": { "engineVersion": "5.5", "inputSystem": "enhanced" },
+    "godot": { "engineVersion": "4.4", "renderer": "forward+" }
+  },
+  "assets": [
+    {
+      "id": "asset-icon",
+      "type": "png",
+      "uri": "assets/icon.png",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sizeBytes": 16,
+      "name": "icon",
+      "provenance": { "license": "CC0-1.0", "source": "human" }
+    },
+    {
+      "id": "asset-hero-mesh",
+      "type": "gltf",
+      "uri": "assets/character.glb",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sizeBytes": 32,
+      "name": "hero-mesh",
+      "provenance": { "license": "CC-BY-4.0", "source": "tripo3d" }
+    }
+  ],
+  "characters": [
+    {
+      "id": "char-hero",
+      "name": "Hero",
+      "meshRef": "asset-hero-mesh",
+      "rig": {
+        "joints": [
+          { "name": "mixamorig:Hips", "parent": null },
+          { "name": "mixamorig:Spine", "parent": "mixamorig:Hips" }
+        ]
+      },
+      "animations": [
+        { "id": "anim-idle", "name": "idle", "clipRef": "asset-hero-mesh", "duration": 1.2, "loop": true },
+        { "id": "anim-run", "name": "run", "clipRef": "asset-hero-mesh", "duration": 0.8, "loop": true }
+      ],
+      "gameStats": { "hp": 100, "speed": 5, "damage": 12, "defense": 3 },
+      "provenance": { "genProvider": "tripo3d", "license": "CC-BY-4.0" }
+    }
+  ],
+  "screens": [
+    {
+      "id": "scr-main-menu",
+      "name": "Main Menu",
+      "kind": "main-menu",
+      "background": { "type": "color", "color": "#101220" },
+      "components": [
+        {
+          "id": "cmp-title",
+          "name": "TitleLabel",
+          "kind": "Text",
+          "transform": {
+            "position": { "x": 200, "y": 80, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "content": "Greybox Sample",
+          "fontSize": 48,
+          "color": "#ffffff"
+        },
+        {
+          "id": "cmp-play",
+          "name": "PlayButton",
+          "kind": "Button",
+          "transform": {
+            "position": { "x": 200, "y": 200, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "label": "Play",
+          "onClickEvent": "start-game"
+        },
+        {
+          "id": "cmp-icon",
+          "name": "IconImage",
+          "kind": "Image",
+          "transform": {
+            "position": { "x": 60, "y": 80, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "assetRef": "asset-icon"
+        },
+        {
+          "id": "cmp-menu",
+          "name": "MainMenuList",
+          "kind": "MenuList",
+          "transform": {
+            "position": { "x": 200, "y": 280, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "items": [
+            { "id": "mi-new", "label": "New Game", "event": "menu-new" },
+            { "id": "mi-options", "label": "Options", "event": "menu-options" }
+          ]
+        },
+        {
+          "id": "cmp-textinput",
+          "name": "PlayerNameInput",
+          "kind": "TextInput",
+          "transform": {
+            "position": { "x": 200, "y": 380, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "placeholder": "Player name",
+          "maxLength": 32,
+          "inputType": "text"
+        },
+        {
+          "id": "cmp-progress",
+          "name": "LoadingBar",
+          "kind": "ProgressBar",
+          "transform": {
+            "position": { "x": 200, "y": 460, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "min": 0,
+          "max": 1,
+          "value": 0.25
+        },
+        {
+          "id": "cmp-hud",
+          "name": "HealthBar",
+          "kind": "HUDBar",
+          "transform": {
+            "position": { "x": 20, "y": 20, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "statKey": "hp",
+          "style": "bar"
+        },
+        {
+          "id": "cmp-container",
+          "name": "FooterPanel",
+          "kind": "Container",
+          "transform": {
+            "position": { "x": 0, "y": 540, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "layout": "stack-horizontal",
+          "gap": 8
+        }
+      ],
+      "notes": "Sample menu using every UI component kind."
+    },
+    {
+      "id": "scr-gameplay",
+      "name": "Gameplay",
+      "kind": "gameplay",
+      "components": [
+        {
+          "id": "cmp-hero-ref",
+          "name": "HeroRef",
+          "kind": "Character3DRef",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "characterRef": "char-hero",
+          "initialAnimation": "idle"
+        },
+        {
+          "id": "cmp-go",
+          "name": "Cube",
+          "kind": "GameObject",
+          "transform": {
+            "position": { "x": 2, "y": 0, "z": 2 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "prefabRef": "asset-icon"
+        },
+        {
+          "id": "cmp-spawn",
+          "name": "EnemySpawner",
+          "kind": "Spawner",
+          "transform": {
+            "position": { "x": -4, "y": 0, "z": 4 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "prefabRef": "asset-icon",
+          "intervalSeconds": 3.0,
+          "maxAlive": 4
+        },
+        {
+          "id": "cmp-trigger",
+          "name": "DoorTrigger",
+          "kind": "Trigger",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": -5 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 2, "y": 2, "z": 2 }
+          },
+          "visible": true,
+          "shape": "box",
+          "eventId": "door-open",
+          "oneShot": false
+        },
+        {
+          "id": "cmp-pickup",
+          "name": "HealthPotion",
+          "kind": "Pickup",
+          "transform": {
+            "position": { "x": 1, "y": 0, "z": 1 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "grantStat": "hp",
+          "amount": 25,
+          "respawn": true,
+          "respawnSeconds": 12
+        },
+        {
+          "id": "cmp-hazard",
+          "name": "LavaPool",
+          "kind": "Hazard",
+          "transform": {
+            "position": { "x": -2, "y": 0, "z": -2 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "damagePerSecond": 10,
+          "instakill": false
+        },
+        {
+          "id": "cmp-checkpoint",
+          "name": "Checkpoint1",
+          "kind": "Checkpoint",
+          "transform": {
+            "position": { "x": 5, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "checkpointId": "cp-1",
+          "heals": true
+        },
+        {
+          "id": "cmp-camera",
+          "name": "MainCamera",
+          "kind": "Camera",
+          "transform": {
+            "position": { "x": 0, "y": 2, "z": -6 },
+            "rotation": { "x": 12, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "projection": "perspective",
+          "fov": 60,
+          "isMain": true
+        },
+        {
+          "id": "cmp-light",
+          "name": "Sun",
+          "kind": "Light",
+          "transform": {
+            "position": { "x": 0, "y": 5, "z": 0 },
+            "rotation": { "x": -45, "y": 30, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "lightType": "directional",
+          "color": "#fff5d4",
+          "intensity": 1.2,
+          "castsShadows": true
+        },
+        {
+          "id": "cmp-particle",
+          "name": "Sparks",
+          "kind": "Particle",
+          "transform": {
+            "position": { "x": 0, "y": 1, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "effectRef": "asset-icon",
+          "autoPlay": true,
+          "loop": true
+        },
+        {
+          "id": "cmp-audio",
+          "name": "AmbientLoop",
+          "kind": "AudioSource",
+          "transform": {
+            "position": { "x": 0, "y": 1, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "clipRef": "asset-icon",
+          "volume": 0.75,
+          "loop": true,
+          "spatial": false,
+          "autoPlay": true
+        }
+      ]
+    }
+  ],
+  "flow": [
+    {
+      "id": "flow-play",
+      "from": "scr-main-menu",
+      "to": "scr-gameplay",
+      "trigger": { "type": "tap", "componentRef": "cmp-play" }
+    },
+    {
+      "id": "flow-event",
+      "from": "scr-gameplay",
+      "to": "scr-main-menu",
+      "trigger": { "type": "scriptEvent", "eventId": "door-open" }
+    }
+  ]
+}

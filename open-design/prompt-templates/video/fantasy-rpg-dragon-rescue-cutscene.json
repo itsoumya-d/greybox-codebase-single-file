@@ -1,0 +1,24 @@
+{
+  "id": "fantasy-rpg-dragon-rescue-cutscene",
+  "surface": "video",
+  "title": "Fantasy RPG Dragon Rescue Cutscene",
+  "summary": "In-engine quest cutscene prompt for a fantasy RPG rescue beat, with player objective clarity, dragon ally reveal, VFX timing, and safe cinematic framing.",
+  "category": "Quest Cutscene",
+  "tags": [
+    "game",
+    "rpg",
+    "quest",
+    "cutscene",
+    "dragon",
+    "vfx"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Design a 15 second in-engine cutscene for a fantasy RPG quest titled Guardian Beneath the Rain. The sequence must sell the player objective, the dragon ally reveal, and the emotional relief beat while staying HUD-safe for subtitle and quest-update overlays.\n\n0-3s: Wide gameplay camera tracks through a flooded village alley. The player-controlled child NPC runs toward a checkpoint marker while corrupted shadow enemies close from behind. Use rain, lantern reflections, and lightning to reveal threat silhouettes without visual clutter.\n\n3-6s: Close camera drops to ground level as she slips. A subtle quest prompt appears in-world: Survive until the guardian wakes. Shadows enter the edge of frame, but keep the danger readable and non-gory.\n\n6-10s: The street stones crack with blue-gold runes. A guardian dragon rises from beneath the water, pushing rain and debris outward with readable VFX layers. The enemies recoil, telegraphing that the dragon is an allied world-system entity.\n\n10-15s: The dragon shields the NPC, lowers its head for an emotional connection beat, then roars toward the next objective route. End on a clean frame suitable for a game trailer: player path visible, dragon silhouette iconic, quest state changed, subtitles unobstructed.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Jasmine Ai",
+    "url": "https://x.com/jasminekhan90_/status/2049038597333090769"
+  }
+}

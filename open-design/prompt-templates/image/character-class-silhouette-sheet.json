@@ -1,0 +1,22 @@
+{
+  "id": "character-class-silhouette-sheet",
+  "surface": "image",
+  "title": "Character Class Silhouette Sheet",
+  "summary": "Class silhouette sheet for RPG roles, gear language, ability identity, and animation readability.",
+  "category": "Character Design",
+  "tags": [
+    "game",
+    "rpg",
+    "character-sheet",
+    "classes",
+    "silhouette"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "3:2",
+  "prompt": "Create a character class silhouette sheet for {argument name=\"game_title\" default=\"Cinderbound\"}. Show five playable classes with distinct silhouettes, gear shapes, weapon archetypes, ability color language, movement posture, and animation readability notes. Include controller ability slots, party role labels, progression fantasy, and accessibility notes for recognizing classes at distance.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

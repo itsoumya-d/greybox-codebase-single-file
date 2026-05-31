@@ -1,0 +1,28 @@
+import sitemap from '@astrojs/sitemap';
+
+// Production canonical origin. Used by Astro for `Astro.site`, by
+// `@astrojs/sitemap` for every URL it emits, and by `index.astro` to
+// build the `<link rel="canonical">` / `og:url` tags.
+//
+// `ai-game-design.studio` is the live domain bound to the Cloudflare Pages
+// project; the env override exists so preview builds (Cloudflare Pages preview
+// deployments, local previews on a different host) can stamp their own URL
+// without forking the config.
+const site = process.env.AGDS_LANDING_SITE || 'https://ai-game-design.studio';
+
+export default {
+  output: 'static',
+  site,
+  srcDir: './app',
+  outDir: './out',
+  trailingSlash: 'always',
+  integrations: [
+    sitemap({
+      // `/og/` is a screenshot surface for the 1200x630 Open Graph
+      // image — it already carries `<meta name="robots" content="noindex">`
+      // and is `Disallow`-ed from `public/robots.txt`. Filtering it
+      // out of the sitemap keeps the index strictly canonical pages.
+      filter: (page) => !page.includes('/og/'),
+    }),
+  ],
+};

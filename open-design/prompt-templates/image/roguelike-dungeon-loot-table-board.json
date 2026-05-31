@@ -1,0 +1,22 @@
+{
+  "id": "roguelike-dungeon-loot-table-board",
+  "surface": "image",
+  "title": "Roguelike Dungeon Loot Table Board",
+  "summary": "Loot table planning board for rarity, risk, reward cadence, room types, and replayability.",
+  "category": "Economy Design",
+  "tags": [
+    "game",
+    "roguelike",
+    "loot",
+    "economy",
+    "dungeon"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create a roguelike dungeon loot and room-generation board for {argument name=\"game_title\" default=\"Lantern Below\"}. Show room archetypes, rarity bands, chest logic, cursed items, shop nodes, boss rewards, procedural fairness rules, exploit prevention, and reward cadence across a 20-minute run. Use a visual matrix with icons, rarity colors, and concise balance annotations.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

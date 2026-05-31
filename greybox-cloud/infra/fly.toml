@@ -1,0 +1,25 @@
+app = "greybox-cloud"
+primary_region = "iad"
+
+[build]
+  dockerfile = "infra/docker/Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "8080"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+  [[services.http_checks]]
+    path = "/healthz"
+    interval = "15s"
+    timeout = "2s"

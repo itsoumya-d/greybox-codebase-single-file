@@ -1,0 +1,86 @@
+{
+  "title": "2D Platformer Level Board",
+  "rooms": [
+    {
+      "id": "room_01_teach",
+      "name": "Teach Move And Jump",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "radius": 2
+    },
+    {
+      "id": "room_02_coin_arc",
+      "name": "Coin Arc Jump Read",
+      "position": { "x": 7, "y": 0, "z": 0 },
+      "radius": 2.5
+    },
+    {
+      "id": "room_03_checkpoint",
+      "name": "Checkpoint And Recommit",
+      "position": { "x": 18, "y": 0, "z": 0 },
+      "radius": 2
+    },
+    {
+      "id": "room_04_exit",
+      "name": "Exit Gate Sprint",
+      "position": { "x": 28, "y": 0, "z": 0 },
+      "radius": 2
+    }
+  ],
+  "connections": [
+    {
+      "id": "teach-to-coin-arc",
+      "from": "room_01_teach",
+      "to": "room_02_coin_arc",
+      "type": "jump-read",
+      "travelCost": 1
+    },
+    {
+      "id": "coin-arc-to-checkpoint",
+      "from": "room_02_coin_arc",
+      "to": "room_03_checkpoint",
+      "type": "commitment",
+      "travelCost": 1.5
+    },
+    {
+      "id": "checkpoint-to-exit",
+      "from": "room_03_checkpoint",
+      "to": "room_04_exit",
+      "type": "sprint",
+      "travelCost": 1
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc_slime_patrol",
+      "name": "Slime Patrol Timing",
+      "position": { "x": 8, "y": 1, "z": 0 },
+      "radius": 1.25
+    },
+    {
+      "id": "enc_spikes_after_flag",
+      "name": "Spike Row After Checkpoint",
+      "position": { "x": 24, "y": 1, "z": 0 },
+      "radius": 1.5
+    }
+  ],
+  "tilemap": {
+    "cellSize": { "x": 1, "y": 1, "z": 1 },
+    "collision": true,
+    "compositeCollider": true,
+    "tiles": [
+      { "id": "ground_00", "x": 0, "y": 0, "type": "ground", "color": "#5C6166" },
+      { "id": "ground_01", "x": 1, "y": 0, "type": "ground", "color": "#5C6166" },
+      { "id": "ground_02", "x": 2, "y": 0, "type": "ground", "color": "#5C6166" },
+      { "id": "gap_read", "x": 4, "y": 0, "type": "gap", "color": "#1A1A1F" },
+      { "id": "platform_00", "x": 6, "y": 2, "type": "platform", "color": "#8C8C92" },
+      { "id": "platform_01", "x": 7, "y": 2, "type": "platform", "color": "#8C8C92" },
+      { "id": "checkpoint", "x": 18, "y": 1, "type": "checkpoint", "color": "#2ECC71" },
+      { "id": "spike_row", "x": 24, "y": 0, "type": "hazard", "color": "#E94B3C" },
+      { "id": "exit_gate", "x": 28, "y": 1, "type": "exit", "color": "#FF6B35" }
+    ]
+  },
+  "notes": [
+    "AI-assisted sample artifact. Human designer credit: Kai Designer.",
+    "Designed to validate level-board pacing markers and round-trip encounter edits."
+  ]
+}

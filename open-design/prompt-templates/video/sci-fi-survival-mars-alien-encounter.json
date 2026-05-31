@@ -1,0 +1,24 @@
+{
+  "id": "sci-fi-survival-mars-alien-encounter",
+  "surface": "video",
+  "title": "Sci-Fi Survival Mars Alien Encounter",
+  "summary": "Survival-horror game cutscene prompt for a Mars expedition, with scan UI, resource pressure, alien reveal, and player objective handoff.",
+  "category": "Survival Horror Cutscene",
+  "tags": [
+    "game",
+    "survival",
+    "horror",
+    "cutscene",
+    "sci-fi",
+    "objective"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 9-shot in-engine cutscene for a sci-fi survival-horror game titled Crimson Horizon. Each shot should support gameplay context: oxygen pressure, scan UI, objective clarity, alien threat reveal, and a final playable handoff.\n\nShot 1: Rocket launch over night city, then mission title card. Overlay: SOL 0, CREW STATUS NOMINAL.\nShot 2: Two astronauts in a capsule, Mars visible through the porthole. A resource HUD briefly shows oxygen, suit integrity, and comms.\nShot 3: Descent capsule burns through Mars atmosphere. Camera shake is cinematic but controlled for comfort.\nShot 4: Wide third-person frame on Mars surface. The landing zone, rover, and canyon objective are readable.\nShot 5: Close-up of a gloved hand scanning carved symbols. The scan UI detects unknown energy and logs codex entry 001.\nShot 6: Red warning on wrist display: OXYGEN ROUTE COMPROMISED. The player must choose shelter or signal relay.\nShot 7: Dust storm reduces visibility, using audio pings to guide the player.\nShot 8: Alien silhouette moves behind canyon rock, telegraphed but not fully revealed.\nShot 9: Cut to playable camera behind the astronaut. Objective appears: Reach the emergency habitat before oxygen drops below 20 percent.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "wonder",
+    "url": "https://x.com/WonderBoy023/status/2049086862858367347"
+  }
+}

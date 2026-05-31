@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Combat System Specification Template</title>
+  <style>
+    :root { --bg:#111114; --panel:#1d1c22; --line:#393643; --fg:#f4f1f0; --muted:#aaa1a2; --hit:#e06755; --def:#6fb6dd; --stam:#d8b15d; --good:#7bcf8e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    main { width:min(1180px, calc(100vw - 28px)); margin:0 auto; padding:24px 0 36px; }
+    h1,h2,h3,p { margin-top:0; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { padding:8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+    .timeline { display:grid; grid-template-columns:repeat(12,1fr); gap:3px; margin:10px 0 16px; }
+    .frame { height:22px; background:#121116; border:1px solid #2b2832; border-radius:3px; }
+    .startup { background:#695236; } .active { background:#74342e; } .recovery { background:#343e4c; } .cancel { outline:2px solid var(--good); }
+    .legend { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); }
+    .dot { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; background:#695236; }
+    .dot.active { background:#74342e; } .dot.recovery { background:#343e4c; } .dot.cancel { background:transparent; outline:2px solid var(--good); }
+    @media (max-width:860px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Combat System Specification</h1>
+    <p>Define timing, damage, defense, enemy roles, feedback, difficulty levers, and accessibility for a playable combat loop.</p>
+
+    <div class="grid">
+      <section>
+        <h2>Combat Loop</h2>
+        <table>
+          <tr><th>Step</th><th>Player Reads</th><th>Decision</th><th>Feedback</th></tr>
+          <tr><td>Approach</td><td>Enemy role, range, terrain</td><td>Engage, bait, flank, avoid</td><td>Target outline, stance, sound</td></tr>
+          <tr><td>Commit</td><td>Startup, stamina, spacing</td><td>Light, heavy, skill, parry</td><td>Animation, trail, input buffer</td></tr>
+          <tr><td>Resolve</td><td>Hit, block, parry, immune</td><td>Continue, cancel, retreat</td><td>Hitstop, numbers, reaction</td></tr>
+          <tr><td>Recover</td><td>Resources and enemy response</td><td>Reposition or pressure</td><td>Cooldown and posture state</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Attack Timing: Heavy Slash</h2>
+        <div class="timeline" aria-label="12-frame timing chart">
+          <div class="frame startup"></div><div class="frame startup"></div><div class="frame startup"></div>
+          <div class="frame active"></div><div class="frame active cancel"></div>
+          <div class="frame recovery"></div><div class="frame recovery"></div><div class="frame recovery cancel"></div>
+          <div class="frame recovery"></div><div class="frame"></div><div class="frame"></div><div class="frame"></div>
+        </div>
+        <div class="legend">
+          <span><i class="dot"></i>Startup</span>
+          <span><i class="dot active"></i>Active</span>
+          <span><i class="dot recovery"></i>Recovery</span>
+          <span><i class="dot cancel"></i>Cancel allowed</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Damage Formula</h2>
+        <table>
+          <tr><th>Term</th><th>Value</th><th>Tuning Note</th></tr>
+          <tr><td>Base damage</td><td>42</td><td>Weapon identity</td></tr>
+          <tr><td>Strength coefficient</td><td>0.65</td><td>Soft cap after 40 stat</td></tr>
+          <tr><td>Defense mitigation</td><td>100 / (100 + defense)</td><td>Prevents zero damage</td></tr>
+          <tr><td>Crit multiplier</td><td>1.6x</td><td>Only from weak point or perfect timing</td></tr>
+          <tr><td>Damage floor</td><td>5%</td><td>Ensures feedback remains meaningful</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Enemy Roles</h2>
+        <table>
+          <tr><th>Role</th><th>Threat</th><th>Counterplay</th><th>Budget</th></tr>
+          <tr><td>Grunt</td><td>Basic pressure</td><td>Interrupt, cleave, spacing</td><td>1</td></tr>
+          <tr><td>Bruiser</td><td>Area denial and stagger</td><td>Dodge recovery, posture break</td><td>4</td></tr>
+          <tr><td>Sniper</td><td>Line-of-sight pressure</td><td>Cover, rush, smoke</td><td>3</td></tr>
+          <tr><td>Controller</td><td>Slow, trap, split party</td><td>Cleanse, priority target</td><td>5</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Feedback Tokens</h2>
+        <table>
+          <tr><th>State</th><th>Visual</th><th>Audio</th><th>Motion</th></tr>
+          <tr><td>Hit</td><td>Small spark, health tick</td><td>Weapon impact</td><td>2f hitstop</td></tr>
+          <tr><td>Crit</td><td>Bright weak-point flash</td><td>Sharper layered impact</td><td>8f hitstop</td></tr>
+          <tr><td>Block</td><td>Shield flare, reduced number</td><td>Muted metal thud</td><td>No camera shake</td></tr>
+          <tr><td>Parry</td><td>White-blue timing flash</td><td>Clean ring</td><td>Enemy recoil</td></tr>
+          <tr><td>Immune</td><td>Gray deflect icon</td><td>Dry reject tick</td><td>No hit pause</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Accessibility & Difficulty</h2>
+        <table>
+          <tr><th>Lever</th><th>Default</th><th>Assist</th></tr>
+          <tr><td>Parry timing</td><td>8 frames</td><td>12-16 frame option</td></tr>
+          <tr><td>Camera shake</td><td>60%</td><td>Slider 0-100%</td></tr>
+          <tr><td>Enemy aggression</td><td>Normal</td><td>Separate from damage dealt</td></tr>
+          <tr><td>Input buffering</td><td>120 ms</td><td>Adjustable to 220 ms</td></tr>
+          <tr><td>Color signals</td><td>Color + icon</td><td>Pattern and text backup</td></tr>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

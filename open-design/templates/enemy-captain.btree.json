@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "kind": "behavior-tree",
+  "title": "Enemy Captain Behavior Tree",
+  "owner": "Enemy Captain",
+  "behaviorType": "enemy-ai",
+  "rootId": "root",
+  "nodes": [
+    { "id": "root", "name": "Combat Director", "type": "root", "readability": "The enemy announces every mode switch with animation and bark." },
+    { "id": "select-state", "parentId": "root", "name": "Select Combat State", "type": "selector", "priority": 1 },
+    { "id": "has-line-of-sight", "parentId": "select-state", "name": "Has Line Of Sight", "type": "condition", "condition": "player visible for 0.4 seconds", "counterplay": "Break sightline, slide to cover, or smoke the lane." },
+    { "id": "ranged-burst", "parentId": "has-line-of-sight", "name": "Telegraphed Burst", "type": "action", "action": "fire three-shot burst with muzzle flare tell", "counterplay": "Dodge after flare or interrupt during recovery." },
+    { "id": "flank-cover", "parentId": "select-state", "name": "Flank Cover", "type": "action", "action": "move to nearest side cover if suppressed", "readability": "Voice bark and visible route line in debug overlay." },
+    { "id": "hear-distraction", "parentId": "select-state", "name": "Hear Distraction", "type": "condition", "condition": "noise event exceeds stealth threshold", "counterplay": "Throw decoy to pull patrol away from the objective route." },
+    { "id": "investigate-noise", "parentId": "hear-distraction", "name": "Investigate Noise", "type": "action", "action": "move to sound origin with flashlight cone and alert bark", "readability": "Suspicion meter, cone color, and subtitle bark show the state change." },
+    { "id": "coordinate-squad", "parentId": "select-state", "name": "Coordinate Squad", "type": "action", "action": "assign one flanker and one suppressor when allies are alive", "counterplay": "Stagger the captain to break squad coordination." },
+    { "id": "phase-gate", "parentId": "select-state", "name": "Boss Phase Gate", "type": "condition", "condition": "armor below 45% or objective core exposed", "readability": "Armor plate break, camera pulse, and VO line announce phase change." },
+    { "id": "enraged-phase", "parentId": "phase-gate", "name": "Enraged Phase Pattern", "type": "action", "action": "swap to slower heavy attacks with longer telegraphs and bigger recovery", "counterplay": "Bait heavy swing, punish recovery, or trigger steam vent stagger." },
+    { "id": "preserve-survival-pressure", "parentId": "select-state", "name": "Preserve Survival Pressure", "type": "service", "action": "avoid stacking support call, hazard, and low-resource pressure in the same 10 seconds", "readability": "Debug intensity meter shows why the director delayed a spike." },
+    { "id": "faction-retreat", "parentId": "select-state", "name": "Faction Retreat", "type": "action", "action": "retreat and mark territory if morale collapses or rival faction event starts", "counterplay": "Cut off the retreat path for bonus reputation." },
+    { "id": "call-support", "parentId": "select-state", "name": "Call Support", "type": "cooldown", "action": "summon one support unit after 18 seconds if player turtles", "counterplay": "Push captain below armor threshold to cancel call." }
+  ],
+  "transitions": [
+    { "id": "suppressed-to-flank", "from": "ranged-burst", "to": "flank-cover", "trigger": "suppression > 60%", "cooldown": "8s" },
+    { "id": "noise-to-investigate", "from": "select-state", "to": "investigate-noise", "trigger": "noise event while player hidden", "cooldown": "6s" },
+    { "id": "armor-to-enrage", "from": "ranged-burst", "to": "enraged-phase", "trigger": "armor below 45%", "cooldown": "once" },
+    { "id": "morale-to-retreat", "from": "coordinate-squad", "to": "faction-retreat", "trigger": "squad morale below 25%", "cooldown": "once" },
+    { "id": "turtle-to-support", "from": "select-state", "to": "call-support", "trigger": "player remains in same cover cluster > 18s", "cooldown": "30s" }
+  ],
+  "readableTells": [
+    "Flashlight cone widens before investigation.",
+    "Armor plate break announces the phase gate before new attacks appear.",
+    "Squad command bark names the next tactic before enemies reposition."
+  ],
+  "counterplayRules": [
+    "Every support call has a cancel window.",
+    "Every stealth alert has a recovery state before full combat.",
+    "Every enraged-phase attack has longer anticipation than the phase-one equivalent."
+  ],
+  "dynamicDifficultyRules": [
+    "Delay support calls when player health is critical and no cover is nearby.",
+    "Reduce flank aggression if the player failed the same encounter twice.",
+    "Never hide phase transitions by increasing damage without a new tell."
+  ],
+  "difficultyNotes": [
+    "Raise challenge by shortening recovery and improving flank choice, not by hiding telegraphs."
+  ],
+  "accessibilityNotes": [
+    "Pair visual tells with audio cues, subtitle barks, and controller vibration timing."
+  ]
+}

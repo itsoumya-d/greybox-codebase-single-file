@@ -1,0 +1,145 @@
+{
+  "title": "Greybox 2D Platformer Vertical Slice",
+  "engineTarget": "Unity 2D",
+  "camera": {
+    "mode": "side-scroll",
+    "orthographicSize": 7.5
+  },
+  "actors": [
+    {
+      "id": "player_runner",
+      "name": "Player Runner",
+      "role": "controller",
+      "faction": "runners",
+      "behavior": "player-controlled",
+      "abilities": ["double-jump"],
+      "lootTable": "runner-pickups",
+      "health": 3,
+      "attackDamage": 1,
+      "attackRange": 1.6,
+      "attackCooldown": 0.45,
+      "speed": 7.2,
+      "jumpImpulse": 12.5,
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "radius": 0.5
+    },
+    {
+      "id": "slime_patrol_a",
+      "name": "Slime Patrol A",
+      "role": "enemy",
+      "faction": "slimes",
+      "behavior": "patrol-aggro",
+      "abilities": ["bump"],
+      "patrolRoute": ["teach_move", "coin_arc"],
+      "lootTable": "starter-slime-drops",
+      "health": 2,
+      "speed": 1.8,
+      "attackDamage": 1,
+      "attackRange": 1.4,
+      "patrolRadius": 1.6,
+      "detectionRadius": 5.5,
+      "attackCooldown": 0.75,
+      "position": { "x": 8, "y": 1, "z": 0 },
+      "radius": 0.45
+    },
+    {
+      "id": "slime_patrol_b",
+      "name": "Slime Patrol B",
+      "role": "enemy",
+      "faction": "slimes",
+      "behavior": "guard-aggro",
+      "abilities": ["slam"],
+      "patrolRoute": ["checkpoint_platform"],
+      "lootTable": "checkpoint-slime-drops",
+      "health": 3,
+      "speed": 1.4,
+      "attackDamage": 2,
+      "attackRange": 1.7,
+      "patrolRadius": 2.2,
+      "detectionRadius": 6.25,
+      "attackCooldown": 1.25,
+      "position": { "x": 15, "y": 3, "z": 0 },
+      "radius": 0.45
+    },
+    {
+      "id": "checkpoint_flag",
+      "name": "Checkpoint Flag",
+      "role": "checkpoint",
+      "position": { "x": 20, "y": 4, "z": 0 },
+      "radius": 0.6
+    }
+  ],
+  "spawnPoints": [
+    {
+      "id": "spawn_start",
+      "name": "Start Spawn",
+      "position": { "x": -2, "y": 1, "z": 0 },
+      "radius": 0.5
+    },
+    {
+      "id": "spawn_checkpoint",
+      "name": "Checkpoint Spawn",
+      "spawnGroup": "mid-run",
+      "actorIds": ["player_runner"],
+      "maxCount": 2,
+      "cooldownSeconds": 0.75,
+      "spawnOnStart": false,
+      "position": { "x": 20, "y": 4, "z": 0 },
+      "radius": 0.5
+    }
+  ],
+  "objectives": [
+    {
+      "id": "coin_line",
+      "name": "Readable Coin Line",
+      "objectiveType": "collectible",
+      "requiredCount": 24,
+      "position": { "x": 6, "y": 4, "z": 0 },
+      "radius": 1.25
+    },
+    {
+      "id": "exit_gate",
+      "name": "Exit Gate",
+      "objectiveType": "exit",
+      "targetIds": ["coin_line"],
+      "reward": "unlock-exit",
+      "timeLimitSeconds": 90,
+      "primary": true,
+      "position": { "x": 28, "y": 2, "z": 0 },
+      "radius": 1
+    }
+  ],
+  "hazards": [
+    {
+      "id": "pit_gap_a",
+      "name": "First Readable Pit",
+      "hazardType": "pit",
+      "effect": "stagger",
+      "damage": 1,
+      "tickSeconds": 0.65,
+      "knockback": 3.25,
+      "affectedTags": ["Player"],
+      "position": { "x": 11, "y": 0, "z": 0 },
+      "radius": 1.2
+    },
+    {
+      "id": "spike_row_b",
+      "name": "Spike Row After Checkpoint",
+      "hazardType": "spikes",
+      "effect": "bleed",
+      "damage": 2,
+      "tickSeconds": 0.4,
+      "knockback": 4.5,
+      "affectedTags": ["controller"],
+      "lethal": true,
+      "position": { "x": 24, "y": 1, "z": 0 },
+      "radius": 1.5
+    }
+  ],
+  "notes": [
+    "AI-assisted sample artifact. Human designer credit: Kai Designer.",
+    "Designed to validate importer grouping, palette generation, and round-trip spawn/hazard edits."
+  ]
+}

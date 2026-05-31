@@ -1,0 +1,22 @@
+{
+  "id": "narrative-dialogue-branch-ui",
+  "surface": "image",
+  "title": "Narrative Dialogue Branch UI",
+  "summary": "Dialogue interface for branching choices, faction reputation, companion reactions, and cinematic subtitles.",
+  "category": "Narrative UI",
+  "tags": [
+    "game",
+    "narrative",
+    "dialogue",
+    "quest",
+    "ui"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Design a narrative dialogue interface for {argument name=\"game_title\" default=\"Salt Crown\"}. Show cinematic subtitle placement, branching choices, faction reputation preview, companion reaction, timed pressure option, lore codex link, emotional tone marker, and accessibility controls. The scene should feel diegetic and readable for controller, mouse, and handheld play.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

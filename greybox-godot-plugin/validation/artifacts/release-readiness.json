@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-05-27T12:57:12.129Z",
+  "packageRoot": "/Users/soumyadebnath16/Developer/game desine/greybox-godot-plugin",
+  "targetMatrix": [
+    {
+      "stream": "Godot 4.2",
+      "version": "4.2",
+      "status": "missing-editor",
+      "editor": ""
+    },
+    {
+      "stream": "Godot 4.3",
+      "version": "4.3",
+      "status": "missing-editor",
+      "editor": ""
+    },
+    {
+      "stream": "Godot 4.4",
+      "version": "4.4",
+      "status": "missing-editor",
+      "editor": ""
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 0,
+    "readyEditors": 0,
+    "missingEditors": 3,
+    "sourceReady": true,
+    "status": "pass"
+  },
+  "cloudMetrics": {
+    "godotSourceReady": true,
+    "godotAddonStaticValidation": true,
+    "godotEditorSmokeVersions": []
+  },
+  "steps": [
+    {
+      "id": "static-addon-validation",
+      "label": "Static Godot addon validation",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'validation/validate-godot-plugin.mjs'",
+      "exitCode": 0,
+      "stdout": "PASS Godot plugin validation (25 files)",
+      "stderr": ""
+    }
+  ]
+}

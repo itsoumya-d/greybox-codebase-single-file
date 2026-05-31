@@ -1,0 +1,22 @@
+{
+  "id": "mobile-idle-rpg-reward-loop",
+  "surface": "video",
+  "title": "Mobile Idle RPG Reward Loop",
+  "summary": "Portrait motion plan for claim, upgrade, battle preview, crafting, and return-session cadence.",
+  "category": "Mobile Game",
+  "tags": [
+    "game",
+    "mobile",
+    "idle-rpg",
+    "reward-loop",
+    "progression"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "9:16",
+  "prompt": "Create a 9-second portrait mobile game reward-loop video for {argument name=\"game_title\" default=\"Skyforge Pets\"}. Show idle reward claim, hero upgrade, short auto-battle, crafting unlock, milestone chest, daily quest progress, and calm return-session reminder. Use large touch targets, readable numbers, haptic beat notes, and no coercive monetization pressure.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

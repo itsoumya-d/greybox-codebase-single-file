@@ -1,0 +1,121 @@
+{
+  "$schema": "https://greybox.studio/schema/unity-package-manifest-1.0.json",
+  "comment": "Expected contents of the Unity-side zip produced by the daemon when handed the sample-platformer fixture. Validation~/smoke/smoke.mjs asserts each path is present and that file SHAs match when the zip is built deterministically. The smoke runner accepts entries flagged optional=true that are missing without failing the run (Pro-only assets).",
+  "packageName": "com.greybox.studio",
+  "fixtureName": "sample-platformer",
+  "expectedEngineTarget": "Unity 2D",
+  "minSizeBytes": 1024,
+  "entries": [
+    {
+      "path": "package.json",
+      "kind": "manifest",
+      "required": true
+    },
+    {
+      "path": "manifest.json",
+      "kind": "import-manifest",
+      "required": true,
+      "comment": "Daemon-emitted manifest with importedAssets, palette materials, and scene name."
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/sample-platformer.gameview",
+      "kind": "gameview",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/sample-platformer.design",
+      "kind": "design",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/sample-platformer.gbhud",
+      "kind": "hud",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/sample-platformer.levelboard",
+      "kind": "levelboard",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Prefabs/player_runner.prefab",
+      "kind": "prefab",
+      "required": true,
+      "actorId": "player_runner"
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Prefabs/slime_patrol.prefab",
+      "kind": "prefab",
+      "required": true,
+      "actorId": "slime_patrol"
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/sky-night.mat",
+      "kind": "material",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/platform-stone.mat",
+      "kind": "material",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/coin-gold.mat",
+      "kind": "material",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/spike-warning.mat",
+      "kind": "material",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/player-suit.mat",
+      "kind": "material",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/slime-mint.mat",
+      "kind": "material",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Palette/GreyboxPalette.asset",
+      "kind": "palette-scriptable",
+      "required": true
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/HUD/GreyboxHud.prefab",
+      "kind": "hud-prefab",
+      "required": true,
+      "comment": "uGUI Canvas hierarchy emitted from the .gbhud HTML"
+    },
+    {
+      "path": "Assets/Greybox/Imported/sample-platformer/Scene/GreyboxSmokeScene.unity",
+      "kind": "scene",
+      "required": false,
+      "comment": "Pro-tier auto-generated scene. Optional - smoke does not require it."
+    }
+  ],
+  "manifestJsonAssertions": {
+    "packageName": "com.greybox.studio",
+    "fixtureName": "sample-platformer",
+    "engineTarget": "Unity 2D",
+    "actorIds": ["player_runner", "slime_patrol"],
+    "paletteTokens": [
+      "sky-night",
+      "platform-stone",
+      "coin-gold",
+      "spike-warning",
+      "player-suit",
+      "slime-mint"
+    ]
+  },
+  "expectedNoEntries": [
+    "Library/",
+    "Temp/",
+    ".git/",
+    "../",
+    "node_modules/"
+  ]
+}

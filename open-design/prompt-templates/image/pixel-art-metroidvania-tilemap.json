@@ -1,0 +1,22 @@
+{
+  "id": "pixel-art-metroidvania-tilemap",
+  "surface": "image",
+  "title": "Pixel-Art Metroidvania Tilemap",
+  "summary": "2D tilemap planning image with traversal gates, parallax depth, secrets, and ability locks.",
+  "category": "2D Level Design",
+  "tags": [
+    "game",
+    "pixel-art",
+    "metroidvania",
+    "tilemap",
+    "platformer"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create a pixel-art metroidvania level design board for {argument name=\"game_title\" default=\"Moonroot Circuit\"}. Show a side-scrolling room cluster with jump arcs, ability-gated doors, hidden breakable walls, enemy placement, checkpoint room, parallax background layers, hazard rhythm, and collectible placement. Include tile size consistency, silhouette readability, and a mini flow diagram for first visit versus return visit.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-05-25T09:22:37.662Z",
+  "packageRoot": "/Users/soumyadebnath16/Developer/game desine/greybox-unreal-plugin",
+  "targetMatrix": [
+    {
+      "stream": "Unreal Engine 5.3",
+      "version": "5.3",
+      "status": "missing-editor",
+      "editor": ""
+    },
+    {
+      "stream": "Unreal Engine 5.4",
+      "version": "5.4",
+      "status": "missing-editor",
+      "editor": ""
+    },
+    {
+      "stream": "Unreal Engine 5.5",
+      "version": "5.5",
+      "status": "missing-editor",
+      "editor": ""
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 0,
+    "readyEditors": 0,
+    "missingEditors": 3,
+    "sourceReady": true,
+    "status": "pass"
+  },
+  "cloudMetrics": {
+    "unrealSourceReady": true,
+    "unrealPluginStaticValidation": true,
+    "unrealEditorSmokeVersions": []
+  },
+  "steps": [
+    {
+      "id": "static-plugin-validation",
+      "label": "Static Unreal plugin validation",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation/validate-unreal-plugin.mjs'",
+      "exitCode": 0,
+      "stdout": "PASS Unreal plugin validation (24 files)",
+      "stderr": ""
+    }
+  ]
+}

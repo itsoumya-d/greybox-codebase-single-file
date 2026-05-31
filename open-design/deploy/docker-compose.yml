@@ -1,0 +1,44 @@
+name: ai-game-design-studio
+
+services:
+  agds:
+    container_name: ai-game-design-studio
+    image: ${AGDS_IMAGE:-docker.io/vanjayak/ai-game-design-studio:latest}
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    restart: always
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: ${NODE_OPTIONS:---max-old-space-size=192}
+      AGDS_BIND_HOST: 0.0.0.0
+      AGDS_ALLOWED_ORIGINS: ${AGDS_ALLOWED_ORIGINS:-}
+      AGDS_DATA_DIR: /app/.agds
+      AGDS_PORT: 7456
+      AGDS_WEB_PORT: ${AGDS_WEB_PORT:-7456}
+    ports:
+      - "127.0.0.1:${AGDS_WEB_PORT:-7456}:7456"
+    volumes:
+      - agds_data:/app/.agds
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: ${AGDS_MEM_LIMIT:-384m}
+    pids_limit: 256
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:7456/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  agds_data:

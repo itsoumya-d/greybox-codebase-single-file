@@ -1,0 +1,33 @@
+{
+  "name": "@greybox/marketplace-web",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "description": "Customer + creator + admin frontend for the Greybox creator marketplace.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "next dev -p 38900",
+    "build": "next build",
+    "start": "next start -p 38900",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test \"test/**/*.test.ts\"",
+    "test:e2e": "playwright test",
+    "test:integration": "MARKETPLACE_INTEGRATION=1 playwright test"
+  },
+  "dependencies": {
+    "next": "15.0.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.2",
+    "@types/node": "^20.17.10",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "tsx": "4.21.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20.0.0 <27.0.0"
+  }
+}

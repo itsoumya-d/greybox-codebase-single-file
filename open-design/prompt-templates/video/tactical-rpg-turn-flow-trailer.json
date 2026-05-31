@@ -1,0 +1,22 @@
+{
+  "id": "tactical-rpg-turn-flow-trailer",
+  "surface": "video",
+  "title": "Tactical RPG Turn Flow Trailer",
+  "summary": "Trailer beats for tactical RPG decision-making, range previews, combo setup, victory reward, and production-readable isometric UI clarity.",
+  "category": "Game Trailer",
+  "tags": [
+    "game",
+    "tactical-rpg",
+    "turn-based",
+    "trailer",
+    "strategy"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create an 11-second tactical RPG trailer for {argument name=\"game_title\" default=\"Banner of Ash\"}. Show grid reveal, turn order, enemy threat cones, class skill range, ally combo setup, environmental hazard trigger, boss counter, rewind assist, and victory reward. Keep camera isometric, UI readable, and choices understandable in motion.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

@@ -1,0 +1,15 @@
+<svg viewBox="0 0 178 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Greybox">
+  <g transform="translate(73 0)">
+    <rect x="0" y="0" width="8" height="8" fill="#D8D8DC"/>
+    <rect x="8" y="0" width="8" height="8" fill="#BFBFC4"/>
+    <rect x="16" y="0" width="8" height="8" fill="#A6A6AC"/>
+    <rect x="0" y="8" width="8" height="8" fill="#BFBFC4"/>
+    <rect x="8" y="8" width="8" height="8" fill="#8C8C92"/>
+    <rect x="16" y="8" width="8" height="8" fill="#5C5C62"/>
+    <rect x="0" y="16" width="8" height="8" fill="#A6A6AC"/>
+    <rect x="8" y="16" width="8" height="8" fill="#5C5C62"/>
+    <rect x="16" y="16" width="8" height="8" fill="#2F2F35"/>
+    <polygon points="24,24 32,28 24,32" fill="#FF6B35"/>
+  </g>
+  <text x="0" y="83" fill="#1A1A1F" font-family="'Inter Tight', system-ui, sans-serif" font-size="42" font-weight="700" letter-spacing="-0.02em">greybox</text>
+</svg>

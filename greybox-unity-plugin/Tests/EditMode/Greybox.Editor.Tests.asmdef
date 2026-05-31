@@ -1,0 +1,25 @@
+{
+  "name": "Greybox.Editor.Tests",
+  "rootNamespace": "Greybox.Tests.EditMode",
+  "references": [
+    "Greybox.Editor",
+    "Greybox.Runtime",
+    "Unity.InputSystem",
+    "Unity.Newtonsoft.Json",
+    "UnityEngine.UI"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}

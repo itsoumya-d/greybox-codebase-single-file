@@ -1,0 +1,22 @@
+{
+  "id": "weapon-system-concept-board",
+  "surface": "image",
+  "title": "Weapon System Concept Board",
+  "summary": "Weapon board with archetypes, recoil, upgrade paths, damage types, and game feel notes.",
+  "category": "Combat Systems",
+  "tags": [
+    "game",
+    "weapon",
+    "combat",
+    "game-feel",
+    "progression"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create a weapon system concept board for {argument name=\"game_title\" default=\"Iron Wake\"}. Show six weapon archetypes, silhouette language, reload or cooldown behavior, recoil profiles, damage types, upgrade branches, rarity color accents, hit feedback VFX, and sound direction notes. Include balance columns for skill floor, skill ceiling, DPS risk, crowd control, and PvP fairness.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

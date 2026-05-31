@@ -1,0 +1,23 @@
+# Greybox 2D Platformer Art Bible
+
+Generator credit: Greybox + Kai Designer. AI-assisted, human-directed.
+
+## Pillars
+
+- Readable jumps before expressive jumps.
+- Hazards telegraph one beat before punishment.
+- The first screen teaches movement, collection, and danger without text.
+
+## Palette
+
+- Sky Paper: #D8E8FF
+- Runner Ink: #1A1A1F
+- Platform Moss: #2ECC71
+- Checkpoint Spark: #FF6B35
+- Hazard Crit: #E94B3C
+- Coin Focus: #F4C95D
+
+## Materials
+
+Use matte platform materials with subtle bevels. Enemies should carry high-contrast
+silhouettes and one Spark Orange accent only when they are interactable.

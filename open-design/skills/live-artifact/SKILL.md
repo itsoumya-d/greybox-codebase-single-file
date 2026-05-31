@@ -1,0 +1,143 @@
+---
+name: live-artifact
+description: |
+  Create refreshable, auditable game-studio artifacts backed by connector or local data.
+  Trigger when the creator asks for live-ops consoles, balance boards, economy tuners, synced production views, or reusable data-backed game artifacts.
+triggers:
+  - "live-ops artifact"
+  - "live-ops console"
+  - "balance board"
+  - "economy tuner"
+  - "refreshable game artifact"
+  - "synced view"
+  - "可刷新"
+  - "实时看板"
+agds:
+  mode: prototype
+  scenario: live
+  preview:
+    type: html
+    entry: index.html
+    reload: debounce-100
+  game_art_bible:
+    requires: true
+  outputs:
+    primary: index.html
+    secondary:
+      - template.html
+      - artifact.json
+      - data.json
+      - provenance.json
+  capabilities_required:
+    - shell
+    - file_write
+---
+
+# Live Artifact Skill
+
+Create an AI Game Design Studio live-ops artifact: a project-scoped, previewable HTML artifact whose game data can later be refreshed without redesigning the presentation.
+
+## Resource map
+
+```
+live-artifact/
+├── SKILL.md
+└── references/
+    ├── artifact-schema.md      ← `references/artifact-schema.md`: artifact files, DTO shape, template binding rules
+    ├── connector-policy.md     ← `references/connector-policy.md`: connector safety, redaction, credential boundaries
+    └── refresh-contract.md     ← `references/refresh-contract.md`: source metadata, refresh execution, snapshots
+```
+
+## Current status
+
+Use the references in this directory as the source of truth for the live-ops artifact file contract. Prefer daemon wrapper commands over raw HTTP when registering or updating live-ops artifacts.
+
+## When to use this skill
+
+Use this skill when the creator asks for a data-backed game-studio view that should remain useful after the first render, for example a live-ops console, economy tuning board, balance telemetry view, seasonal event calendar, QA tracker, or artifact that can later be refreshed from local/project data or connectors.
+
+Before creating files, decide whether the creator actually wants a live-ops artifact or a normal static artifact:
+
+- Use a live-ops artifact when the creator mentions refresh, sync, recurring updates, connector-backed data, source/provenance tracking, live-ops, balance, economy, QA, production, or reusable data-backed game views.
+- Use a normal static artifact when the creator only wants a one-off HTML/mockup/image/file and does not need refresh, source metadata, or data/provenance panels.
+- If the intent is ambiguous, ask one short question: “Should this be refreshable/live, or just a static artifact?”
+
+## Workflow
+
+1. **Resolve scope and data source without blocking on connected connectors**
+   - Identify the preview goal, audience, data freshness expectations, and whether refresh should be possible later.
+   - If the creator explicitly names a connector/source such as Notion, GitHub, Slack, or Google Drive, do not ask “where should the data come from?” before checking daemon connector tools.
+   - Prefer local/project sources or daemon connector tools when available.
+   - Do not call provider APIs directly when a daemon connector/wrapper exists.
+   - If connector data is needed, first list connectors with `"$AGDS_NODE_BIN" "$AGDS_BIN" tools connectors list --format compact`. If the named connector is present with `status: "connected"`, choose an appropriate read-only `auto` tool from its catalog and execute it through the connector wrapper.
+   - For Notion specifically, a connected `notion` connector plus a creator brief that names Notion is enough to start with `notion.notion_search` using a query derived from the requested artifact/topic. Use `notion.notion_fetch_database` only when the creator supplied a database id or the search result clearly identifies one.
+   - Ask the creator a data-source question only when no matching connected connector exists, multiple connected candidates fit equally well, or the requested artifact has no usable production topic/query to search for. If you must ask, be specific: ask for the Notion workspace, design database, live-ops board, or permission to search broadly instead of asking an unscoped source question.
+
+2. **Author the source files**
+   - Write `template.html` as the human-designed HTML template.
+   - Write `data.json` as the canonical preview data used by `{{data.path}}` bindings.
+   - Write `artifact.json` with the live-ops artifact metadata, preview declaration, document declaration, and safe source descriptors.
+   - Write `provenance.json` with concise source notes, timestamps, non-sensitive connector references, and transformation notes.
+   - Do not author `index.html` as source. The daemon derives `index.html` from `template.html` and `data.json`.
+
+3. **Keep data compact and preview-oriented**
+   - Store only normalized values needed by the preview.
+   - Summarize large lists, provider responses, or logs before writing them into `data.json`.
+   - Stay within the bounded JSON rules in `references/artifact-schema.md`.
+
+4. **Apply safety rules before registration**
+   - Never store credentials, OAuth tokens, API keys, cookies, auth headers, raw provider responses, HTTP envelopes, full payloads, or secret-like fields in `artifact.json`, `data.json`, `provenance.json`, or source metadata.
+   - Avoid forbidden key names such as `raw`, `rawResponse`, `payload`, `body`, `headers`, `cookie`, `authorization`, `token`, `secret`, `credential`, and `password` anywhere in persisted JSON.
+   - Use escaped `html_template_v1` interpolation only. Raw/unescaped HTML interpolation is not allowed.
+
+5. **Register or update through daemon wrappers**
+   - Use the AI Game Design Studio daemon wrapper commands via `"$AGDS_NODE_BIN" "$AGDS_BIN"` instead of raw `curl`, bare `node`, or bare `od`:
+
+     ```bash
+     "$AGDS_NODE_BIN" "$AGDS_BIN" tools live-artifacts create --input artifact.json
+     "$AGDS_NODE_BIN" "$AGDS_BIN" tools live-artifacts list --format compact
+     "$AGDS_NODE_BIN" "$AGDS_BIN" tools live-artifacts update --artifact-id "$ARTIFACT_ID" --input artifact.json
+     ```
+
+   - The wrapper reads injected `AGDS_NODE_BIN`, `AGDS_BIN`, `AGDS_DAEMON_URL`, and `AGDS_TOOL_TOKEN`; do not print, persist, or override token values.
+   - Do not include or invent `projectId`; the daemon derives project/run scope from the token.
+   - Use raw HTTP only for daemon development/debugging when explicitly requested.
+
+6. **Use connector wrappers for connector data**
+   - Discover available connectors and tools:
+
+     ```bash
+     "$AGDS_NODE_BIN" "$AGDS_BIN" tools connectors list --format compact
+     ```
+
+   - Execute a read-only connector tool with a JSON object input file:
+
+     ```bash
+     "$AGDS_NODE_BIN" "$AGDS_BIN" tools connectors execute --connector "$CONNECTOR_ID" --tool "$TOOL_NAME" --input input.json
+     ```
+
+   - Persist only the compact normalized fields needed by the preview plus non-sensitive connector references (`connectorId`, `toolName`, `accountLabel`). Never persist connector credentials, transport metadata, or raw provider output.
+    - Do not ask for connector secrets or duplicate setup. If `status` is `connected`, use the listed tools; if it is not connected, tell the creator to connect it in the UI.
+   - See `references/connector-policy.md` for listing/execution and credential boundaries, and `references/refresh-contract.md` for read-only refresh source metadata.
+
+7. **Report concise results**
+   - On success, return the artifact ID/title and note that `index.html` is daemon-derived.
+   - On validation failure, fix the source files and retry through the wrapper. Do not bypass validation.
+
+## Required files
+
+Every live-ops artifact creation flow must produce these source files before registration:
+
+- `template.html` — declared skill output and source template for the preview.
+- `data.json` — compact, canonical preview data.
+- `artifact.json` — create/update input for daemon validation.
+- `provenance.json` — safe source and transformation summary.
+
+`index.html` is the primary preview entry declared in frontmatter, but it is derived daemon output rather than agent-authored source.
+
+## P0 Gates
+
+- The artifact is clearly a game-studio view: live ops, balance, economy, QA, telemetry, production, or reusable game-data monitoring.
+- Preview data is compact, normalized, and safe to refresh without leaking credentials or raw provider payloads.
+- Provenance explains what changed, which source informed it, and why the game team should trust the view.
+- Refresh behavior preserves player-facing readability, production usefulness, and connector safety.

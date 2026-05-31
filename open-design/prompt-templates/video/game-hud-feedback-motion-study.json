@@ -1,0 +1,22 @@
+{
+  "id": "game-hud-feedback-motion-study",
+  "surface": "video",
+  "title": "Game HUD Feedback Motion Study",
+  "summary": "Motion study for hit feedback, cooldowns, damage direction, status effects, and controller clarity.",
+  "category": "Game HUD",
+  "tags": [
+    "game",
+    "hud",
+    "feedback",
+    "motion",
+    "accessibility"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a motion study for a combat HUD in {argument name=\"game_title\" default=\"Rune Reactor\"}. Animate normal, hit, low health, status effect, cooldown ready, ammo low, objective update, and boss mechanic states. Include timing notes for hitstop, camera shake, sound layers, controller vibration, colorblind-safe alternatives, and subtitle-safe placement.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

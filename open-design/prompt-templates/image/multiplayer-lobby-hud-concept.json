@@ -1,0 +1,22 @@
+{
+  "id": "multiplayer-lobby-hud-concept",
+  "surface": "image",
+  "title": "Multiplayer Lobby HUD Concept",
+  "summary": "Lobby and matchmaking UI for squads, roles, readiness, ranked constraints, and social clarity.",
+  "category": "Multiplayer UI",
+  "tags": [
+    "game",
+    "multiplayer",
+    "lobby",
+    "matchmaking",
+    "hud"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Design a multiplayer lobby HUD for {argument name=\"game_title\" default=\"Apex Anvil\"}. Include squad slots, role selection, readiness states, ranked tier, cross-platform control indicators, party voice status, matchmaking region, anti-cheat trust indicator, map vote, and accessible chat controls. The layout must support controller navigation, keyboard and mouse, and quick competitive scanning without visual noise.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

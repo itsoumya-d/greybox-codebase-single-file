@@ -1,0 +1,324 @@
+name: Unity Package Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      submission:
+        description: Run Asset Store submission gate; fails prerelease versions.
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  static-validation:
+    name: Static package validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run Asset Store metadata gate
+        run: node Validation~/asset-store-metadata-check.mjs
+
+      - name: Run Asset Store submission packet gate
+        run: node Validation~/asset-store-submission-check.mjs
+
+      - name: Run validator tests
+        run: node --test Validation~/*.test.mjs
+
+      - name: Write MCP conformance report
+        run: >
+          node Validation~/mcp-conformance-report.mjs
+          --output Validation~/artifacts/mcp-conformance.md
+
+      - name: Generate smoke project dry run
+        run: >
+          node Validation~/unity-import-smoke.mjs
+          --dry-run
+          --unity /opt/unity/Editor/Unity
+          --project-path "$RUNNER_TEMP/greybox-unity-smoke-dry"
+          --log-file "$RUNNER_TEMP/greybox-unity-smoke-dry/unity.log"
+          --results-file "$RUNNER_TEMP/greybox-unity-smoke-dry/editmode-results.xml"
+          --playmode-log-file "$RUNNER_TEMP/greybox-unity-smoke-dry/playmode.log"
+          --playmode-results-file "$RUNNER_TEMP/greybox-unity-smoke-dry/playmode-results.xml"
+
+      - name: Upload smoke dry-run project
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-smoke-dry-run-project
+          path: |
+            ${{ runner.temp }}/greybox-unity-smoke-dry/Packages/manifest.json
+            ${{ runner.temp }}/greybox-unity-smoke-dry/ProjectSettings/ProjectVersion.txt
+            ${{ runner.temp }}/greybox-unity-smoke-dry/Assets/GreyboxSmoke/Editor/GreyboxImportSmoke.cs
+            ${{ runner.temp }}/greybox-unity-smoke-dry/Assets/GreyboxSmoke/PlayMode/GreyboxPlatformerPlaySmoke.cs
+
+      - name: Write release readiness report
+        run: >
+          node Validation~/release-readiness.mjs
+          --dry-run-only
+          --output Validation~/artifacts/release-readiness.json
+
+      - name: Build deterministic package artifact
+        run: >
+          node Validation~/package-builder.mjs
+          --manifest dist/com.greybox.studio.manifest.json
+          --summary Validation~/artifacts/package-summary.md
+          --output dist/com.greybox.studio.tgz
+
+      - name: Upload release readiness report
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-release-readiness-static
+          path: |
+            Validation~/artifacts/release-readiness.json
+            Validation~/artifacts/mcp-conformance.md
+
+      - name: Upload Unity package artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-package-artifacts
+          path: |
+            dist/com.greybox.studio.tgz
+            dist/com.greybox.studio.manifest.json
+            Validation~/artifacts/package-summary.md
+
+  unity-license-preflight:
+    name: Unity license preflight
+    runs-on: ubuntu-latest
+    outputs:
+      has-license: ${{ steps.license.outputs.has-license }}
+    steps:
+      - name: Check Unity license secret availability
+        id: license
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        run: |
+          if [ -n "$UNITY_LICENSE" ]; then
+            echo "has-license=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has-license=false" >> "$GITHUB_OUTPUT"
+            echo "UNITY_LICENSE is not configured; Unity smoke matrix will be skipped."
+          fi
+
+  submission-readiness:
+    name: Asset Store submission readiness
+    runs-on: ubuntu-latest
+    needs:
+      - static-validation
+    if: github.event_name == 'workflow_dispatch' && inputs.submission
+    steps:
+      - name: Check out package
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run stable-version submission gate
+        run: node Validation~/asset-store-metadata-check.mjs --submission
+
+      - name: Run final submission packet gate
+        run: node Validation~/asset-store-submission-check.mjs --submission
+
+  daemon-smoke:
+    name: Daemon round-trip smoke
+    runs-on: ubuntu-latest
+    needs:
+      - static-validation
+    steps:
+      - name: Check out package
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run Validation~/smoke/smoke.mjs (dry-run; no live daemon required)
+        run: >
+          node Validation~/smoke/smoke.mjs
+          --dry-run
+          --output Validation~/artifacts/smoke-report.json
+
+      - name: Upload smoke report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: greybox-smoke-report
+          path: |
+            Validation~/artifacts/smoke-report.json
+
+  unity-smoke:
+    name: Unity smoke ${{ matrix.unityVersion }} (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    needs:
+      - static-validation
+      - unity-license-preflight
+      - daemon-smoke
+    if: needs.unity-license-preflight.outputs.has-license == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            unityVersion: 2022.3.74f1
+            projectPath: .tmp/unity-smoke/2022.3.74f1
+            unityBinary: /opt/unity/Editor/Unity
+          - os: ubuntu-latest
+            unityVersion: 2023.2.20f1
+            projectPath: .tmp/unity-smoke/2023.2.20f1
+            unityBinary: /opt/unity/Editor/Unity
+          - os: ubuntu-latest
+            unityVersion: 6000.0.58f1
+            projectPath: .tmp/unity-smoke/6000.0.58f1
+            unityBinary: /opt/unity/Editor/Unity
+          - os: macos-latest
+            unityVersion: 2022.3.74f1
+            projectPath: .tmp/unity-smoke/2022.3.74f1
+            unityBinary: /Applications/Unity/Hub/Editor/2022.3.74f1/Unity.app/Contents/MacOS/Unity
+          - os: macos-latest
+            unityVersion: 6000.0.58f1
+            projectPath: .tmp/unity-smoke/6000.0.58f1
+            unityBinary: /Applications/Unity/Hub/Editor/6000.0.58f1/Unity.app/Contents/MacOS/Unity
+    steps:
+      - name: Check out package
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Generate Unity smoke project
+        run: >
+          node Validation~/unity-import-smoke.mjs
+          --dry-run
+          --unity ${{ matrix.unityBinary }}
+          --unity-version ${{ matrix.unityVersion }}
+          --project-path ${{ matrix.projectPath }}
+          --log-file ${{ matrix.projectPath }}/unity.log
+          --results-file ${{ matrix.projectPath }}/editmode-results.xml
+          --playmode-log-file ${{ matrix.projectPath }}/playmode.log
+          --playmode-results-file ${{ matrix.projectPath }}/playmode-results.xml
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: ${{ matrix.projectPath }}/Library
+          key: greybox-unity-library-${{ matrix.os }}-${{ matrix.unityVersion }}-${{ hashFiles('package.json', 'Editor/**/*.cs', 'Runtime/**/*.cs', 'Tests/**/*.cs', 'Samples~/**') }}
+          restore-keys: |
+            greybox-unity-library-${{ matrix.os }}-${{ matrix.unityVersion }}-
+
+      - name: Run Unity EditMode smoke
+        id: unity-editmode-tests
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          testMode: editmode
+          artifactsPath: unity-smoke-artifacts-${{ matrix.os }}-${{ matrix.unityVersion }}-editmode
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          checkName: Greybox Unity EditMode smoke ${{ matrix.os }} ${{ matrix.unityVersion }}
+
+      - name: Run Unity PlayMode smoke
+        id: unity-playmode-tests
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          testMode: playmode
+          artifactsPath: unity-smoke-artifacts-${{ matrix.os }}-${{ matrix.unityVersion }}-playmode
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          checkName: Greybox Unity PlayMode smoke ${{ matrix.os }} ${{ matrix.unityVersion }}
+
+      - name: Verify Unity smoke result XML
+        run: >
+          node Validation~/unity-result-artifact-check.mjs
+          --unity-version ${{ matrix.unityVersion }}
+          --project-version-file ${{ matrix.projectPath }}/ProjectSettings/ProjectVersion.txt
+          --editmode-root ${{ steps.unity-editmode-tests.outputs.artifactsPath }}
+          --playmode-root ${{ steps.unity-playmode-tests.outputs.artifactsPath }}
+
+      - name: Upload Unity smoke artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unity-smoke-${{ matrix.os }}-${{ matrix.unityVersion }}
+          path: |
+            ${{ steps.unity-editmode-tests.outputs.artifactsPath }}
+            ${{ steps.unity-playmode-tests.outputs.artifactsPath }}
+            ${{ matrix.projectPath }}/unity.log
+            ${{ matrix.projectPath }}/playmode.log
+            ${{ matrix.projectPath }}/editmode-results.xml
+            ${{ matrix.projectPath }}/playmode-results.xml
+
+  unity-package-export:
+    name: Asset Store .unitypackage (tag release only)
+    runs-on: macos-latest
+    needs:
+      - unity-smoke
+      - unity-license-preflight
+    if: |
+      startsWith(github.ref, 'refs/tags/v')
+      && needs.unity-license-preflight.outputs.has-license == 'true'
+    steps:
+      - name: Check out package
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Build Asset Store .unitypackage via game-ci/unity-builder
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: .tmp/asset-store-export
+          unityVersion: 2022.3.74f1
+          targetPlatform: StandaloneOSX
+          buildMethod: Greybox.Editor.Export.GreyboxAssetStorePackageExporter.ExportFromCommandLine
+          customParameters: -greyboxAssetStorePackageOutput dist/com.greybox.studio.unitypackage
+
+      - name: Verify .unitypackage size + sha256
+        run: |
+          set -euo pipefail
+          if [ ! -s dist/com.greybox.studio.unitypackage ]; then
+            echo "Unity did not produce a .unitypackage" >&2
+            exit 1
+          fi
+          ls -l dist/com.greybox.studio.unitypackage
+          shasum -a 256 dist/com.greybox.studio.unitypackage
+
+      - name: Upload .unitypackage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: greybox-studio-unitypackage
+          path: |
+            dist/com.greybox.studio.unitypackage
+            Validation~/artifacts/unitypackage-export.json

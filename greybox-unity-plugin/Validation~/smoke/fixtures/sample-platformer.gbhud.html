@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Greybox Smoke HUD</title>
+  <meta name="generator" content="Greybox + smoke fixture" />
+</head>
+<body>
+  <main id="hud-root" data-greybox-hud="true">
+    <section data-slot="health" data-greybox-marker="health-bar">
+      <h2>Health</h2>
+      <progress value="3" max="3" id="health-bar" aria-label="Player health"></progress>
+    </section>
+    <section data-slot="coins" data-greybox-marker="coin-counter">
+      <h2>Coins</h2>
+      <output id="coin-counter">0 / 2</output>
+    </section>
+    <section data-slot="exit" data-greybox-marker="exit-status">
+      <h2>Goal</h2>
+      <p id="exit-status">Reach the exit</p>
+    </section>
+  </main>
+</body>
+</html>

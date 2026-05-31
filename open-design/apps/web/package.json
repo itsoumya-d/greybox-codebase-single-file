@@ -1,0 +1,58 @@
+{
+  "name": "@ai-game-design-studio/web",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./sidecar": {
+      "types": "./dist/sidecar/index.d.ts",
+      "default": "./dist/sidecar/index.js"
+    }
+  },
+  "files": [
+    ".next",
+    "!.next/cache",
+    "app",
+    "dist",
+    "next.config.ts",
+    "package.json",
+    "public",
+    "src"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:sidecar": "tsc -p tsconfig.sidecar.json",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run -c vitest.config.ts",
+    "contrast-check": "node scripts/contrast-check.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "next": "^16.2.5",
+    "openai": "^6.36.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@ai-game-design-studio/contracts": "workspace:*",
+    "@ai-game-design-studio/platform": "workspace:*",
+    "@ai-game-design-studio/realtime": "workspace:*",
+    "@ai-game-design-studio/sidecar": "workspace:*",
+    "@ai-game-design-studio/sidecar-proto": "workspace:*",
+    "@greybox/prototype-runner": "workspace:*",
+    "@greybox/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.2",
+    "@types/jsdom": "^28.0.1",
+    "@types/node": "^20.17.10",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "jsdom": "29.1.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": "~24"
+  }
+}

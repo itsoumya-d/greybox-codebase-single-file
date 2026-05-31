@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Economy Balance Sheet Template</title>
+  <style>
+    :root { --bg:#10141b; --panel:#18202b; --line:#2c3848; --fg:#edf4f7; --muted:#9fb0bc; --good:#72c28a; --warn:#e1b65a; --bad:#e06666; --accent:#62b6df; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    main { width:min(1220px, calc(100vw - 28px)); margin:0 auto; padding:24px 0 36px; }
+    header { display:flex; justify-content:space-between; gap:16px; align-items:end; margin-bottom:16px; }
+    h1,h2 { margin:0; line-height:1.1; }
+    h1 { font-size:38px; }
+    h2 { font-size:18px; margin-bottom:12px; }
+    .grid { display:grid; grid-template-columns:1.1fr .9fr; gap:14px; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; min-width:0; overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; table-layout:fixed; }
+    th,td { padding:9px 8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    th { color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-size:11px; }
+    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
+    .card { background:#121922; border:1px solid var(--line); border-radius:7px; padding:12px; }
+    .num { font-size:24px; font-weight:800; }
+    .good { color:var(--good); } .warn { color:var(--warn); } .bad { color:var(--bad); } .accent { color:var(--accent); }
+    .bar { height:9px; background:#0d1219; border-radius:99px; overflow:hidden; }
+    .bar span { display:block; height:100%; background:var(--accent); }
+    @media (max-width:860px) { header,.grid,.cards { grid-template-columns:1fr; display:grid; } h1 { font-size:30px; } }
+    @media (max-width:520px) { main { width:calc(100vw - 20px); } section { padding:12px; } th,td { padding:7px 5px; font-size:12px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Economy Balance Sheet</h1>
+        <p>Track sources, sinks, costs, loot odds, and health metrics for a game economy.</p>
+      </div>
+      <div>Version 0.1 | Target session: 20 min | Cohort: Mid-game</div>
+    </header>
+
+    <div class="cards">
+      <div class="card"><div class="num accent">620</div><div>Gold earned / session</div></div>
+      <div class="card"><div class="num good">570</div><div>Gold spent / session</div></div>
+      <div class="card"><div class="num warn">8%</div><div>Hoarding delta</div></div>
+      <div class="card"><div class="num bad">14%</div><div>Duplicate frustration</div></div>
+    </div>
+
+    <div class="grid">
+      <section>
+        <h2>Currency Source / Sink Matrix</h2>
+        <table>
+          <tr><th>Currency</th><th>Primary Sources</th><th>Primary Sinks</th><th>Cap</th><th>Risk</th></tr>
+          <tr><td>Gold</td><td>Quests, room clears, selling loot</td><td>Upgrades, repairs, rumors, travel</td><td>25,000</td><td class="warn">Inflation if repairs are optional</td></tr>
+          <tr><td>Relic Dust</td><td>Bosses, dismantle rare items</td><td>Legendary crafting, rerolls</td><td>800</td><td class="good">Stable if target farming exists</td></tr>
+          <tr><td>Faction Favor</td><td>Contracts, donations, story choices</td><td>Faction gear, safe routes, allies</td><td>100</td><td class="warn">Can lock players into one faction</td></tr>
+          <tr><td>Premium Gems</td><td>Paid, rare event milestones</td><td>Cosmetics, extra slots</td><td>None</td><td class="good">Cosmetic-only competitive impact</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Upgrade Curve</h2>
+        <table>
+          <tr><th>Tier</th><th>Cost</th><th>Expected Time</th><th>Decision</th></tr>
+          <tr><td>1</td><td>120 gold</td><td>5 min</td><td>Choose weapon branch</td></tr>
+          <tr><td>2</td><td>380 gold</td><td>15 min</td><td>Unlock behavior modifier</td></tr>
+          <tr><td>3</td><td>900 gold + 20 dust</td><td>35 min</td><td>Commit build synergy</td></tr>
+          <tr><td>4</td><td>2,200 gold + 80 dust</td><td>2 sessions</td><td>Late-game specialization</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Loot Table</h2>
+        <table>
+          <tr><th>Rarity</th><th>Odds</th><th>Duplicate Rule</th><th>Player Agency</th></tr>
+          <tr><td>Common</td><td>62%</td><td>Auto-stack or salvage</td><td>Biome pool</td></tr>
+          <tr><td>Uncommon</td><td>24%</td><td>Salvage for dust</td><td>Enemy family pool</td></tr>
+          <tr><td>Rare</td><td>10%</td><td>Dust + pity progress</td><td>Target contracts</td></tr>
+          <tr><td>Epic</td><td>3.5%</td><td>High dust + reroll token</td><td>Boss and elite pool</td></tr>
+          <tr><td>Legendary</td><td>0.5%</td><td>Choice chest after pity</td><td>Milestone guarantee</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Health Checks</h2>
+        <table>
+          <tr><th>Metric</th><th>Target</th><th>Current</th><th>Status</th></tr>
+          <tr><td>Time to tier 2 upgrade</td><td>12-20 min</td><td>15 min</td><td class="good">Healthy</td></tr>
+          <tr><td>Currency spend ratio</td><td>75-95%</td><td>92%</td><td class="good">Healthy</td></tr>
+          <tr><td>Late-game hoarding</td><td>&lt; 15%</td><td>28%</td><td class="bad">Add sinks</td></tr>
+          <tr><td>Pity completion rate</td><td>1 per 8-12 hrs</td><td>1 per 16 hrs</td><td class="warn">Too slow</td></tr>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

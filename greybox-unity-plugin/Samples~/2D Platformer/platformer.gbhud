@@ -1,0 +1,27 @@
+<section data-greybox-artifact="hud" data-layout="platformer-horizontal">
+  <meta name="generator" content="Greybox + Kai Designer">
+  <meta name="greybox-ai-disclosure" content="AI-assisted, human-directed">
+  <header data-slot="top-left" data-agds-id="hud-hearts">
+    <img data-role="heart-icon" src="Resources/Hud/heart.png" alt="Heart Icon">
+    <span data-role="label">HEARTS</span>
+    <span data-role="value">3</span>
+    <progress data-role="health" value="3" max="3">HP</progress>
+  </header>
+  <header data-slot="top-center" data-agds-id="hud-objective">
+    <span data-role="label">REACH THE EXIT</span>
+  </header>
+  <header data-slot="top-right" data-agds-id="hud-coins">
+    <span data-role="label">COINS</span>
+    <span data-role="value">0 / 24</span>
+  </header>
+  <footer data-slot="bottom-left" data-agds-id="hud-checkpoint">
+    <span data-role="label">CHECKPOINT READY</span>
+  </footer>
+  <footer data-slot="bottom" data-agds-id="hud-reset">
+    <button data-action="reset-run">RESET RUN</button>
+  </footer>
+  <footer data-slot="bottom-right" data-agds-id="hud-loot">
+    <span data-role="label">LOOT</span>
+    <span data-role="value">0</span>
+  </footer>
+</section>

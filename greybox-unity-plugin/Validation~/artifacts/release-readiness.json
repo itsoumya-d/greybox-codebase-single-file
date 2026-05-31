@@ -1,0 +1,231 @@
+{
+  "generatedAt": "2026-05-25T02:14:01.076Z",
+  "packageRoot": "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin",
+  "submission": false,
+  "targetMatrix": [
+    {
+      "stream": "2022.3 LTS",
+      "version": "2022.3.74f1",
+      "status": "missing-editor",
+      "editor": ""
+    },
+    {
+      "stream": "2023.2",
+      "version": "2023.2.20f1",
+      "status": "missing-editor",
+      "editor": ""
+    },
+    {
+      "stream": "Unity 6",
+      "version": "6000.0.58f1",
+      "status": "missing-editor",
+      "editor": ""
+    }
+  ],
+  "unityVersion": "2022.3.74f1",
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "blocked": 4,
+    "skipped": 0,
+    "status": "blocked"
+  },
+  "steps": [
+    {
+      "id": "asset-store-metadata",
+      "label": "Asset Store metadata gate",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/asset-store-metadata-check.mjs'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/asset-store-metadata-check.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 181,
+      "stdout": "PASS Unity Asset Store metadata checks (2263277 bytes).",
+      "stderr": "WARN version is prerelease; switch to a stable MAJOR.MINOR.PATCH before final Asset Store submission"
+    },
+    {
+      "id": "asset-store-submission-packet",
+      "label": "Asset Store submission packet gate",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/asset-store-submission-check.mjs'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/asset-store-submission-check.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 100,
+      "stdout": "# Greybox Unity Asset Store Submission Gate\n\nStatus: pass\n\n## Required Visual Assets\n\n- `Documentation~/asset-store/icon-1600.png`\n- `Documentation~/asset-store/cover-1950x1300.png`\n- `Documentation~/asset-store/screenshot-importers.png`\n- `Documentation~/asset-store/screenshot-round-trip.png`\n- `Documentation~/asset-store/screenshot-mcp-bridge.png`\n- `Documentation~/asset-store/screenshot-samples.png`\n\n## Required Release Evidence\n\n- `Validation~/artifacts/release-readiness.json`\n\n## Warnings\n\n- Asset Store submission is intentionally blocked until stable version, real Unity smoke, visual asset portal upload, and credentials are ready",
+      "stderr": ""
+    },
+    {
+      "id": "verified-solution-packet",
+      "label": "Unity Verified Solution packet gate",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/verified-solution-readiness.mjs'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/verified-solution-readiness.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 86,
+      "stdout": "# Greybox Unity Verified Solution Gate\n\nStatus: pass\n\n## Customer Evidence\n\n- 100+ paying Unity plugin customers\n- 100+ active round-trip sync customers\n- 50+ active MCP bridge customers\n- 5+ shipped commercial games crediting Greybox\n- 3+ public Unity customer references\n- Support SLA evidence\n\n## Technical Evidence\n\n- ASSET_STORE_SUBMISSION.md\n- node Validation~/release-readiness.mjs --submission --require-unity\n- Unity 2022.3 LTS\n- 2023.2\n- Unity 6\n- Validation~/artifacts/mcp-conformance.md\n- Validation~/artifacts/package-manifest.json\n- 2-second p95\n- under 30 seconds\n- Free Personal and Indie stay one-way import only\n- Pro and Studio unlock round-trip sync\n- 3 locally tracked projects\n- watermarked generated artifacts\n\n## Warnings\n\n- Unity Verified Solution application is intentionally blocked until stable package, real Unity smoke matrix, customer references, and support SLA evidence are ready",
+      "stderr": ""
+    },
+    {
+      "id": "unity-adoption-proof",
+      "label": "Cloud Unity adoption proof export",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/unity-adoption-proof.mjs' '--output' 'Validation~/artifacts/unity-adoption-proof.json'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/unity-adoption-proof.mjs",
+        "--output",
+        "Validation~/artifacts/unity-adoption-proof.json"
+      ],
+      "exitCode": 0,
+      "durationMs": 112,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "node-validation-tests",
+      "label": "Node validation test suite",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' --test Validation~/*.test.mjs",
+      "exitCode": 0,
+      "durationMs": 1988,
+      "stdout": "✔ semver accepts stable and prerelease package versions (67.746458ms)\n✔ validator catches missing disclosure and malformed manifest metadata (18.544709ms)\n✔ validator catches unqualified AI-generated copy and missing human provenance (5.92475ms)\n✔ validator catches drifted Asset Store tier pricing copy (2.42025ms)\n✔ validator catches Greybox-derived generic package keywords (0.79675ms)\n✔ validator recognizes the real MCP bridge tool surface (51.134917ms)\n✔ validator catches MCP serverInfo version drift from package manifest (22.851583ms)\n✔ validator catches missing MCP tool safety annotations (17.541041ms)\n✔ validator catches asmdef references without matching package dependencies (28.371833ms)\n✔ validator requires Unity Test Runner asmdefs for packaged tests (5.29425ms)\n✔ validator requires the smoke project to run packaged Unity tests (4.791083ms)\n✔ validator catches third-party notices without dependency versions (1.379834ms)\n✔ validator accepts MCP transform position, scale, and rotation round-trip edits in the real package (47.113292ms)\n✔ validator accepts MCP object creation round-trip inserts in the real package (41.286708ms)\n✔ validator accepts MCP asset assignment round-trip edits in the real package (92.381834ms)\n✔ validator accepts EditorPrefs-only license storage in the real package (89.671333ms)\n✔ validator accepts the Unity CI smoke matrix in the real package (53.987208ms)\n✔ validator accepts deterministic GitHub release packaging in the real package (62.199958ms)\n✔ validator accepts real Unity Asset Store package export in the real package (64.920959ms)\n✔ submission mode blocks prerelease package versions (70.89825ms)\n✔ submission mode blocks stable package versions below 1.0.0 (0.91625ms)\n✔ validator accepts paid feature license capability gates in the real package (31.55925ms)\n✔ validator accepts Free Personal watermark enforcement in the real package (31.930666ms)\n✔ validator accepts stable round-trip marker metadata in the real package (34.547ms)\n✔ validator accepts Unity-side round-trip diff text merge and deletion semantics in the real package (27.271458ms)\n✔ validator accepts the 2-second Unity round-trip latency budget in the real package (25.460375ms)\n✔ validator accepts web-to-Unity artifact refresh wiring in the real package (27.538417ms)\n✔ validator accepts the project artifact import menu in the real package (30.723542ms)\n✔ validator accepts round-trip conflict inbox UI in the real package (37.662125ms)\n✔ validator accepts generated uGUI and UI Toolkit HUD imports in the real package (42.351541ms)\n✔ validator accepts runtime art-bible palettes and generated materials in the real package (39.470167ms)\n✔ validator accepts prefab, mesh, and material asset realization in the real package (43.364792ms)\n✔ validator accepts the daemon Unity package import contract in the real package (41.652333ms)\n✔ validator accepts Pro engine-target status surfacing in the real package (28.5195ms)\n✔ validator accepts Unity engine package preflight surfacing in the real package (27.11025ms)\n✔ validator accepts Unity engine package checksum verification in the real package (27.176667ms)\n✔ validator accepts honest AI provenance in package surfaces and samples (28.250542ms)\n✔ validator accepts runtime provenance metadata for imported Unity artifacts (25.607833ms)\n✔ validator accepts playable 2D Platformer sample surface in the real package (30.694458ms)\n✔ submission args capture root and final submission mode (43.049875ms)\n✔ submission packet gate passes the real alpha handoff with explicit blockers (17.925916ms)\n✔ submission mode blocks prerelease package versions and not-ready packets (1.55425ms)\n✔ submission report markdown is reviewer-readable and sanitized (0.911709ms)\n✔ submission packet gate catches missing review metadat\n...[truncated 10070 chars]",
+      "stderr": ""
+    },
+    {
+      "id": "mcp-conformance-report",
+      "label": "MCP conformance report",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/mcp-conformance-report.mjs' '--output' 'Validation~/artifacts/mcp-conformance.md'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/mcp-conformance-report.mjs",
+        "--output",
+        "Validation~/artifacts/mcp-conformance.md"
+      ],
+      "exitCode": 0,
+      "durationMs": 76,
+      "stdout": "PASS MCP conformance 136/136 checks",
+      "stderr": ""
+    },
+    {
+      "id": "unity-package-dry-run",
+      "label": "Deterministic Unity package dry run",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/package-builder.mjs' '--dry-run' '--manifest' 'Validation~/artifacts/package-manifest.json' '--summary' 'Validation~/artifacts/package-summary.md'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/package-builder.mjs",
+        "--dry-run",
+        "--manifest",
+        "Validation~/artifacts/package-manifest.json",
+        "--summary",
+        "Validation~/artifacts/package-summary.md"
+      ],
+      "exitCode": 0,
+      "durationMs": 153,
+      "stdout": "DRY_RUN com.greybox.studio@0.1.0-alpha.1 137 files 1546762 bytes\nMANIFEST /Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/Validation~/artifacts/package-manifest.json\nSUMMARY /Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/Validation~/artifacts/package-summary.md",
+      "stderr": "WARN version is prerelease; switch to a stable MAJOR.MINOR.PATCH before final Asset Store submission"
+    },
+    {
+      "id": "unity-smoke-dry-run-2022.3.74f1",
+      "label": "Unity smoke project dry run (2022.3 LTS)",
+      "unityStream": "2022.3 LTS",
+      "unityVersion": "2022.3.74f1",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/unity-import-smoke.mjs' '--dry-run' '--unity' '/path/to/Unity' '--unity-version' '2022.3.74f1'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/unity-import-smoke.mjs",
+        "--dry-run",
+        "--unity",
+        "/path/to/Unity",
+        "--unity-version",
+        "2022.3.74f1"
+      ],
+      "exitCode": 0,
+      "durationMs": 86,
+      "stdout": "DRY_RUN_EDITMODE '/path/to/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo' '-logFile' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo/unity-import-smoke.log' '-runTests' '-testPlatform' 'EditMode' '-testResults' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo/unity-import-smoke-results.xml'\nDRY_RUN_PLAYMODE '/path/to/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo' '-logFile' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo/unity-playmode-smoke.log' '-runTests' '-testPlatform' 'PlayMode' '-testResults' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo/unity-playmode-smoke-results.xml'\nPROJECT /var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-QwxaXo",
+      "stderr": ""
+    },
+    {
+      "id": "unity-smoke-dry-run-2023.2.20f1",
+      "label": "Unity smoke project dry run (2023.2)",
+      "unityStream": "2023.2",
+      "unityVersion": "2023.2.20f1",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/unity-import-smoke.mjs' '--dry-run' '--unity' '/path/to/Unity' '--unity-version' '2023.2.20f1'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/unity-import-smoke.mjs",
+        "--dry-run",
+        "--unity",
+        "/path/to/Unity",
+        "--unity-version",
+        "2023.2.20f1"
+      ],
+      "exitCode": 0,
+      "durationMs": 80,
+      "stdout": "DRY_RUN_EDITMODE '/path/to/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN' '-logFile' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN/unity-import-smoke.log' '-runTests' '-testPlatform' 'EditMode' '-testResults' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN/unity-import-smoke-results.xml'\nDRY_RUN_PLAYMODE '/path/to/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN' '-logFile' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN/unity-playmode-smoke.log' '-runTests' '-testPlatform' 'PlayMode' '-testResults' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN/unity-playmode-smoke-results.xml'\nPROJECT /var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-2YwbjN",
+      "stderr": ""
+    },
+    {
+      "id": "unity-smoke-dry-run-6000.0.58f1",
+      "label": "Unity smoke project dry run (Unity 6)",
+      "unityStream": "Unity 6",
+      "unityVersion": "6000.0.58f1",
+      "status": "pass",
+      "command": "'/opt/homebrew/Cellar/node/25.9.0_3/bin/node' 'Validation~/unity-import-smoke.mjs' '--dry-run' '--unity' '/path/to/Unity' '--unity-version' '6000.0.58f1'",
+      "commandArgv": [
+        "/opt/homebrew/Cellar/node/25.9.0_3/bin/node",
+        "Validation~/unity-import-smoke.mjs",
+        "--dry-run",
+        "--unity",
+        "/path/to/Unity",
+        "--unity-version",
+        "6000.0.58f1"
+      ],
+      "exitCode": 0,
+      "durationMs": 78,
+      "stdout": "DRY_RUN_EDITMODE '/path/to/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ' '-logFile' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ/unity-import-smoke.log' '-runTests' '-testPlatform' 'EditMode' '-testResults' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ/unity-import-smoke-results.xml'\nDRY_RUN_PLAYMODE '/path/to/Unity' '-batchmode' '-quit' '-nographics' '-projectPath' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ' '-logFile' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ/unity-playmode-smoke.log' '-runTests' '-testPlatform' 'PlayMode' '-testResults' '/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ/unity-playmode-smoke-results.xml'\nPROJECT /var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-unity-import-smoke-CEdYZQ",
+      "stderr": ""
+    },
+    {
+      "id": "unity-editmode-smoke-2022.3.74f1",
+      "label": "Unity EditMode + PlayMode smoke (2022.3 LTS)",
+      "unityStream": "2022.3 LTS",
+      "unityVersion": "2022.3.74f1",
+      "status": "blocked",
+      "reason": "Unity Editor for 2022.3 LTS 2022.3.74f1 was not found."
+    },
+    {
+      "id": "unity-editmode-smoke-2023.2.20f1",
+      "label": "Unity EditMode + PlayMode smoke (2023.2)",
+      "unityStream": "2023.2",
+      "unityVersion": "2023.2.20f1",
+      "status": "blocked",
+      "reason": "Unity Editor for 2023.2 2023.2.20f1 was not found."
+    },
+    {
+      "id": "unity-editmode-smoke-6000.0.58f1",
+      "label": "Unity EditMode + PlayMode smoke (Unity 6)",
+      "unityStream": "Unity 6",
+      "unityVersion": "6000.0.58f1",
+      "status": "blocked",
+      "reason": "Unity Editor for Unity 6 6000.0.58f1 was not found."
+    },
+    {
+      "id": "asset-store-unitypackage-export",
+      "label": "Asset Store .unitypackage export",
+      "status": "blocked",
+      "reason": "Unity Editor was not found. Install Unity 2022.3 LTS or pass --unity /path/to/Unity."
+    }
+  ]
+}

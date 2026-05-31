@@ -1,0 +1,180 @@
+name: Unity Package Release
+
+# Tag-triggered release. Push `git tag v0.1.0 && git push origin v0.1.0`.
+# Produces deterministic UPM tarball + release evidence and creates a GitHub Release.
+# Stable releases run Unity Editor smoke and true Asset Store .unitypackage export through release readiness.
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v0.1.0). Must already exist on the branch.'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unity-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-release:
+    name: Build + release Unity package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      INPUT_TAG: ${{ github.event.inputs.tag }}
+      REF_NAME: ${{ github.ref_name }}
+    steps:
+      - name: Check out tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validate release tag and package version
+        id: version
+        run: |
+          REF="${INPUT_TAG:-$REF_NAME}"
+          node Validation~/release-workflow-policy.mjs version \
+            --tag "$REF" \
+            --package package.json \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Validate release workflow policy
+        run: node Validation~/release-workflow-policy.mjs workflow --workflow .github/workflows/release.yml
+
+      - name: Run validation gates
+        env:
+          IS_PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        run: |
+          if [ "$IS_PRERELEASE" = "true" ]; then
+            node Validation~/asset-store-metadata-check.mjs
+            node Validation~/asset-store-submission-check.mjs
+          else
+            node Validation~/asset-store-metadata-check.mjs --submission
+            node Validation~/asset-store-submission-check.mjs --submission --skip-release-evidence
+          fi
+          node --test Validation~/*.test.mjs
+
+      - name: Write release readiness evidence
+        env:
+          IS_PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        run: |
+          if [ "$IS_PRERELEASE" = "true" ]; then
+            node Validation~/release-readiness.mjs \
+              --dry-run-only \
+              --output Validation~/artifacts/release-readiness.json
+          else
+            node Validation~/release-readiness.mjs \
+              --submission \
+              --require-unity \
+              --output Validation~/artifacts/release-readiness.json
+          fi
+
+      - name: Verify final submission evidence
+        if: steps.version.outputs.prerelease != 'true'
+        run: node Validation~/asset-store-submission-check.mjs --submission
+
+      - name: Write stable release candidate evidence
+        env:
+          IS_PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        run: |
+          REQUIRE_READY=""
+          if [ "$IS_PRERELEASE" != "true" ]; then
+            REQUIRE_READY="--require-ready"
+          fi
+          node Validation~/stable-release-candidate.mjs \
+            $REQUIRE_READY \
+            --output Validation~/artifacts/stable-release-candidate.json
+
+      - name: Build UPM tarball
+        env:
+          REF: ${{ steps.version.outputs.ref }}
+          IS_PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        run: |
+          SUBMISSION_FLAG=""
+          if [ "$IS_PRERELEASE" != "true" ]; then
+            SUBMISSION_FLAG="--submission"
+          fi
+          node Validation~/package-builder.mjs \
+            $SUBMISSION_FLAG \
+            --manifest dist/com.greybox.studio.manifest.json \
+            --summary Validation~/artifacts/package-summary.md \
+            --output "dist/com.greybox.studio-${REF}.tgz"
+
+      - name: Generate SHA-256 checksums
+        env:
+          REF: ${{ steps.version.outputs.ref }}
+          IS_PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        working-directory: dist
+        run: |
+          sha256sum \
+            "com.greybox.studio-${REF}.tgz" \
+            "com.greybox.studio.manifest.json" \
+            "../Validation~/artifacts/package-summary.md" \
+            "../Validation~/artifacts/release-readiness.json" \
+            "../Validation~/artifacts/stable-release-candidate.json" \
+            > "SHA256SUMS-${REF}.txt"
+          if [ "$IS_PRERELEASE" != "true" ]; then
+            sha256sum \
+              "com.greybox.studio.unitypackage" \
+              "../Validation~/artifacts/unitypackage-export.json" \
+              >> "SHA256SUMS-${REF}.txt"
+          fi
+          cat "SHA256SUMS-${REF}.txt"
+
+      - name: Generate release notes from CHANGELOG
+        env:
+          REF: ${{ steps.version.outputs.ref }}
+        run: |
+          node Validation~/release-workflow-policy.mjs notes \
+            --tag "$REF" \
+            --changelog CHANGELOG.md \
+            --output /tmp/release-notes.md
+
+      - name: Create prerelease GitHub Release
+        if: steps.version.outputs.prerelease == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.ref }}
+          name: Greybox Studio Unity ${{ steps.version.outputs.ref }}
+          body_path: /tmp/release-notes.md
+          files: |
+            dist/com.greybox.studio-${{ steps.version.outputs.ref }}.tgz
+            dist/com.greybox.studio.manifest.json
+            Validation~/artifacts/package-summary.md
+            Validation~/artifacts/release-readiness.json
+            Validation~/artifacts/stable-release-candidate.json
+            dist/SHA256SUMS-${{ steps.version.outputs.ref }}.txt
+          draft: false
+          prerelease: true
+
+      - name: Create stable GitHub Release
+        if: steps.version.outputs.prerelease != 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.ref }}
+          name: Greybox Studio Unity ${{ steps.version.outputs.ref }}
+          body_path: /tmp/release-notes.md
+          files: |
+            dist/com.greybox.studio-${{ steps.version.outputs.ref }}.tgz
+            dist/com.greybox.studio.manifest.json
+            dist/com.greybox.studio.unitypackage
+            Validation~/artifacts/unitypackage-export.json
+            Validation~/artifacts/package-summary.md
+            Validation~/artifacts/release-readiness.json
+            Validation~/artifacts/stable-release-candidate.json
+            dist/SHA256SUMS-${{ steps.version.outputs.ref }}.txt
+          draft: false
+          prerelease: false

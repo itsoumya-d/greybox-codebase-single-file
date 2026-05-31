@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "0.1.0",
+  "meta": {
+    "id": "proj-runner-test",
+    "name": "Runner Test Project",
+    "version": "0.1.0",
+    "genre": "platformer",
+    "targetEngines": ["web"],
+    "platforms": ["web"]
+  },
+  "art": {
+    "palette": {
+      "name": "default",
+      "colors": [
+        { "role": "primary", "hex": "#3366ff" }
+      ]
+    },
+    "typography": {
+      "styles": [
+        { "role": "body", "family": "Inter", "size": 16, "weight": 400, "lineHeight": 1.4 }
+      ]
+    },
+    "materials": []
+  },
+  "exportPolicy": {
+    "unity": { "renderPipeline": "urp", "inputSystem": "new", "scriptingBackend": "il2cpp" },
+    "unreal": { "engineVersion": "5.5", "inputSystem": "enhanced" },
+    "godot": { "engineVersion": "4.4", "renderer": "forward+" }
+  },
+  "assets": [
+    {
+      "id": "asset-goblin-gltf",
+      "type": "gltf",
+      "uri": "characters/goblin.glb",
+      "sha256": "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899",
+      "sizeBytes": 1024,
+      "name": "Goblin mesh",
+      "provenance": { "license": "CC-BY-4.0", "source": "tripo3d" }
+    },
+    {
+      "id": "asset-idle-clip",
+      "type": "fbx",
+      "uri": "anims/idle.fbx",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sizeBytes": 256,
+      "provenance": { "license": "CC-BY-4.0", "source": "mixamo.com" }
+    },
+    {
+      "id": "asset-coin-prefab",
+      "type": "prefab",
+      "uri": "prefabs/coin.json",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "sizeBytes": 128,
+      "provenance": { "license": "Apache-2.0", "source": "human" }
+    }
+  ],
+  "characters": [
+    {
+      "id": "char-goblin",
+      "name": "Goblin",
+      "meshRef": "asset-goblin-gltf",
+      "rig": { "joints": [{ "name": "mixamorig:Hips", "parent": null }] },
+      "animations": [
+        { "id": "anim-idle", "name": "idle", "clipRef": "asset-idle-clip", "duration": 2.0, "loop": true }
+      ],
+      "gameStats": { "hp": 100, "speed": 5, "damage": 10, "defense": 2 },
+      "provenance": { "genProvider": "tripo3d", "license": "CC-BY-4.0" }
+    }
+  ],
+  "screens": [
+    {
+      "id": "screen-main-menu",
+      "name": "Main Menu",
+      "kind": "main-menu",
+      "background": { "type": "color", "color": "#101820" },
+      "components": [
+        {
+          "kind": "Text",
+          "id": "cmp-title",
+          "name": "Title",
+          "transform": {
+            "position": { "x": 0, "y": 2, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "content": "Runner Test",
+          "fontSize": 36,
+          "color": "#ffffff"
+        },
+        {
+          "kind": "Button",
+          "id": "cmp-play-btn",
+          "name": "Play",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "label": "Play",
+          "onClickEvent": "evt-start"
+        }
+      ]
+    },
+    {
+      "id": "screen-level-1",
+      "name": "Level 1",
+      "kind": "gameplay",
+      "background": { "type": "color", "color": "#88ccff" },
+      "components": [
+        {
+          "kind": "Character3DRef",
+          "id": "cmp-player",
+          "name": "Player",
+          "transform": {
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "characterRef": "char-goblin",
+          "initialAnimation": "idle"
+        },
+        {
+          "kind": "Light",
+          "id": "cmp-sun",
+          "name": "Sun",
+          "transform": {
+            "position": { "x": 0, "y": 5, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "lightType": "directional",
+          "color": "#fff4e6",
+          "intensity": 1.5,
+          "castsShadows": true
+        },
+        {
+          "kind": "Pickup",
+          "id": "cmp-coin",
+          "name": "Coin",
+          "transform": {
+            "position": { "x": 2, "y": 0.5, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 0.5, "y": 0.5, "z": 0.5 }
+          },
+          "visible": true,
+          "grantStat": "score",
+          "amount": 1,
+          "respawn": false
+        },
+        {
+          "kind": "Hazard",
+          "id": "cmp-spikes",
+          "name": "Spikes",
+          "transform": {
+            "position": { "x": -2, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 0.3, "z": 1 }
+          },
+          "visible": true,
+          "damagePerSecond": 25,
+          "instakill": false
+        },
+        {
+          "kind": "Particle",
+          "id": "cmp-sparkle",
+          "name": "Sparkle",
+          "transform": {
+            "position": { "x": 0, "y": 1, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "effectRef": "asset-coin-prefab",
+          "autoPlay": true,
+          "loop": true
+        },
+        {
+          "kind": "Button",
+          "id": "cmp-back-btn",
+          "name": "Back to menu",
+          "transform": {
+            "position": { "x": -4, "y": 3, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "scale": { "x": 1, "y": 1, "z": 1 }
+          },
+          "visible": true,
+          "label": "Back",
+          "onClickEvent": "evt-back-to-menu"
+        }
+      ]
+    }
+  ],
+  "flow": [
+    {
+      "id": "flow-start",
+      "from": "screen-main-menu",
+      "to": "screen-level-1",
+      "trigger": { "type": "scriptEvent", "eventId": "evt-start" }
+    },
+    {
+      "id": "flow-back",
+      "from": "screen-level-1",
+      "to": "screen-main-menu",
+      "trigger": { "type": "scriptEvent", "eventId": "evt-back-to-menu" }
+    }
+  ]
+}

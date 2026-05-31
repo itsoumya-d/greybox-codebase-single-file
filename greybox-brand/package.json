@@ -1,0 +1,21 @@
+{
+  "name": "@greybox-studio/brand",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Proprietary Greybox Studio brand assets and cross-engine design tokens.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node scripts/build-tokens.mjs && node scripts/build-assets.mjs",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "build:assets": "node scripts/build-assets.mjs",
+    "validate": "node scripts/validate-brand-readiness.mjs && node scripts/validate-distribution-readiness.mjs",
+    "validate:brand": "node scripts/validate-brand-readiness.mjs",
+    "validate:distribution": "node scripts/validate-distribution-readiness.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.4.0"
+  },
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "martial-arts-combat-combo-motion-sheet",
+  "surface": "video",
+  "title": "Martial Arts Combat Combo Motion Sheet",
+  "summary": "Motion-sheet prompt for a martial arts combat module, documenting combo poses, arrows, timing windows, hit beats, and animator-friendly panel notes.",
+  "category": "Combat Animation Sheet",
+  "tags": [
+    "game",
+    "combat",
+    "animation",
+    "combo",
+    "motion-study",
+    "game-feel"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 4x4 combat animation motion sheet for a martial arts game character. The output should look like an animator and combat designer reference for a playable combo chain, not a generic pose diagram.\n\nStyle: monochrome grayscale 3D-rendered character, clean instructional panel grid, thin borders, numbered cells 1-16, directional arrows, timing labels, hit-beat markers, and readable full-body silhouettes.\n\nPanel structure: each cell includes pose title, frame range, input notation, movement arrows, hitbox intent, recovery notes, and whether the beat is anticipation, active strike, cancel window, or recovery.\n\nCombo content: opening guard, forward step, palm feint, elbow strike, low sweep, launcher, aerial turn, downward kick, ground follow-up, parry reset, stamina recovery pose, and finisher stance.\n\nProduction constraints: consistent character scale, no camera drift, no unclear limb overlaps, game-feel annotations for hitstop and cancel timing, and enough clean margin for engine or animation-state-machine notes.",
+  "previewImageUrl": "https://pbs.twimg.com/media/HG-sP7Lb0AEmlWA.jpg",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "Aijaz",
+    "url": "https://x.com/iamsofiaijaz/status/2049045776001564680"
+  }
+}

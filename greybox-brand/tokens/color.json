@@ -1,0 +1,22 @@
+{
+  "color": {
+    "brand": {
+      "graphite": { "value": "#1A1A1F" },
+      "spark": { "value": "#FF6B35" },
+      "ash": { "value": "#5C6166" },
+      "paper": { "value": "#FAFAF7" },
+      "ink": { "value": "#0A0A0D" }
+    },
+    "semantic": {
+      "loop-green": { "value": "#2ECC71" },
+      "pause-yellow": { "value": "#F4C95D" },
+      "crit-red": { "value": "#E94B3C" },
+      "focus-cyan": { "value": "#3CC2E0" }
+    },
+    "engine": {
+      "unity-blue": { "value": "#222C37" },
+      "unreal-blue": { "value": "#0E1128" },
+      "godot-blue": { "value": "#478CBF" }
+    }
+  }
+}

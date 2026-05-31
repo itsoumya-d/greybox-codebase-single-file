@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Ops Calendar Template</title>
+  <style>
+    :root { --bg:#10131a; --panel:#181f29; --line:#2e3948; --fg:#eef3f6; --muted:#9cabb8; --event:#7fb7e6; --patch:#d7ad62; --store:#a98ce1; --quiet:#6fbd8b; --risk:#df7373; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.45 ui-sans-serif, system-ui, sans-serif; }
+    main { width:min(1240px, calc(100vw - 28px)); margin:0 auto; padding:24px 0 36px; }
+    h1,h2,h3,p { margin-top:0; }
+    .top { display:flex; justify-content:space-between; gap:16px; align-items:end; margin-bottom:16px; }
+    .calendar { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; }
+    .day { min-height:118px; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:9px; }
+    .date { color:var(--muted); font-size:12px; margin-bottom:8px; }
+    .item { border-radius:6px; padding:6px; margin-bottom:6px; background:#121820; border-left:4px solid var(--event); font-size:12px; }
+    .patch { border-left-color:var(--patch); } .store { border-left-color:var(--store); } .quiet { border-left-color:var(--quiet); } .risk { border-left-color:var(--risk); }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { padding:8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+    @media (max-width:900px) { .top,.grid,.calendar { display:grid; grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top">
+      <div>
+        <h1>Live Ops Calendar</h1>
+        <p>Plan events, patches, store beats, community beats, retention goals, and quiet weeks without burning players out.</p>
+      </div>
+      <div>Season 02 | Moon Festival Arc | Goal: D7 +4%, D30 +2%</div>
+    </div>
+
+    <div class="calendar">
+      <div class="day"><div class="date">Mon 1</div><div class="item patch">Patch 2.0: balance and bug fixes</div></div>
+      <div class="day"><div class="date">Tue 2</div><div class="item quiet">Quiet day: onboarding boost</div></div>
+      <div class="day"><div class="date">Wed 3</div><div class="item">Moon Festival begins</div><div class="item store">Cosmetic bundle A</div></div>
+      <div class="day"><div class="date">Thu 4</div><div class="item">Co-op challenge opens</div></div>
+      <div class="day"><div class="date">Fri 5</div><div class="item store">Weekend shop refresh</div></div>
+      <div class="day"><div class="date">Sat 6</div><div class="item risk">High traffic: server watch</div></div>
+      <div class="day"><div class="date">Sun 7</div><div class="item quiet">Catch-up missions</div></div>
+      <div class="day"><div class="date">Mon 8</div><div class="item patch">Hotfix window</div></div>
+      <div class="day"><div class="date">Tue 9</div><div class="item">Leaderboard reset</div></div>
+      <div class="day"><div class="date">Wed 10</div><div class="item">Story chapter unlock</div></div>
+      <div class="day"><div class="date">Thu 11</div><div class="item quiet">Low-pressure collection day</div></div>
+      <div class="day"><div class="date">Fri 12</div><div class="item store">Cosmetic bundle B</div></div>
+      <div class="day"><div class="date">Sat 13</div><div class="item">Raid weekend</div></div>
+      <div class="day"><div class="date">Sun 14</div><div class="item">Festival finale</div></div>
+    </div>
+
+    <div class="grid">
+      <section>
+        <h2>Event Design</h2>
+        <table>
+          <tr><th>Beat</th><th>Purpose</th><th>Guardrail</th></tr>
+          <tr><td>Launch</td><td>Novel mode and clear reward path</td><td>First reward within 10 minutes</td></tr>
+          <tr><td>Midpoint</td><td>New story chapter and catch-up</td><td>No perfect-attendance requirement</td></tr>
+          <tr><td>Finale</td><td>High excitement and social sharing</td><td>Cosmetics only, no power FOMO</td></tr>
+        </table>
+      </section>
+      <section>
+        <h2>Health Metrics</h2>
+        <table>
+          <tr><th>Metric</th><th>Target</th><th>Watch For</th></tr>
+          <tr><td>D1 / D7 / D30</td><td>+2 / +4 / +2 points</td><td>Churn after event deadline</td></tr>
+          <tr><td>Event completion</td><td>45-60%</td><td>Goals too long or unclear</td></tr>
+          <tr><td>Session length</td><td>+10-20%</td><td>Burnout if +50% for many days</td></tr>
+          <tr><td>Spend complaints</td><td>Flat or down</td><td>Perceived paywall or odds issue</td></tr>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

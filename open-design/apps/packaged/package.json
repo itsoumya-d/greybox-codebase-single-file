@@ -1,0 +1,44 @@
+{
+  "name": "@ai-game-design-studio/packaged",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./headless": {
+      "default": "./dist/headless.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ./esbuild.config.mjs && tsc -p tsconfig.json --emitDeclarationOnly",
+    "test": "vitest run -c vitest.config.ts",
+    "typecheck": "pnpm --filter @ai-game-design-studio/desktop build && tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json --noEmit"
+  },
+  "dependencies": {
+    "@ai-game-design-studio/daemon": "workspace:*",
+    "@ai-game-design-studio/desktop": "workspace:*",
+    "@ai-game-design-studio/platform": "workspace:*",
+    "@ai-game-design-studio/sidecar": "workspace:*",
+    "@ai-game-design-studio/sidecar-proto": "workspace:*",
+    "@ai-game-design-studio/web": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.2",
+    "electron": "41.3.0",
+    "esbuild": "0.27.7",
+    "typescript": "6.0.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": "~24"
+  }
+}

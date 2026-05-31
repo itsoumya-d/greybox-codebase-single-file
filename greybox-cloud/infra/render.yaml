@@ -1,0 +1,88 @@
+# Render deployment manifest (alternative to fly.toml).
+# Pick this OR fly.toml; both are maintained for portability.
+#
+# To deploy:
+#   1. `render blueprint apply` (Render CLI)
+#   2. Or paste the file URL into the Render dashboard "New → Blueprint" flow.
+#
+# Persistent disk holds audit + SCIM + tenant JSONL until the Postgres
+# migration completes. Disk is mounted at /data which matches the env paths
+# in .env.example.
+
+services:
+  - type: web
+    name: greybox-cloud
+    runtime: docker
+    plan: standard
+    region: oregon
+    branch: main
+    dockerfilePath: ./infra/docker/Dockerfile
+    healthCheckPath: /healthz
+    autoDeploy: true
+    numInstances: 2
+    disk:
+      name: greybox-cloud-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "8080"
+      - key: GREYBOX_CLOUD_VERSION
+        sync: false
+      - key: GREYBOX_CLOUD_ALLOWED_ORIGINS
+        sync: false
+      - key: GREYBOX_CLOUD_HTTP_RATE_LIMIT_BURST
+        value: "120"
+      - key: GREYBOX_CLOUD_HTTP_RATE_LIMIT_PER_SECOND
+        value: "10"
+      - key: GREYBOX_CLOUD_MAX_PAYLOAD_BYTES
+        value: "1048576"
+      - key: GREYBOX_AUDIT_LOG_DIR
+        value: /data/audit-log
+      - key: GREYBOX_AUDIT_SEAL_KEY_ID
+        sync: false
+      - key: GREYBOX_AUDIT_SEAL_KEY
+        sync: false
+      - key: GREYBOX_SCIM_STORE_DIR
+        value: /data/scim
+      - key: GREYBOX_TENANT_STORE_DIR
+        value: /data/tenants
+      # Secrets: configure in Render dashboard, not in this file.
+      - key: STRIPE_API_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: GREYBOX_BILLING_ADMIN_TOKEN
+        sync: false
+      - key: GREYBOX_CLOUD_ADMIN_TOKEN
+        sync: false
+      - key: GREYBOX_LICENSE_RECORDS_JSON
+        sync: false
+      - key: GREYBOX_LICENSE_SIGNING_KEYS_JSON
+        sync: false
+      - key: GREYBOX_PRO_MODULE_SECRET_MASTER_KEY
+        sync: false
+      - key: WORKOS_API_KEY
+        sync: false
+      - key: WORKOS_CLIENT_ID
+        sync: false
+      - key: WORKOS_JWKS_URL
+        sync: false
+      - key: WORKOS_ISSUER
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: SENTRY_TRACES_SAMPLE_RATE
+        value: "0.05"
+      - key: GREYBOX_MARKETPLACE_URL
+        sync: false
+      - key: GREYBOX_MARKETPLACE_ADMIN_TOKEN
+        sync: false
+      - key: GREYBOX_DEFAULT_REGION
+        value: us

@@ -1,0 +1,22 @@
+{
+  "id": "metroidvania-ability-unlock-sequence",
+  "surface": "video",
+  "title": "Metroidvania Ability Unlock Sequence",
+  "summary": "Motion plan for ability pickup, tutorial room, shortcut return, and player mastery beat.",
+  "category": "2D Game Trailer",
+  "tags": [
+    "game",
+    "metroidvania",
+    "ability",
+    "platformer",
+    "trailer"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create an 8-second metroidvania ability unlock sequence for {argument name=\"game_title\" default=\"Glassroot\"}. Show relic pickup, new movement ability preview, tutorial obstacle, shortcut return, secret reveal, combat application, and map update. Preserve pixel or hand-painted readability, strong silhouette animation, and satisfying game feel timing.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

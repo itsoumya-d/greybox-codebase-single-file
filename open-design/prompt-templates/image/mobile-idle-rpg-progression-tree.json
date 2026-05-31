@@ -1,0 +1,22 @@
+{
+  "id": "mobile-idle-rpg-progression-tree",
+  "surface": "image",
+  "title": "Mobile Idle RPG Progression Tree",
+  "summary": "Portrait progression screen for a mobile idle RPG with upgrades, rewards, rarity, and ethical retention cadence.",
+  "category": "Progression Systems",
+  "tags": [
+    "game",
+    "mobile",
+    "idle-rpg",
+    "progression",
+    "economy"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "9:16",
+  "prompt": "Design a portrait mobile game progression screen for {argument name=\"game_title\" default=\"Starfall Companions\"}. Show hero growth nodes, idle reward claim, crafting unlocks, rarity colors, milestone chest cadence, daily quest reminder, and optional fair monetization slot. Prioritize one-thumb reach, large touch targets, readable numbers, colorblind-safe rarity states, and session-based clarity. Avoid storefront clutter; the screen must feel like progression, not a sales funnel.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

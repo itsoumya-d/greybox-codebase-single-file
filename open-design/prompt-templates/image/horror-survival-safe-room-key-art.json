@@ -1,0 +1,22 @@
+{
+  "id": "horror-survival-safe-room-key-art",
+  "surface": "image",
+  "title": "Horror Survival Safe Room Key Art",
+  "summary": "Cinematic safe-room image for horror survival with inventory pressure, save point, and dread outside the door.",
+  "category": "Horror Direction",
+  "tags": [
+    "game",
+    "horror",
+    "survival",
+    "safe-room",
+    "cinematic"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create cinematic key art for a horror survival safe room in {argument name=\"game_title\" default=\"Hollow Signal\"}. Show a save station, limited inventory objects, environmental storytelling, a blocked window, low-key lighting, and a visible threat silhouette beyond the doorway. The image should communicate tension and relief at once, with clear material direction for props, lighting, audio ambience, and player interaction zones.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

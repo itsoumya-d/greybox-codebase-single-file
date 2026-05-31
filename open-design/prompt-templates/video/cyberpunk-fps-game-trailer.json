@@ -1,0 +1,22 @@
+{
+  "id": "cyberpunk-fps-game-trailer",
+  "surface": "video",
+  "title": "Cyberpunk FPS Game Trailer",
+  "summary": "Trailer beat sheet for a cyberpunk FPS vertical slice with traversal, combat clarity, and faction reveal.",
+  "category": "Game Trailer",
+  "tags": [
+    "game",
+    "fps",
+    "cyberpunk",
+    "trailer",
+    "combat"
+  ],
+  "model": "hyperframes-html",
+  "aspect": "16:9",
+  "prompt": "Create a 10-second trailer plan for {argument name=\"game_title\" default=\"Neon Breach\"}, a cyberpunk FPS. Beat 0-1s: rain-lit alley title pulse. Beat 1-2.5s: first-person slide under drone scan. Beat 2.5-4s: weapon swap and shield break. Beat 4-6s: faction boss reveal through holographic smoke. Beat 6-8s: wall-run, grenade arc, slow impact frame. Beat 8-10s: key art end frame with platform badges. Keep HUD overlays readable and grounded in gameplay.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

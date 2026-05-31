@@ -1,0 +1,24 @@
+{
+  "id": "rhythm-action-sword-dance-combo",
+  "surface": "video",
+  "title": "Rhythm Action Sword Dance Combo",
+  "summary": "Vertical gameplay promo prompt for a rhythm-action sword-dance combo, emphasizing input timing, hand-pose readability, hit beats, and style-meter feedback.",
+  "category": "Combat Feel Motion Study",
+  "tags": [
+    "game",
+    "rhythm-action",
+    "combat",
+    "combo",
+    "mobile",
+    "hud"
+  ],
+  "model": "seedance-2.0",
+  "aspect": "16:9",
+  "prompt": "Create a 15 second vertical gameplay promo for a mobile rhythm-action sword-dance combat system. The performer is a stylized playable hero, not a beauty subject. Prioritize input timing, hand-pose readability, combo anticipation, and HUD feedback.\n\n0-3s: Extreme close-up on the hero's focused eyes and hands as the opening stance begins. Show four rhythm input markers approaching the timing line. Camera pushes in slowly, stable 9:16 framing, clean facial light, no glamor language.\n\n3-6s: Hands sweep from cheeks to chest, then into a sharp sword-dance guard. Each gesture triggers a small hit-spark, controller/touch timing pulse, and combo count increase: 01, 02, 03.\n\n6-10s: Pull back to waist-up gameplay framing. A translucent enemy silhouette telegraphs an incoming strike; the hero parries on-beat with a blue timing flash and short hitstop.\n\n10-13s: The player chains a perfect-input flourish. Show STYLE S, stamina cost, cooldown ring, and safe color-coded feedback for accessibility.\n\n13-15s: Final pose freezes for a reward beat. The combat HUD remains readable: combo score, timing grade, ability cooldown, and replay prompt.",
+  "source": {
+    "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+    "license": "CC-BY-4.0",
+    "author": "阿绎 AYi",
+    "url": "https://x.com/AYi_AInotes/status/2049047545435889883"
+  }
+}

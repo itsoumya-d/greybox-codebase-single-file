@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-05-27T13:14:36.522Z",
+  "mode": "dry-run",
+  "daemon": "in-process mock",
+  "fixtures": "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/Validation~/smoke/fixtures",
+  "expectedManifest": "/Users/soumyadebnath16/Developer/game desine/greybox-unity-plugin/Validation~/smoke/expected-manifest.json",
+  "steps": [
+    {
+      "id": "load-fixtures",
+      "status": "pass",
+      "detail": "loaded 4 fixture(s)"
+    },
+    {
+      "id": "load-expected-manifest",
+      "status": "pass",
+      "detail": "17 expected entries"
+    },
+    {
+      "id": "start-mock-daemon",
+      "status": "pass",
+      "detail": "listening on http://127.0.0.1:54997"
+    },
+    {
+      "id": "verify-daemon-reachable",
+      "status": "pass",
+      "detail": "http://127.0.0.1:54997"
+    },
+    {
+      "id": "submit-fixture",
+      "status": "pass",
+      "detail": "projectId=mock-1"
+    },
+    {
+      "id": "poll-engine-package",
+      "status": "pass",
+      "detail": "/api/v1/game-projects/mock-1/unity-package.zip"
+    },
+    {
+      "id": "download-zip",
+      "status": "pass",
+      "detail": "/var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-smoke-zip-7pINtG/unity-package.zip"
+    },
+    {
+      "id": "extract-zip",
+      "status": "pass",
+      "detail": "extracted 16 entries to /var/folders/nw/9gn1c32d2xsg8x_gkzxk82l00000gn/T/greybox-smoke-extract-LVxfly"
+    },
+    {
+      "id": "validate-expected-manifest",
+      "status": "pass",
+      "detail": "16 required entries verified"
+    }
+  ],
+  "status": "pass",
+  "errors": []
+}

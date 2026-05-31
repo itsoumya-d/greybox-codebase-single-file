@@ -1,0 +1,40 @@
+# gitleaks configuration shared across all greybox-* repos.
+# See https://github.com/gitleaks/gitleaks for rule semantics.
+
+title = "Greybox Studio gitleaks config"
+
+[extend]
+# Inherit the default ruleset (AWS, GCP, Stripe, GitHub, etc).
+useDefault = true
+
+# Project-specific allowlists for known-safe placeholders.
+[allowlist]
+description = "Greybox Studio allowed placeholders"
+paths = [
+  '''^docs/.*''',
+  '''^.*/Tests~/.*''',
+  '''^.*/tests/fixtures/.*''',
+  '''^.*/CHANGELOG\.md$''',
+]
+regexes = [
+  '''gbx_(free|indie|pro|studio|enterprise)_(personal|example|sample|test|fixture|placeholder)''',
+  '''sk_(test|live)_dummy_[A-Za-z0-9]{8,}''',
+  '''(?i)example\.com''',
+  '''(?i)\.example$''',
+]
+
+# Greybox-specific custom rules.
+[[rules]]
+id = "greybox-license-secret"
+description = "Greybox license secret (GREYBOX_LICENSE_RECORDS_JSON or signed token material)"
+regex = '''(?i)(GREYBOX|GBX)_LICENSE_(RECORDS_JSON|SECRET|SIGNING_KEY)\s*=\s*['"]?[A-Za-z0-9+/=_\-]{20,}['"]?'''
+
+[[rules]]
+id = "greybox-pro-master-key"
+description = "Greybox Pro module master encryption key"
+regex = '''(?i)GREYBOX_PRO_MODULE_SECRET_MASTER_KEY\s*=\s*['"]?[A-Za-z0-9+/=_\-]{16,}['"]?'''
+
+[[rules]]
+id = "greybox-admin-token"
+description = "Greybox cloud admin bearer token"
+regex = '''(?i)GREYBOX_(CLOUD|BILLING|MARKETPLACE)_ADMIN_TOKEN\s*=\s*['"]?[A-Za-z0-9_\-]{16,}['"]?'''

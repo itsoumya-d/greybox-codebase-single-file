@@ -1,0 +1,77 @@
+# Proprietary and confidential. Copyright (c) 2026 Greybox Studio.
+#
+# Local development stack: Postgres + greybox-cloud
+#
+# Usage:
+#   docker compose up          # start everything (builds cloud image on first run)
+#   docker compose up db       # just the database
+#   docker compose down -v     # stop and remove volumes
+
+version: '3.9'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Postgres — single node for local dev. All stores share one database.
+  # ---------------------------------------------------------------------------
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: greybox
+      POSTGRES_USER: greybox
+      POSTGRES_PASSWORD: greybox_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Drop .sql migration files here to auto-apply on first start
+      - ./db/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U greybox -d greybox"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ---------------------------------------------------------------------------
+  # greybox-cloud — built from local source
+  # ---------------------------------------------------------------------------
+  cloud:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+
+      # ----- Postgres (all stores) -----------------------------------------
+      GREYBOX_TENANT_STORE_PG_URL: postgresql://greybox:greybox_dev@db:5432/greybox
+      GREYBOX_AUDIT_LOG_PG_URL: postgresql://greybox:greybox_dev@db:5432/greybox
+      GREYBOX_BILLING_LEDGER_PG_URL: postgresql://greybox:greybox_dev@db:5432/greybox
+      GREYBOX_SCIM_PG_URL: postgresql://greybox:greybox_dev@db:5432/greybox
+      GREYBOX_CHARACTER_JOBS_PG_URL: postgresql://greybox:greybox_dev@db:5432/greybox
+
+      # ----- CORS (dev allows localhost) -----------------------------------
+      GREYBOX_CLOUD_ALLOWED_ORIGINS: http://localhost:3000,http://localhost:5173
+
+      # ----- Rate limits (relaxed for dev) ----------------------------------
+      GREYBOX_CLOUD_HTTP_RATE_LIMIT_BURST: "200"
+      GREYBOX_CLOUD_HTTP_RATE_LIMIT_PER_SECOND: "20"
+      GREYBOX_GENERATION_RATE_LIMIT_BURST: "10"
+      GREYBOX_GENERATION_RATE_LIMIT_PER_SECOND: "1"
+
+      # ----- Request timeout -----------------------------------------------
+      REQUEST_TIMEOUT_MS: "60000"
+
+      # ----- Secrets (override via .env or a secrets manager) -------------
+      # STRIPE_API_KEY: sk_test_...
+      # WORKOS_API_KEY: ...
+      # GREYBOX_AUDIT_SEAL_KEY: ...
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+    driver: local

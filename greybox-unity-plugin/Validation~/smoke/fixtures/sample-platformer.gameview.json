@@ -1,0 +1,52 @@
+{
+  "title": "Greybox Smoke - 2D Platformer Fixture",
+  "engineTarget": "Unity 2D",
+  "schemaVersion": "1.0.0",
+  "camera": {
+    "mode": "side-scroll",
+    "orthographicSize": 7.5
+  },
+  "scene": {
+    "name": "GreyboxSmokeScene",
+    "background": "#181B26"
+  },
+  "actors": [
+    {
+      "id": "player_runner",
+      "name": "Player Runner",
+      "role": "controller",
+      "behavior": "player-controlled",
+      "abilities": ["double-jump"],
+      "health": 3,
+      "speed": 7.2,
+      "jumpImpulse": 12.5,
+      "position": { "x": 0, "y": 1, "z": 0 },
+      "radius": 0.5,
+      "prefabAssetPath": "Assets/Greybox/Imported/runner/player_runner.prefab"
+    },
+    {
+      "id": "slime_patrol",
+      "name": "Slime Patrol",
+      "role": "enemy",
+      "behavior": "patrol-aggro",
+      "abilities": ["bump"],
+      "health": 2,
+      "speed": 1.8,
+      "position": { "x": 8, "y": 1, "z": 0 },
+      "radius": 0.45,
+      "prefabAssetPath": "Assets/Greybox/Imported/slime/slime_patrol.prefab"
+    }
+  ],
+  "platforms": [
+    { "id": "ground", "x": 0, "y": 0, "width": 32, "height": 1 },
+    { "id": "ledge", "x": 12, "y": 3, "width": 6, "height": 0.5 }
+  ],
+  "hazards": [
+    { "id": "spikes_a", "x": 6, "y": 0.5, "width": 1, "height": 0.5 }
+  ],
+  "collectibles": [
+    { "id": "coin_a", "x": 4, "y": 2 },
+    { "id": "coin_b", "x": 9, "y": 4 }
+  ],
+  "goal": { "id": "exit", "x": 30, "y": 1, "width": 1, "height": 2 }
+}

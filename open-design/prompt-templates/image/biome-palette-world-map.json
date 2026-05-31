@@ -1,0 +1,22 @@
+{
+  "id": "biome-palette-world-map",
+  "surface": "image",
+  "title": "Biome Palette World Map",
+  "summary": "World map and biome palette board linking color, factions, weather, hazards, and progression gates.",
+  "category": "Worldbuilding",
+  "tags": [
+    "game",
+    "biome",
+    "world-map",
+    "art-direction",
+    "factions"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "16:9",
+  "prompt": "Create a stylized world map and biome palette board for {argument name=\"game_title\" default=\"Mythrail Frontier\"}. Show six biomes, faction territory, weather systems, traversal gates, danger levels, encounter density, settlement hubs, hidden areas, and lighting mood. Link each biome to palette tokens, ambient audio, enemy ecology, resource identity, and player progression requirements. Add production-review annotations for readability, scope risk, traversal clarity, accessibility-safe color coding, and which biome assets would be most expensive for an indie vertical slice.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}

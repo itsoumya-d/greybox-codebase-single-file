@@ -1,0 +1,22 @@
+{
+  "id": "soulslike-boss-concept-sheet",
+  "surface": "image",
+  "title": "Soulslike Boss Concept Sheet",
+  "summary": "Boss concept sheet with silhouette, phase language, arena hazards, attack tells, and readability notes.",
+  "category": "Combat Design",
+  "tags": [
+    "game",
+    "soulslike",
+    "boss",
+    "combat",
+    "concept-art"
+  ],
+  "model": "gpt-image-2",
+  "aspect": "3:2",
+  "prompt": "Create a boss design concept sheet for {argument name=\"boss_name\" default=\"The Bell-Sundered Saint\"}, a soulslike encounter. Show full-body silhouette, weapon profile, weak-point readability, three phase variants, attack anticipation poses, arena hazard motifs, VFX language, and UI boss health styling. Add callout labels for player recovery windows, dodge timing, parry tells, and emotional pacing. Keep the sheet readable for combat, art, animation, and VFX teams.",
+  "source": {
+    "repo": "ai-game-design-studio/prompt-templates",
+    "license": "Apache-2.0",
+    "author": "AI Game Design Studio contributors"
+  }
+}
